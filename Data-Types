@@ -126,3 +126,28 @@ v "unshort"
 - Please note that the above example, the value of bigNum is 50000, which is within the range of ushort (0 to 65535), so the value is correctly casted to ushort.
 
 
+
+v "int"
+- Here is an example of using the int data-type in C#
+* { int population = 1000000;
+    Console.WriteLine("Population: " + population); }
+* Output Console = Population: 1000000
+ 
+- In this example, a variable "population" of type int is declared and initialized with the value 1.000.000. Since the int data-type can store values between -2.147.483.648 and 2.147.483.647, the value 1.000.000 is a valid value of an int variable.
+- You can also use the int data type to store the result of an aritmetic operation
+* { int x = 100;
+    int y = -50;
+    int sum = x + y;
+    Console.WriteLine("Sum: " + sum); }
+* Output Console = Sum: 50
+
+- You can also use the int data type to store the result of a casting operation
+* { long bigNum = 50000;
+    int smallNum = (int)bigNum;
+    Console.WriteLine("smallNum: " + smallNum); }
+* Output Console = smallNum: 50000
+
+
+
+
+
