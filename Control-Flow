@@ -1,0 +1,160 @@
+v About Contol-Flow;
+- Control flow in C# refers to the order in which statements, instructions, or function calls are executed in a program.
+C# uses a variety of control-flow statements to control the flow of execution of a program, such as:
+
+1. Conditional statements:
+
+If-else statement: It allows you to execute different code blocks depending on the outcome of a Boolean expression.
+It checks a certain condition, if it's true it runs the first block of code and if it's false it runs the second block of code.
+(Let's specify an integer variable with a value of 15 named 'age');
+
+* { int age = 15;
+    if (age < 18)
+    {
+      Console.WriteLine("You are not an adult yet.");
+    }
+    else
+    {
+    Console.WriteLine("You are an adult.");
+    }
+
+* Output Console = "You are not an adult yet."
+
+
+
+Switch case: It allows you to check for multiple conditions and execute a different block of code based on the value of a variable or an expression.
+
+* { string dayOfWekk = "Tuesday";
+
+    switch (dayOfWeek)
+      case "Monday"
+          Console.WriteLine("Today is Monday.");
+          break;
+      case "Tuesday":
+          Console.WriteLine("Today is Tuesday.");
+          break;
+      default:
+          Console.WriteLine("Today is another day.");
+          break;
+   }
+   
+* Console Output : "Today is Tuesday."
+
+
+2. Looping statements:
+
+For loop: It allows you to execute a block of code multiple times, based on a certain condition. It's used when you know how many times you want to iterate.
+
+* { for (int i = 0; i < 5; i++)
+        Console.WriteLine("Hello, World!");
+  }
+* Console Output = Hello, World! Hello, World! Hello, World! Hello, World! Hello, World!
+
+
+While loop: It allows you to execute a block of code multiple times, based on a certain condition. It's used when you don't know how many times you want to iterate.
+* { int i = 0;
+    while (i<5)
+    {
+      Console.WriteLine("Hello, World!");
+      i++;
+    }
+* Console Output = Hello, World! Hello, World! Hello, World! Hello, World! Hello, World!
+
+
+Do-while loop: It's similar to while loop but the difference is that the code block inside the loop will execute at least once, even if the condition is false.
+* { int i = 0;
+    do
+    {
+      Console.WriteLine("Hello, World!");
+      i++;
+    } while(i <5);
+* Console Output = Hello, World! Hello, World! Hello, World! Hello, World! Hello, World!
+
+
+3. Jump statements:
+Break: It allows you to exit a loop or a switch statement prematurely.
+* { for (int i = 0; i < 5; i++)
+    {
+        if(i == 3)
+        {
+          break;
+        }
+        Console.WriteLine("Hello, World!");
+    }
+  }
+* Console Output = Hello, World! Hello, World! Hello, World!
+
+
+Continue: In the C# programming language, the "continue" keyword is used within a loop to skip the current iteration of the loop and continue with the next one.
+When the "continue" statement is encountered, the program execution jumps to the next iteration of the loop, skipping any remaining statements in the current iteration.
+For example, in a fo loop:
+*{ for (int i = 2; i <= 12; i++)
+    {
+        if(i == 8)
+        {
+             continue;
+        }
+        Console.WriteLine(i);
+    } 
+}
+* Console Output = 2 3 4 5 6 7 8 9 10 11 12
+
+
+Return:  In the C# programming language, the 'return' keyword is used to exit a function and return a value to the calling function or method.
+The returned value can be of any data type, including a reference type or a value type. The return statement must be used at the end of a function or method,
+and it can only be used once. When the return statement is executed,
+the function or method will terminate and the returned value will be passed back to the calling function or method. If the function or method is void,
+you can use the return statement without any value. For example:
+* { int AddNumbers(int a, int b)
+    {
+        int result = a + b;
+        return result;
+    }
+    Console.WriteLine(AddNumbers(4, 5));
+}
+* Console Output = 9
+In this example, the function "AddNumbers" takes two integers as parameters and return the sum of those integers.
+
+{ void PrintSomething()
+    {
+        Console.WriteLine("Hello, World!");
+        return;
+    }
+}
+* Console output = null;
+In this example, the function "PrintSomething" is void, so it doesn’t return any value.
+
+
+
+Goto: In the C# programming language, the "goto" keyword allows you to transfer control to a labeled statement within the same function.
+The labeled statement is identified by a label which is a name followed by a colon, and can be placed before any statement in the function.
+The goto statement specifies the label to transfer control to.
+Here is an example of how to use the "goto" statement:
+* {
+    for (int i = 0; i < 10; i++)
+    {
+        if (i == 5)
+        {
+            goto  MyLabel;
+        }
+        Console.WriteLine(i);
+    }
+
+    MyLabel:
+    Console.WriteLine("I am skipping the value of 5.");
+}
+
+* Console Output = 0 1 2 3 4 I am skipping the value of 5.
+
+In this example, when "i" equals to 5, the program jumps to the labeled statement "myLabel" and "I am skipping the value 5." is printed.
+
+It's important to note that the goto statement can make your code less readable and more difficult to understand,
+especially when used in complex control flow scenarios. It's also considererd to be a poor programming practice.
+It's recommended to use structed control flow statements such as if-else, for, while, and do-while loops, or use the break or continue statement instead.
+
+It's also worth noting that the "goto" statement is the only jump statement in C#, which allows to jump to a label,
+but it's best to avoid using it as it can make code harder to understand and maintain.
+
+
+v These are the main control flow statements that are commonly used in C# programming.
+Understanding how these statements work and when to use them is essential for writing efficient and maintainable code.
