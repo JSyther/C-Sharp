@@ -1,1 +1,207 @@
+v Functions
 
+In C#, a function, also known as a method, is a block of code that can be reused multiple times throughtout a program. 
+Functions are used to organize and structure code, making it easier to read, write, and maintain.
+
+1. Defining a Function:
+A function is defined using the keyword "void" or the data type of the value that the function will return.
+The function is given a name, followed by a set of parentheses that contain the function's parameters. The function's code is enclosed in a set of curly braces.
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+void PrintHelloWorld()
+  {
+    Console.WriteLine("Hello, World!");
+  }
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Function Parameters:
+Functions can also accept parameters, which are used to pass data into the function.
+These parameters are listed within the parentheses of the function definition, and are separated by commas.
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+void PrintNumber(int number)
+  {
+    Console.WriteLine(number);
+  }
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. Function Return:
+Functions can also return a value to the calling code using the "return" statement.
+The data type of the value returned by a function is specified in the function definition before the function name.
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+int Add(int x, int y)
+  {
+    return x + y;
+  }
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. Funtion Overloading: 
+In C#, it's also possible to overload a function, which means having multiple versions of a function with the same name but with different parameter lists.
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+int Add(int x, int y)
+  {
+    return x + y;
+  }
+
+int Add(int x, int y, int z)
+  {
+    return x + y + z;
+  }
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5. Using Functions:
+A function is called, or executed, by writing the function's name followed by a set of parantheses that contain the values for any required parameters.
+
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+PrintHelloWorld();
+PrintNumber(5);
+int result = Add(2, 3);
+Console.WriteLine(result);
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
+Functions are a fundamental concept in C# programming, and are used to organize and structure code, making it more readable, maintainable, and reusable.
+The best practice is to organize code into small, focused functions that perform a specific task, rather than having one large function that does everyting.
+This makes it easier to understand and test the code, and als makes it easier to find and fix bugs.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6. Function Scope:
+Functions can also have a scope, which defines the portion of the code where the function can be accessed.
+Functions that are declared within a class or struct are called member functions, and they have access to the private members of the class or struct.
+Functions that are declared outside a class or struct are called global functions, and they have access to the global scope.
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+int Factorial(int n)
+  {
+    if (n == 1)
+    {
+        return 1;
+    }
+    return n * Factorial(n - 1);
+  }
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7. Recursive Function:
+A Recursive function is a function that calls itself, with the idea that each time it calls itself with a slightly simpler version of the problem.
+This is known as the "divide-and conquer" strategy. Recursive functions can be very useful when the problem can be broken down into smaller and similar sub-problems,
+that can be solved using the same function.
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+int Factorial(int number)
+  {
+    if (number == 1)
+    {
+        return 1;
+    }
+    return number * Factorial(number - 1);
+  }
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+Here is an example of a recursive function in C# that calculates the factorial of a given number:  
+
+In this example, the function "Factorial" takes an integer as an argument and calculates its factorial.
+If the number is 1, the function returns 1, othewise it returns the number multiplied by the factorial of the number - 1.
+This is a classsic example of a problem that can be broken down into smaller sub-problems.
+The functions call itself with a slightly simpler version of the problem (number - 1) until it reaches the base case (number = 1).
+
+Here is an example of how to use the function and the output:
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+int result = Factorial(5);
+Console.WriteLine("5! = " + result);
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
+The output of this code will be: 
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+5! = 120  /// as Output Console result
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+- The function checks if the given number is equal to 1.If it is, it returns 1, which is the base case for the recursion.
+- If the given number is not equal to 1, the function multiplies the given number by the factorial of (number -1). 
+It does this by calling the factorial function again with(number -1 ) as the argument.
+- This recursive call continues untiş the base case (number ==1) is reached, at which point the function beings returning values.
+- The returned values are multiplied together, starting with the base case and working back up to the original call to the function.
+
+In this specific  example the function is called with the argument 5, so here is the breakdown of how it calculates the factorial of 5:
+
+- Factorial(5) is called and the funciton starts executing
+- 5 is not equal to 1, so the function returns 5 * Factorial(4)
+- Factorial(4) is called, 4 is not equal to 1, so the function returns 4 * Factorial(3)
+- Factorial(3) is called, 3 is not equal to 1, so the function returns 3 * Factorial(2)
+- Factorial(2) is called, 2 is not equal to 1, so the function returns 2 * Factorial(1)
+- Factorial(1) is called, 1 is equal to 1, so the function returns 1
+- The returned values are multiplied together in the order they were returned 
+- 1 * 2 * 3 * 4 * 5 = 120
+- The result of 120 is assigned to the variable "result"
+- And that's how the function calculates the factorial of 5 and the value of result is 120.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+8. Anonymous Function:
+An anonymous function, also knowns as a lambda expression in C#, is a function that has no name and is often used as a shortcut for creating small, simple functions.
+These funcions can be passed as arguments to other functions or methods, or assigned to variables.
+
+Here is an example of an anonymous function in C#:
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+Func<int, int> square = x => x * x;
+int result = square(5);
+Console.WriteLine("5 squared is " + result);
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+In this example, the "Func<int, int>" is a delegate type that defines a function that takes an integer as an argument and returns an integer.
+The"x => x * x" is the anonymouse function that squares its input. This anonymous function is assigned to the variable "square",
+which can be used just like a regular function.
+
+Solution;
+- The first line of code declares a variable named "square" of type "Func<int, int>"
+- "Func<int,int>" is a delegate type that defines a function that takes an integer as an argument and returns an integer.
+- The next line of code assigns an anonymous function to the "square" variable. The anonymous function is defined as "x => x * x",
+  which means " take an argument 'x' and return its value multiplied by itself". In other words, it squares the input.
+- The next line of code declares an integer variable named "result" and assigns the result of calling the anonymous function stored in the "square"
+  variable with the argument 5. So the value of result is 5*5 = 25 
+
+You can also pass anonymouse functions as arguments to other functions. For example:
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+void ProcessNumbers(Func<int, int> operation, int[] numbers)
+  {
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        numbers[i] = operation(numbers[i]);
+    }
+  }
+
+int[] numbers = { 1, 2, 3, 4, 5 };
+ProcessNumbers(x => x * x, numbers);
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
+In this example, the "ProcessNumbers" method takes two arguments: a "Func<int, int>" delegate (which can be any function that takes an integer and returns an integer)
+and an integer array. Inside the method, it calls the operation delegate on each element of the array.
+Here, we are passing the anonymous function "x => x * x" as the operation, which squares each element of the array.
+
+Solution;
+- The first line of code defines a method named "ProcessNumbers" that takes two arguments: a "Func<int, int>" delegate, and an integer array.
+  The "Func<int, int>" delegeate is a predefined delegate type in C# that represents a function that takes an integer as an argument and returns an integer.
+- The method iterates through the integer array using a for loop, starting  at index 0 and continuing while the index is less than the length of the array.
+- Inside the for loop, on the third line of the method, the element of the array at the current index "I" is re-assigned to the result of the operation delegate 
+  applied to that element.  In other words, the operation delegate is called with the current element of the array as the argumen,
+  and the returned value is assigned back to that element.
+- The next line of code declares an integer array named "numbers" and initalizes it with the values 1, 2, 3, 4, and 5.
+- The last line of code calls the "ProcessNumbers" method, passing the anonymous function "x => x*x " as the operation, and the "numbers" array as the second argument.
+  This anonymous function takes an integer as input and returns its value multiplied by itself (squaring the number). 
+  So this line of code calls the ProcessNumbers method, passing in the anonymous function that squares its input and the numbers array,
+  and this will square each element of the array.
+
+
+9. Lambda Function:
