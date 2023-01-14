@@ -5,7 +5,7 @@ v Integral Types;
 - byte: Represents an 8-bit unsigned integer and is used to store small integer values.
 - sbyte: Represents an 8-bit signed integer and is used to store small integer values.
 - short: Represents a 16-bit signed integer and is used to store small integer values.
-- unshort: Represents a 16-bit unsigned integer and is used to store small integer values.
+- ushort: Represents a 16-bit unsigned integer and is used to store small integer values.
 - int: Represents a 32-bit signed integer and is used to store whole numbers(integers) from -2.147.483.648 to 2.147.483.647.
 - uint: Represents a 32-bi unsigned integer and is used to store whole numbers (integers)  from 0 to 4.294.967.295.
 - long: Represents a 64-bit signed integer and is used to store large integer values.
@@ -100,4 +100,29 @@ v "short"
 * Output Console = smallNum: 15536
  
 - Please note that the above example, the value of bigNum is -50000, which is outside of the range of short (-32768 to 32767), so the value is truncated to 15536 when it's casted to short.
+
+
+v "unshort"
+- Here is an example of using the ushort data-type in C#:
+* { ushort year = 2022;
+    Console.WriteLine("Year: " + year); }
+* Output Console = Year: 2022
+
+ 
+- In this example, a variable "year" of type ushort is declared and initialized with the value 2022. Since the ushort data type can store values between 0 and 65535, the value 2022 is a valid value for a ushort variable.
+- You can also use the ushort data type to store the result of an arithmetic operation as long as the result is in the range of 0 to 65535
+* { ushort x = 10000;
+    ushort y = 5000;
+    ushort sum = (ushort)(x + y);
+    Console.WriteLine("Sum: " + sum); }
+* Output Console = Sum: 15000
+
+- You can also use the ushort data type to store the result of a casting operation as long as the value being casted is in the range of 0 to 65535
+* { int bigNum = 50000;
+    ushort smallNum = (ushort)bigNum;
+    Console.WriteLine("smallNum: " + smallNum); }
+*  Output Console = smallNum : 50000
+    
+- Please note that the above example, the value of bigNum is 50000, which is within the range of ushort (0 to 65535), so the value is correctly casted to ushort.
+
 
