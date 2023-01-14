@@ -1,0 +1,71 @@
+	v Subject2 = Data-Types;
+	v Integral Types && Floating Point Types:
+
+	v Integral Types;
+	- byte: Represents an 8-bit unsigned integer and is used to store small integer values.
+	- sbyte: Represents an 8-bit signed integer and is used to store small integer values.
+	- short: Represents a 16-bit signed integer and is used to store small integer values.
+	- unshort: Represents a 16-bit unsigned integer and is used to store small integer values.
+	- int: Represents a 32-bit signed integer and is used to store whole numbers(integers) from -2.147.483.648 to 2.147.483.647.
+	- uint: Represents a 32-bi unsigned integer and is used to store whole numbers (integers)  from 0 to 4.294.967.295.
+	- long: Represents a 64-bit signed integer and is used to store large integer values.
+	- ulong: Represents a 64-bit unsigned integer and is used to store large integer values.
+
+	v Floating Point Types:
+	- float: Represents a single-precision floating-point number and is used to store numbers with decimal points, such as 3.14 or -2.5, but with a lower precision than double.
+	- double: Represents a double-precision floating-point number and is used to store numbers with decimal points, such as 3.14159 or -2.5.
+
+
+
+
+
+	v "byte"
+	- Here is an example of using the byte data type in C#:
+	* { byte age = 25;
+      Console.WriteLine("Age: " + age); }
+      
+	- In this example, a variable "age" of type byte is declared and initialized with the value 25.
+	- Since the byte data type can only store values between 0 and 255, the value 25 is a valid value for a byte variable.
+	- When this code is run, it will output the following line to the console:
+	* Age : 25
+  
+	- You can also use the byte data type to store the result of an arithmetic operation as long as the result is in the range of 0 to 255
+	* { byte x = 100;
+      byte y = 150;
+      byte sum = (byte)(x + y);
+      Console.WriteLine("Sum: " + sum);
+    }
+    
+	- When this code is run, it will output the following line to the console:
+	* Sum : 250; 
+
+
+
+
+	v "sbyte"
+	- Here is an example of using the sbyte data type in C#:
+	* {
+    sbyte temperature = -20;
+    Console.WriteLine("Temperature: " + temperature);
+    }
+  * Output Console =  Temperature: -20
+    
+	- In this example, a variable "temperature" of type is declared and initialized with the value -20. Since the sbyte data type can store values between -128 and 127, the value -20 is a valid value for a sbyte variable.
+	- You can also use the sbyte data type to store the result of an arithmetic operation as long as the result is in the range of -128 to 127
+	* {
+    sbyte x = 100;
+    sbyte y = -50;
+    sbyte sum = (sbyte)(x + y);
+    Console.WriteLine("Sum: " + sum);
+    }
+  * Output Console = Sum: 50
+	
+
+	- You can also use the sbyte data type to store the result of a casting operation as long as the value being casted is in the range of -128 to 127
+	* {
+    int bigNum = -200;
+    sbyte smallNum = (sbyte)bigNum;
+    Console.WriteLine("smallNum: " + smallNum);
+    }
+	
+	* Output Console = smallNum: 56 
