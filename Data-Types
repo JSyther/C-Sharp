@@ -17,6 +17,9 @@ v Floating Point Types:
 
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////     Integral Types      ////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 v "byte"
@@ -38,7 +41,6 @@ Console.WriteLine("Sum: " + sum);
 
 - When this code is run, it will output the following line to the console:
 * Sum : 250; 
-
 
 
 
@@ -98,7 +100,6 @@ v "short"
     Console.WriteLine("smallNum: " + smallNum);
 }
 * Output Console = smallNum: 15536
- 
 - Please note that the above example, the value of bigNum is -50000, which is outside of the range of short (-32768 to 32767), so the value is truncated to 15536 when it's casted to short.
 
 
@@ -121,33 +122,156 @@ v "unshort"
 * { int bigNum = 50000;
     ushort smallNum = (ushort)bigNum;
     Console.WriteLine("smallNum: " + smallNum); }
-*  Output Console = smallNum : 50000
-    
+*  Output Console = smallNum : 50000  
 - Please note that the above example, the value of bigNum is 50000, which is within the range of ushort (0 to 65535), so the value is correctly casted to ushort.
+
 
 
 
 v "int"
 - Here is an example of using the int data-type in C#
 * { int population = 1000000;
-    Console.WriteLine("Population: " + population); }
+    Console.WriteLine("Population: " + population);
+    
 * Output Console = Population: 1000000
- 
+
 - In this example, a variable "population" of type int is declared and initialized with the value 1.000.000. Since the int data-type can store values between -2.147.483.648 and 2.147.483.647, the value 1.000.000 is a valid value of an int variable.
+
 - You can also use the int data type to store the result of an aritmetic operation
 * { int x = 100;
     int y = -50;
-    int sum = x + y;
-    Console.WriteLine("Sum: " + sum); }
+    int sum = x + y; }
 * Output Console = Sum: 50
 
+
 - You can also use the int data type to store the result of a casting operation
-* { long bigNum = 50000;
-    int smallNum = (int)bigNum;
-    Console.WriteLine("smallNum: " + smallNum); }
+*  { long bigNum = 50000;
+     int smallNum = (int)bigNum;
+     Console.WriteLine("smallNum: " + smallNum); }
 * Output Console = smallNum: 50000
 
 
 
+v "uint"
+- Here is an example of using the unit data-type in C#:
+*  { uint population = 1000000;
+     Console.WriteLine("Population: " + population); }
+* Output Console = Population: 1000000
+ 
+- In this example, a variable "population" of type uint is declared and initialized with the value 1.000.000. Since the uint data-type can store values between 0 and 4.294.967.295, the value 1.000.000 is a valid value for uint variable.
+- You can also use the uint data type to store the result of an arithmetic operation as long as the result is in the range of 0 to 4.294.967.295
+* { uint x = 10000;
+    uint y = 5000;
+    uint sum = x +y; 
+    Console.WriteLine("Sum: " + sum); }
+* Output Console = Sum: 15000
+
+ 
+- You can also use the uint data type to store the result of a casting operation as long as the value being casted is in the range of 0 to 4.294.967.295
+* { long bigNum = 50000;
+    uint smallNum = (uint)bigNum;
+    Console.Writeline("smallNum: " + smallNum); }
+*  Output Console = Sum: 15000
+- Please note that the above example, the value of bigNum is 50.000, which is within the range of uint (0 to 4.294.967.295), so the value is correctly casted to uint.
 
 
+
+
+v "long"
+- Here is an example of using the long data type in C#:
+* { long distance = 999999999;
+    Console.WriteLine("Distance: " + distance);
+*  Output Console : 999999999
+
+- In this example, a variable "distance" of type long is declared and initialized with the value 999.999.999. Since the long data type can store values between -9.223.372.036.854.775.808 and 9.223.372.036.854.775.807, the value 999.999.999 is a valid value for a long variable.
+- You can also use the long data type to store the result of an arithmetic operation
+* { long x = 1000000000;
+    long y = -500000000;
+    long sum = x + y;
+    Console.WriteLine("Sum: " + sum); }
+*  Output Console : Sum: 500000000   
+
+- You can also use the long data type to store the result of a casting operation
+- { double bigNum = 500000000000000;
+  long smallNum = (long)bigNum;
+  Console.WriteLine("smallNum: " + smallNum); }
+*  Output Console : smallNum: 500000000000000
+
+
+
+
+
+v "ulong"
+- Here is an example of using the ulong data-type in C#:
+* { ulong distance = 999999999;
+    Console.WriteLine("Distance: " + distance); }
+* Output Console : Distance: 999999999
+
+- In this example, a variable "distance" of type ulong is declared and initialized with the value 999999999.
+  Since the ulong data-type can store values between 0 and 18,446,744,073,709,551,615, the value 999999999  is a valid value for a ulong variable.
+- You can also use the ulong data type to store the result of an arithmetic operation as long as the result is in the range of 0 to 18,446,744,073,709,551,615
+* { ulong x = 1000000000;
+  ulong y = 500000000;
+  ulong sum = x + y;
+  Console.WriteLine("Sum: " + sum); }
+* Output Console : Sum: 1500000000
+
+
+- You can also use the ulong data-type to store the result of a  casting operation as long as the value being casted is in the range of 0 to 18,446,744,073,709,551,615
+* { double bigNum = 500000000000000;
+  ulong smallNum = (ulong)bigNum;
+  Console.WriteLine("smallNum: " + smallNum); }
+* Output Console : smallNum: 500000000000000
+
+ 
+Please note that the above example, the value of bigNum is 500000000000000(500Trillion), which is within the range of ulong(0 to 18,446,744,073,709,551,615), 
+so the value is correctly casted to ulong.
+ 
+////////////////////////////////////////////////////////////////|||||||||||||||||||||||||||||||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+////////////////////////////////////////////////////////////////     Floating Point Types      \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+////////////////////////////////////////////////////////////////|||||||||||||||||||||||||||||||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+v "float"
+- Here is an example of using the float data type in C#:
+* { float pi = 3.14159265f;
+  Console.WriteLine("Pi: " + pi); }
+  Output Console : Pi: 3.1415927
+   
+- In this example, a variable "pi" of type float is declared and initialized with the value 3.14159265. 
+  Since the float data type can store values with decimal points, such as 3.14 or -2.5, the value 3.14159265 is a valid value for a float variable.
+- You can also use the float data type to store the result of an arithmetic operation
+* { float x = 1.23456789f;
+    float y = 0.98765432f;
+    float sum = x + y;
+    Console.WriteLine("Sum: " + sum); } 
+*   Output Console : Sum: 2.2222223
+ 
+- You can also use the float data type to store the result of a casting operation
+* { double bigNum = 5.678;
+    float smallNum = (float)bigNum;
+    Console.WriteLine("smallNum: " + smallNum); }
+*   Output Console : smallNum: 5.678
+Please note that the above example, the value of bigNum is 5.678, which is within the range of float and the value is correctly casted to float. 
+
+
+v "double"
+- Here is an example of using the double data type in C#:
+* { double pi = 3.14159265358979323846;
+  Console.WriteLine("Pi: " + pi); }
+* Output Console : Pi: 3.141592653589793
+
+- In this example, a variable "pi" of type double is declared and initialized with the value 3.14159265358979323846. Since the double data type can store values with decimal points, such as 3.14159 or -2.5, the value 3.14159265358979323846 is a valid value for a double variable.
+- You can also use the double data type to store the result of an arithmetic operation
+* { double x = 1.23456789;
+  double y = 0.98765432;
+  double sum = x + y;
+  Console.WriteLine("Sum: " + sum); }
+* Output Console : Sum: 2.22222221
+ 
+- You can also use the double data type to store the result of a casting operation
+* { float bigNum = 5.678f;
+  double smallNum = (float)bigNum;
+  Console.WriteLine("smallNum: " + smallNum); }
+* Output Console : smallNum: 5.677999973297119
+ 
+Please note that the abouve example, the value of bigNum is 5.678, which is the range of double and the value is correctly casted to double.
