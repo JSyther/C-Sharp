@@ -1,6 +1,9 @@
-v Subject 1 = Fundamental, Variables 
-v Integers, Double, Float, String, Char, Bool(Booleans) [main variables]
-v More variables will be included in the following lessons.
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////Subject 1 = Fundamental/////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+* Integers, Double, Float, String, Char, Bool(Booleans) [main variables]
+* More variables will be included in the following lessons.
 § !You can skipsections with a square and exclamation point symbol at the beginning. The processes here are lessons that will seem a little more advanced. Of course it's worth reading.
 
 - In C#, a variable is a named storage location that can hold a value of a specific data type. A variable must be declared before it can be used in a program, and it must be initialized with a value before it can be used.
