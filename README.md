@@ -1,7 +1,7 @@
 C# - Journey
 
 - It is strictly prohibited to reproduce, distribute, or sell the contents of this article,
-- entitled "C# Programming Language," without the express written permission of the copyright holder(s).
+  entitled "C# Programming Language," without the express written permission of the copyright holder(s).
 - Any unauthorized reproduction, distribution, or sale of this material constitutes copyright infringement and will be prosecuted to the fullest extent of the law.
 
 - The contents of this article are protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties.
