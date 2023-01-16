@@ -8,6 +8,11 @@ The main principles of OOP are;
 - Encapsulation : hidding the implementation details of an object and exposing only its public interface.
 - Inheritance   : allowing classes to inherit properties and methods from a parent class.
 - Polymorphism  : allowing objects of different classes to be treated as objects of a common base class.
+- Abstraction:  : Abstraction is the process of hiding the complexity of a system and only showing the essential features.
+  It can be achieved by using abstract classes and interfaces, which define a contract that the derived classes must implement.
+
+"And there are more than four principles in OOP, however, the Four principles of OOP that are the most fundamental and widely accepted principles.
+They are considered the backbone of OOP and are used to create software that is modular, flexible, and easy to maintain."
 
 Encapsulation is the process of hidding the implementation details of an object and exposing only its public interface.
 This is done by using access modifiers such as "private", "protected, "public", and "internal".
@@ -187,6 +192,7 @@ In C#, a class can inherit from only one base class but can implement multiple i
 
 Here is an example of inheritance in C#:
 //////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 ////////// class Parent                                                             //////////
 //////////  {                                                                       //////////
 //////////      public int x;                                                       //////////
@@ -207,6 +213,7 @@ Here is an example of inheritance in C#:
 //////////      }                                                                   //////////
 //////////  }                                                                       //////////
 //////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 In this example, the class "Child" inherits from the class "Parent". It inherits the properties "x" and "y" and the method "Print" from the parent class
  and also adds a new property "z" and overrides the "Print" method.
 
@@ -216,10 +223,322 @@ override existing functionality.
 Here are a couple of examples of inheriance in C#:
 
 Example 1: Simple Inheritance:
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////	class Shape									//////////
+//////////	{										//////////
+//////////	    public double Width { get; set; }						//////////
+//////////	    public double Height { get; set; }						//////////
+//////////											//////////
+//////////	    public double GetArea()							//////////
+//////////	    {										//////////
+//////////	        return Width * Height;							//////////
+//////////	    }										//////////
+//////////	}										//////////
+//////////											//////////
+//////////											//////////
+//////////	class Rectangle : Shape								//////////
+//////////	{										//////////
+//////////	    public double GetPerimeter()						//////////
+//////////	    {										//////////
+//////////	        return 2 * (Width + Height);						//////////
+//////////	    }										//////////
+//////////	}										//////////
+//////////											//////////
+//////////	class Program									//////////
+//////////	{										//////////
+//////////	    static void Main(string[] args)						//////////
+//////////	    {										//////////
+//////////	        Rectangle rectangle = new Rectangle() { Width = 10, Height = 5 };	//////////
+//////////	        Console.WriteLine($"Area: {rectangle.GetArea()}");			//////////
+//////////	        Console.WriteLine($"Perimeter: {rectangle.GetPerimeter()}");		//////////
+//////////	    }										//////////
+//////////	}										//////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+In this example, the class "Shape" is defined with properties "Width" and "Height" and a method "GetArea" which is used to calculate the area of the shape.
+
+The class "Rectangle" is derived from "Shape" by using the ":" symbol and it inherits the properties and method of "Shape" class. Additionally, it has its own 
+method "GetPerimeter" which is used to calculate the perimeter of the rectangle.
+
+In the main methods of the program, an instance of "Rectangle" class is created and its properties are set, then the "GetArea" and "GetPerimeter methods are called 
+and the result is printed on the console.
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////   Console result	        //////////////
+//////////////////////////////////////////////////////
+//////////   Area: 50			//////////////
+//////////   Perimeter: 30		//////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+Example 2: Inheriting with polymorphism
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////	abstract class Shape								//////////
+//////////	{										//////////	
+//////////	    public double Width { get; set; }						//////////			
+//////////	    public double Height { get; set; }						//////////	
+//////////	    public abstract double GetArea();						//////////
+//////////	}										//////////
+//////////											//////////
+//////////	class Rectangle : Shape								//////////
+//////////	{										//////////
+//////////	    public override double GetArea()						//////////
+//////////	    {										//////////
+//////////	        return Width * Height;							//////////
+//////////	    }										//////////
+//////////	}										//////////
+//////////											//////////
+//////////	class Circle : Shape								//////////
+//////////	{										//////////
+//////////	    public override double GetArea()						//////////	
+//////////	    {										//////////
+//////////	        return Math.PI * Math.Pow((Width / 2 ), 2);				//////////
+//////////	    }										//////////
+//////////	}										//////////
+//////////											//////////
+//////////	class Program									//////////
+//////////	{										//////////
+//////////	    static void Main(string[] args)						//////////
+//////////	    {										//////////
+//////////	        Shape rect = new Rectangle() { Width = 10, Height = 5 };		//////////
+//////////	        Shape circle = new Circle() { Width = 10 };				//////////
+//////////	        Console.WriteLine($"Area of Rectangle: {rect.GetArea()}");		//////////
+//////////	        Console.WriteLine($"Area of Circle: {circle.GetArea()}");		//////////
+//////////	    }										//////////	
+//////////	}										//////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+In this example, the class "Shape" is defined as an abstract class with properties "Width" and "Height" and an absract method "GetArea". The abstract class and 
+method area defined with the keyword "abstract", which means that the class cannot be instantiated and the method has no implementation.
+
+The class "Rectangle" and "Circle" are derived from "Shape" and they both inherit the properties "Width" and "Height" and they both override the abstract method
+"GetArea" in order to provide their own implementation of the method. The override keyword is used to indicate that the method is intended to override an abstract or
+virtual method in the base class.
+
+In the main method of the program, an instance of "Rectangle" and "Circle" class is created and their properties are set, then the "GetArea" method is called on
+each instance and the result is printed on the console.
+
+This example demonstrate the concept of polymorphism, which is the ability of a derived class to override the behaviour of a base class and provide its own 
+implementation of the method. It allows the program to treat the objects of the derived class as objects of the base class and call the methods with the same
+signature on them.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* Polymorphism:
+
+Polymorphism is one of the four fundemental principle of object-oriented programming(OOP), which allows a derived class to provide a different implementation of
+a method that is already provided by its base class.
+
+Here are a couple of example of polymorphism in C#.
+
+Example 1: Method Overriding
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////	class Shape							//////////
+//////////	{								//////////
+//////////	    public virtual void Draw()					//////////
+//////////	    {								//////////
+//////////	        Console.WriteLine("Drawing a shape.");			//////////
+//////////	    }								//////////
+//////////	}								//////////
+//////////									//////////
+//////////	class Rectangle : Shape						//////////
+//////////	{								//////////
+//////////	    public override void Draw()					//////////
+//////////	    {								//////////
+//////////	        base.Draw();						//////////
+//////////	        Console.WriteLine("Drawing a rectangle.");		//////////
+//////////	    }								//////////
+//////////	}								//////////
+//////////									//////////
+//////////	class Circle : Shape						//////////
+//////////	{								//////////
+//////////	    public override void Draw()					//////////
+//////////	    {								//////////
+//////////	        base.Draw();						//////////
+//////////	        Console.WriteLine("Drawing a circle");			//////////
+//////////	    }								//////////
+//////////	}								//////////
+//////////									//////////
+//////////	class Program							//////////
+//////////	{								//////////
+//////////	    static void Main(string[] args)				//////////
+//////////	    {								//////////
+//////////	        Shape rect = new Rectangle();				//////////
+//////////	        Shape circle = new Circle();				//////////
+//////////	        rect.Draw();						//////////
+//////////	        circle.Draw();						//////////
+//////////	    }								//////////
+//////////	}								//////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+In this example, the class "Shape" has a virtual method "Draw" with a default implementation that writes a message to the console. The class "Rectangle" and "Circle"
+are derived from "Shape" and they both override the "Draw" method in order to provide their own implementation of the method. The "override" keyword is used to
+indicate that the method is intended to override a virtual method in the base class.
+
+In the main method of the program, an instance of "Rectangle" and "Circle" class are created and assigned to variable of type "Shape". The "Draw" method is then called 
+on each of the objects, which will invoke the overriden implementation of the method in the derived classes.
+
+This is an example of polymorphism, because the same method "Draw" is called on objects of different classes, but it produces different results depending on the class
+of the object. The program can treat the objects of the derived class as objects of the base class and call the methods with the same signature on them.
+//////////////////////////////////////////////////
+//////////	Console Result		//////////
+//////////////////////////////////////////////////
+//////////	Drawing a rectangle.	//////////
+//////////	Drawing a circle	//////////
+//////////////////////////////////////////////////
+
+Example 2: Using interface.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////	interface IDrawable											//////////
+//////////	{													//////////
+//////////	    void Draw();											//////////
+//////////	}													//////////
+//////////														//////////
+//////////	class Shape : IDrawable											//////////
+//////////	{													//////////
+//////////	    public void Draw()											//////////
+//////////	    {													//////////
+//////////	        Console.WriteLine("Drawing a shape.");								//////////
+//////////	    }													//////////
+//////////	}													//////////
+//////////														//////////
+//////////	class Rectangle : IDrawable										//////////
+//////////	{													//////////
+//////////	    public void Draw()											//////////
+//////////	    {													//////////
+//////////	        Console.WriteLine("Drawing a rectangle.");							//////////
+//////////	    }													//////////
+//////////	}													//////////
+//////////														//////////
+//////////	class Circle : IDrawable										//////////
+//////////	{													//////////
+//////////	    public void Draw()											//////////
+//////////	    {													//////////
+//////////	        Console.WriteLine("Drawing a circle");								//////////
+//////////	    }													//////////
+//////////	}													//////////
+//////////														//////////
+//////////	class Program												//////////
+//////////	{													//////////
+//////////	    static void Main(string[] args)									//////////
+//////////	    {													//////////
+//////////	        IDrawable[] drawables = new IDrawable[] { new Shape(), new Rectangle(), new Circle() };		//////////
+//////////	        foreach (var drawable in drawables)								//////////
+//////////	        {												//////////
+//////////	            drawable.Draw();										//////////
+//////////	        }												//////////
+//////////	    }													//////////
+//////////	}													//////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+In this example, the interface "IDrawable" is defined with a single method "Draw" with no implementation. The classes "Shape", "Rectangle" and "Circle" all
+implement the "IDrawable" interface by providing their own implementation of the "Draw" method.
+
+In the main method of the program, an array of "IDrawable" objects is created and it includes an instance of "Shape", "Rectangle" and "Circle" class. The
+"Draw" method is then called on each object in the array using a foreach loop.
+
+This example of polymorphism have same method "Draw" is called objects of different classes, but it produces different results depending on the class of the object.
+The program can treat the objects of the different classes as objects of the interface "Idrawable" and call the methods with the same signature on them.
+In both examples, polymorphism allows the program to treat objects of different types in a similar way and it makes the code more flixble and
+easier to maintain by reducing the need for explicit type checking and casting.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* Abstraction :
+
+Abstraction is one of the fundamental principles of object-oriented programming(OOP) that allows hiding the complexity of a system and only showing the essential
+features. It can be achieved by using abstract classes and interfaces, which define a contract that the derived classes must implement.
+	
+Abstraction allows for a clean and organized object-orinted design, and it is a powerful tool for code maintainability and scalability,
+as it allows you to focus on the esential features of a system and separate the implementation details from the interface.
+	
+Here are a couple of examples of Abstraction in C#:
+
+Example 1: Abstract Class
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+abstract class Shape
+{
+    public abstract double GetArea();
+}
+
+class Rectangle : Shape
+{
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height)
+    {
+        this.width = width;
+        this.height = height;
+    }
+
+    public override double GetArea()
+    {
+        return width * height;
+    }
+}
+
+class Circle : Shape
+{
+    private double radius;
+
+    public Circle(double radius)
+    {
+        this.radius = radius;
+    }
+
+    public override double GetArea()
+    {
+        return Math.PI * radius * radius;
+    }
+}
+
+Rectangle rect = new Rectangle(5, 10);
+double area = rect.GetArea();
+Console.WriteLine("Area of rectangle: " + area);
+
+Circle circle = new Circle(5);
+area = circle.GetArea();
+Console.WriteLine("Area of Circle: " + area);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+In this example, the class "Shape" is defined as an abstract class with a single abstract method "GetArea",
+which has no implementation. The abstract class and method are defined with the keyword "abstract", which means that the class cannot be instantiated.
+
+The class "Rectangle" and "Circle" are derived from "Shape" and they both implement the abstract method
+"GetArea" in order to provide their own implementation of the method. The override keyword is used to indicate that the method is intended to override
+an abstract method in the base class.
+
+In this example, "Shape" class is an abstract class, it can't be instantiated, you can only create object of its child classes "Rectangle" and "Circle"
+and you can use the method GetArea() on each of them and you will get the correct result based on the implementation of this method in each class.
 
 
+Detailed Explanition:
+1. The abstract class "Shape" is defined with an abstract method "GetArea" which has no implementation. The keyword "abstract" is used to indicate
+   that the class and method are intended to be abstract.
+2. The class "Rectangle" is derived from "Shape" and it has two private fields "width" and "height" which are used to store the width and height of the rectangle.
+3. The class "Rectangle" has a constructor which takes two parameters "width" and "height", it assigns these values to the private fields "width" and "height"
+   respectively.
+4. The class "Rectangle" also implements the abstract method "GetArea" by providing its own implementation which calculates the area of the rectangle
+   by multiplying the width and height of the rectangle and returns the result.
+5. The class "Circle" is also derived from "Shape" and it has a private field "radius" which is used to store the radius of the circle.
+6. The class "Circle" has a constructor which takes one parameter "radius", it assigns this value to the private field "radius".
+7. The class "Circle" also implements the abstract method "GetArea" by providing its own implementation which calculates the area of the circle by multiplying
+   the radius of the circle by pi and square of the radius and returns the result.
+8. In main method, you can create objects for both classes and use GetArea() method on each one of them, for example:
 
-
+The output of this example will be:
+////////////////////////////////////////
+Area of rectangle: 50
+Area of Circle: 78.53981633974483
+////////////////////////////////////////
 
 
 
