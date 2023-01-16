@@ -17,6 +17,18 @@ The "private" members can only be accessed from within the same class, while "pu
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 * Encapsulation: 
+Encapsulation in C# is a feature of object-oriented programmming (OOP) that allows hidding the implementation details of a class and only exposing the necessary
+information and functionality through its methods. This helps to protect the internal state of an object and control the way it is accessed and modified.
+
+In C#, encapsulation is achieved by using access modifiers such as "private", "protected" and "public" on fields and properties.
+Fields and properties that are marked as "private" are only accessible within the class itself and are not visible to other classes. 
+
+Encapsulation allows for a clean and organized object- oriented design, and it is a powerful tool for code maintainability and security,
+as it allows you to control how the internal state of an object can be accessed and modified, and also add validation or other logic as needed.
+
+Encapsulation also allows you to change the implementation of a class without affecting the code that uses it as long as the public interface remains the same.
+This is knowns as the principle of information hidding, which is a key concept in object-oriented programming.
+
 Here is an example of Encapsulation in C#:
 ////////////////////////////////////////////////////////////////////////
 ////////// class MyClass                                      //////////
