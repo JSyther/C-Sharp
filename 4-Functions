@@ -2,69 +2,65 @@ v Functions
 
 In C#, a function, also known as a method, is a block of code that can be reused multiple times throughtout a program. 
 Functions are used to organize and structure code, making it easier to read, write, and maintain.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 1. Defining a Function:
 A function is defined using the keyword "void" or the data type of the value that the function will return.
 The function is given a name, followed by a set of parentheses that contain the function's parameters. The function's code is enclosed in a set of curly braces.
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-void PrintHelloWorld()
-  {
-    Console.WriteLine("Hello, World!");
-  }
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////
+////////	void PrintHelloWorld()				/////////
+////////	{						/////////
+////////	   Console.WriteLine("Hello, World!");		/////////
+////////	}						/////////
+/////////////////////////////////////////////////////////////////////////
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 2. Function Parameters:
 Functions can also accept parameters, which are used to pass data into the function.
 These parameters are listed within the parentheses of the function definition, and are separated by commas.
 /////////////////////////////////////////////////////////
+////////	void PrintNumber(int number)	/////////
+////////	{				/////////
+////////	   Console.WriteLine(number);	/////////
+////////	}				/////////	
 /////////////////////////////////////////////////////////
-void PrintNumber(int number)
-  {
-    Console.WriteLine(number);
-  }
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 3. Function Return:
 Functions can also return a value to the calling code using the "return" statement.
 The data type of the value returned by a function is specified in the function definition before the function name.
 /////////////////////////////////////////////////////////
+////////	int Add(int x, int y)		////////
+////////	{				////////
+////////	    return x + y;		////////
+////////	}				////////
 /////////////////////////////////////////////////////////
-int Add(int x, int y)
-  {
-    return x + y;
-  }
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 4. Funtion Overloading: 
 In C#, it's also possible to overload a function, which means having multiple versions of a function with the same name but with different parameter lists.
 /////////////////////////////////////////////////////////
+////////	int Add(int x, int y)		////////
+////////	{				////////
+////////	    return x + y;		////////
+////////	}				////////
+////////					////////
+////////	int Add(int x, int y, int z)	////////
+////////	{				////////
+////////	    return x + y + z;		////////
+////////	}				////////
 /////////////////////////////////////////////////////////
-int Add(int x, int y)
-  {
-    return x + y;
-  }
 
-int Add(int x, int y, int z)
-  {
-    return x + y + z;
-  }
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 5. Using Functions:
 A function is called, or executed, by writing the function's name followed by a set of parantheses that contain the values for any required parameters.
 
 /////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
 PrintHelloWorld();
 PrintNumber(5);
 int result = Add(2, 3);
 Console.WriteLine(result);
-/////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 
 Functions are a fundamental concept in C# programming, and are used to organize and structure code, making it more readable, maintainable, and reusable.
@@ -87,14 +83,15 @@ int Factorial(int n)
     return n * Factorial(n - 1);
   }
 /////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 7. Recursive Function:
 A Recursive function is a function that calls itself, with the idea that each time it calls itself with a slightly simpler version of the problem.
 This is known as the "divide-and conquer" strategy. Recursive functions can be very useful when the problem can be broken down into smaller and similar sub-problems,
 that can be solved using the same function.
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
+
+Here is an example of a recursive function in C# that calculates the factorial of a given number:  
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int Factorial(int number)
   {
     if (number == 1)
@@ -103,29 +100,23 @@ int Factorial(int number)
     }
     return number * Factorial(number - 1);
   }
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-Here is an example of a recursive function in C# that calculates the factorial of a given number:  
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 In this example, the function "Factorial" takes an integer as an argument and calculates its factorial.
 If the number is 1, the function returns 1, othewise it returns the number multiplied by the factorial of the number - 1.
 This is a classsic example of a problem that can be broken down into smaller sub-problems.
 The functions call itself with a slightly simpler version of the problem (number - 1) until it reaches the base case (number = 1).
 
 Here is an example of how to use the function and the output:
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-int result = Factorial(5);
-Console.WriteLine("5! = " + result);
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+////////////	int result = Factorial(5);		/////////////
+////////////	Console.WriteLine("5! = " + result);	/////////////
+/////////////////////////////////////////////////////////////////////
+
 
 The output of this code will be: 
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-5! = 120  /// as Output Console result
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+/////////////	5! = 120  /// as Output Console result	 /////////////
+//////////////////////////////////////////////////////////////////////
 - The function checks if the given number is equal to 1.If it is, it returns 1, which is the base case for the recursion.
 - If the given number is not equal to 1, the function multiplies the given number by the factorial of (number -1). 
 It does this by calling the factorial function again with(number -1 ) as the argument.
@@ -151,13 +142,11 @@ An anonymous function, also knowns as a lambda expression in C#, is a function t
 These funcions can be passed as arguments to other functions or methods, or assigned to variables.
 
 Here is an example of an anonymous function in C#:
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-Func<int, int> square = x => x * x;
-int result = square(5);
-Console.WriteLine("5 squared is " + result);
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+/////////////	Func<int, int> square = x => x * x;		/////////////
+/////////////	int result = square(5);				/////////////
+/////////////	Console.WriteLine("5 squared is " + result);	/////////////
+/////////////////////////////////////////////////////////////////////////////
 In this example, the "Func<int, int>" is a delegate type that defines a function that takes an integer as an argument and returns an integer.
 The"x => x * x" is the anonymouse function that squares its input. This anonymous function is assigned to the variable "square",
 which can be used just like a regular function.
@@ -171,20 +160,19 @@ Solution;
   variable with the argument 5. So the value of result is 5*5 = 25 
 
 You can also pass anonymouse functions as arguments to other functions. For example:
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-void ProcessNumbers(Func<int, int> operation, int[] numbers)
-  {
-    for (int i = 0; i < numbers.Length; i++)
-    {
-        numbers[i] = operation(numbers[i]);
-    }
-  }
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////	void ProcessNumbers(Func<int, int> operation, int[] numbers)	//////////////
+/////////////	{								//////////////
+/////////////	   for (int i = 0; i < numbers.Length; i++)			//////////////
+/////////////	   {								//////////////
+/////////////	       numbers[i] = operation(numbers[i]);			//////////////
+/////////////	   }								//////////////
+/////////////	}								////////////// 
+/////////////									//////////////
+/////////////	int[] numbers = { 1, 2, 3, 4, 5 };				//////////////
+/////////////	ProcessNumbers(x => x * x, numbers);				//////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 
-int[] numbers = { 1, 2, 3, 4, 5 };
-ProcessNumbers(x => x * x, numbers);
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
 
 In this example, the "ProcessNumbers" method takes two arguments: a "Func<int, int>" delegate (which can be any function that takes an integer and returns an integer)
 and an integer array. Inside the method, it calls the operation delegate on each element of the array.
@@ -202,7 +190,7 @@ Solution;
   This anonymous function takes an integer as input and returns its value multiplied by itself (squaring the number). 
   So this line of code calls the ProcessNumbers method, passing in the anonymous function that squares its input and the numbers array,
   and this will square each element of the array.
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 9. Lambda Function:
 A lambda expression is a shorthadn notation for an anonymous function in C#.
@@ -216,9 +204,9 @@ A lambda expression is made up of the following parts:
 • The function body
 
 Here is an example of a lambda expression that takes two integers as input and returns their sum:
-///////////////////////////////////////////////////////////////////////////////
-//////////////      Func<int, int, int> add = (x, y) => x + y;   //////////////  
-///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+/////////   Func<int, int, int> add = (x, y) => x + y;   /////////////
+//////////////////////////////////////////////////////////////////////
 	
 	
 In this example, the lambda expression is assigned to a variable of type 'Func<int, int,
@@ -269,4 +257,127 @@ In this example, the lambda expression 'n => n%2 == 0' is used to filter out all
 In conclusion, lambda expressions are a shorthand notation for anonymous functions in C# they are often used when you need to pass a simple function
 as an argument to a method such as when using functional interface or LINQ. They can make your code more concise and easier to read.
 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+10. Delegate Function:
+-A delegate in C# is a type that represents a method with a specific signature.
+ It's similar to a function pointer in C++, but it's type-safe and can be used with events and other features of the C# language.
+ Delegates are used to pass methods as arguments to other methods, allowing for a level of abstraction and flexibility in the code.
+
+-Here is an example of how to declare a delegate type:
+//////////////////////////////////////////////////////////////////
+////////    delegate int MyDelegate(int a, int b);	  ////////
+//////////////////////////////////////////////////////////////////
+-In this example, the delegate type 'MyDelegate' is declared and it represents a method that takes two integers as input and retursn an integer.
+
+-Here is an example of how to create an instance of a delegate and use it to call a method.
+////////////////////////////////////////////////////////////////////////////////
+////////	class MyClass						////////
+////////	{							////////
+////////	    public static int Add(int a, int b)			////////	
+////////	    {							////////
+////////	        return a + b;					////////
+////////	    }							////////
+////////	}							////////	
+////////								////////
+////////	MyDelegate d = new MyDelegate(MyClass.Add);		////////
+////////	int result = d(5, 10);					////////
+////////	Console.WriteLine("5 + 10 = " + result);		////////	
+////////////////////////////////////////////////////////////////////////////////
+-In this example, an instance of the delegate 'MyDelegate' is created and it's assigned to the method 'MyClass.Add'.
+ Then the delegate is invoked and passed the arguments '5' and '10', and the result of the method call is assigned to the variable ' result'.
+ And the output will be ' 5 + 10 = 15'.
+
+-It's also possible to use anonymous methods to create an instance of a delegate, like this example:
+////////////////////////////////////////////////////////////////////////////////////////
+////////	MyDelegate d = delegate(int a, int b) { return a * b; };	////////
+////////	int result = d(5, 10);						////////
+////////	Console.WriteLine("5 * 10 = " + result);			////////
+////////////////////////////////////////////////////////////////////////////////////////
+-In this example, an anonymous method is used to create an instance of the delegate 'MyDelegate' and it's passed the arguments '5' and '10',
+ and the result of the method call is assigned to the variable 'result'. And the output will be '5 x 10 = 50'. 
+
+
+You can also use lambda expressions instead of anonymous methods to create an instance of a delegate:
+////////////////////////////////////////////////////////////////////////
+////////	MyDelegate d = (int a, int b) => a - b;		////////
+////////	int result = d(5, 10);				////////
+////////	Console.WriteLine("5 - 10 = " + result);	////////
+////////////////////////////////////////////////////////////////////////
+-In this example, a lambda expression is used to create an instance of the delegate 'MyDelegate' and it's passed the arguments '5' and '10',
+and the result of the method call is assigned to the variable 'result'. And the output will be '5 - 10 = -5'.
+
+-Delegates can also be used to build a chain of methods, called multicast delegates. Multicast delegates allow you to invoke multiple methods at the same time.
+ To do this, you can use the "+" operator to combine delegates. Here is an Example:
+////////////////////////////////////////////////////////////////////////////////
+////////	MyDelegate d1 = new MyDelegate(MyClass.Add);		////////
+////////	MyDelegate d2 = new MyDelegate(MyClass.Subtract);	////////
+////////	MyDelegate d3 = d1 + d2;				////////
+////////	int result = d3(5, 10);					////////
+////////////////////////////////////////////////////////////////////////////////
+
+-In this example, the delegate 'd1' is assigned to the method 'MyClass.Add' and 'd2' is assigned to the method 'MyClass.Subract' and
+ then both delegate are combined to form a multicast delegate 'd3'. And when the multicast delegate 'd3' is invoked with the arguments '5' and '10',
+ both the 'MyClass.Add' and 'MyClass.Subtract' methods are invoked and their results are combined. It's important to note that the order of
+ invocation is not guaranteed and it depends on the implementation of the delegate. 
+
+-It's also worth noting that delegates can also be used with events, which allows you to create a decoupled architecture between the publisher and the subscriber.
+ Here is an example:
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////	class MyPublisher						/////////
+////////	{								/////////
+////////	    public event MyDelegate OnSomeEvent;			/////////
+////////	    public void RaiseEvent(int a, int b)			/////////
+////////	    {								/////////
+////////	        if (OnSomeEvent != null)				/////////
+////////	        {							/////////
+////////	            OnSomeEvent(a, b);					/////////
+////////	        }							/////////
+////////	    }								/////////
+////////	}								/////////
+////////									/////////
+////////	class MySubscriber						/////////
+////////	{								/////////
+////////	    public void HandleEvent(int a, int b)			/////////
+////////	    {								/////////
+////////	        Console.WriteLine("Event handled: " + (a + b));		/////////
+////////	    }								/////////
+////////	}								/////////
+/////////////////////////////////////////////////////////////////////////////////////////
+-In this example, the 'MyPublisher' class has an event of type 'MyDelegate' named 'OnSomeEvent',
+ and it has a method 'RaiseEvent' that raises the event and invokes all the methods that are subscribed to the event.
+ The 'MySubscriber' class has a method 'HandleEvent' that can be subscribed to the event.
+ 
+////////////////////////////////////////////////////////////////////////////////
+////////	MyPublisher publisher = new MyPublisher();		////////
+////////	MySubscriber subscriber = new MySubscriber();		////////
+////////								////////
+////////	publisher.OnSomeEvent += subscriber.HandleEvent;	////////
+////////								////////
+////////	publisher.RaiseEvent(5, 10);				////////
+////////////////////////////////////////////////////////////////////////////////
+-In this example, the 'HandleEvent' method of the 'MySubscriber'  class is subscribed to the 'OnSomeEvent' event of the 'MyPublisher' class using the "+=" operator.
+ Then the 'RaiseEvent' method is called, it will invoke the 'HandleEvent' method and the output will be "Event handled: 15".
+
+-In conclusion, delegates are a powerful feature in C# that allows you to pass methods as arguments to other methods,
+ and they are used in a variety of scenarious such as functional interfaces, LINQ, event and more. They can be created using named methods,
+ anonymous methods, or lambda expressions. The use of delegates can make your code more flexible and abstract,
+ and they can be used to build complex systems by creating chains of methods and event-driven architectures.
+
+-It's important to note that C# also has built-in delegate types such as 'Func<T, TResult>', 'Action<T>' that are useful when working with common scenarios.
+ These built-in delegate types are more efficient than creating your own delegate types, and they also make the code more readable.
+
+-It's also important to note that delegates have similar functionality as lambda expression and expression-bodied members,
+ which are introduced in C# 6, but with a slightly different syntax and usage. Lambda expressions are more concise and expressive,
+ and they can be used with functional interfaces and LINQ directly. Expression-bodied members can be used to define a function with a single expression instead
+ of a block of statements.
+
+-It's also worth noting that, starting with C# 8.0, a new feature called 'delegate invocation expressions' was introduced,
+ which allows to invoke a delegate type directly, and it's useful when the delegate type is known at compile time.
+
+-In summary, delegates are a powerful feature in C# that allows you to pass methods as arguments to other methods,
+ and they can be used in a variety of scenarios such as functional interfaces, LINQ, events, and more.
+ They are similar to lambda expressions and expression-bodied members, but with a slightly different syntax and usage.
+ Understanding the usage and differences between these features will make you a more proficient C# developer.
 
