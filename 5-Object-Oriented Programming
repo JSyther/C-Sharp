@@ -1,0 +1,214 @@
+Principles of object-oriented programming
+
+Object-Oriented Programming.
+
+The principles of object- oriented programming (OOP) are a set of concepts that are used to organize and structure code in a way that is easy to understand and maintain.
+The main principles of OOP are;
+
+- Encapsulation : hidding the implementation details of an object and exposing only its public interface.
+- Inheritance   : allowing classes to inherit properties and methods from a parent class.
+- Polymorphism  : allowing objects of different classes to be treated as objects of a common base class.
+
+Encapsulation is the process of hidding the implementation details of an object and exposing only its public interface.
+This is done by using access modifiers such as "private", "protected, "public", and "internal".
+The "private" members can only be accessed from within the same class, while "public" members can be accessed from anywhere.
+"protected members can be accessed from within the same class or any derived class and "internal" members can be accessed from anywhere within the same assembly.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* Encapsulation: 
+Here is an example of Encapsulation in C#:
+////////////////////////////////////////////////////////////////////////
+////////// class MyClass                                      //////////
+////////// {                                                  //////////
+//////////     private int myPrivateVar;                      //////////
+//////////                                                    //////////
+//////////     public void SetMyPrivateVar(int value)         //////////
+//////////     {                                              //////////
+//////////         myPrivateVar = value;                      //////////
+//////////     }                                              //////////
+//////////                                                    //////////
+//////////     public int GetMyPrivateVar()                   //////////
+//////////     {                                              //////////
+//////////         return myPrivateVar;                       //////////
+//////////     }                                              //////////
+////////// }                                                  //////////
+////////////////////////////////////////////////////////////////////////
+In this example, the class "MyClass" has a private variable "myPrivateVar" and two public methods "SetMyPrivateVar" and "GetMyPrivateVar".
+The private variable can only be accessed by the methods within the class, and it can't be accessed from outside of the class.
+This ensures that the variable is protected from being modified by external code and can only be modified through the provided methods,
+wihch can have additional logic or validation.
+
+Here are couple of examples of encapsulation in C#:
+Example 1: Using Properties
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////    class Person                                                                //////////
+//////////    {                                                                           //////////
+//////////        private string _name;                                                   //////////
+//////////        private int _age;                                                       //////////
+//////////                                                                                //////////
+//////////        public string Name                                                      //////////
+//////////        {                                                                       //////////
+//////////            get { return _name; }                                               //////////
+//////////            set { _name = value; }                                              //////////
+//////////        }                                                                       //////////
+//////////                                                                                //////////
+//////////        public int Age                                                          //////////
+//////////        {                                                                       //////////
+//////////          get { return _age; }                                                  //////////
+//////////          set { _age = value; }                                                 //////////
+//////////        }                                                                       //////////
+//////////    }                                                                           //////////
+//////////                                                                                //////////
+//////////    class Program                                                               //////////
+//////////    {                                                                           //////////
+//////////        static void Main(string[] args)                                         //////////
+//////////        {                                                                       //////////
+//////////            Person person = new Person();                                       //////////
+//////////            person.Name = "Jake Syther";                                        //////////
+//////////            person.Age = 30;                                                    //////////
+//////////            Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");       //////////
+//////////        }                                                                       //////////
+//////////    }                                                                           //////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+In this example, the class "Person" has two private fields, "_name" and "_age", which are directly accessible from outside of the class.
+Instead, properties "Name" and "Age" are used to access and set the values of these fields.
+By using properties, we can control the way the fields are accessed and modified, and also add validation or other logic as needed.
+
+More detailed explanation of the above code:
+ 1. The first class "Person" has two private field, "_name" and "_age", which are not directly accessible from outside of the class.
+    These fields represent the name and age of a person respectively.
+ 2. The class defines two public properties, "Name" and "Age", that are used to access and set the values of the private fields "_name" and "_age".
+    The properties use the "get" and "set" accessors to control the way the fields are accessed and modified.
+ 3. The "get" accessor is used to return the value of the field, in this case, the "get" accessor for "Name" property returns the value of the private field 
+    "_name" and the "get" accessor for "Age" property returns the value of the private field "_Age".
+ 4. The "set" accessor is used to assign a new value to the field, in this case, the "set accessor for "Name" property assigns a new value to the private field "_age".
+ 5. The next class "Program" has the "Main" method, the entry point of the program. Inside the Main method,
+    a new instance of the "Person" class is created and assigned to the variable "person".
+ 6. The "Name" property of the "person" object is set to "Jake Syther" and the "Age" property is set to 30.
+ 7. The "Console.WriteLine" method is sused to write the string "Name: Jake Syther, Age: 30" to the console.
+    This string is formatted using the "Name" and "Age" properties of the "person" object.
+    
+    
+Example 2: Using Methods
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////    class BankAccount                                                           //////////
+//////////    {                                                                           //////////
+//////////        private double _balance;                                                //////////
+//////////                                                                                //////////
+//////////        public void Deposit(double amount)                                      //////////
+//////////        {                                                                       //////////
+//////////            _balance += amount;                                                 //////////
+//////////        }                                                                       //////////
+//////////                                                                                //////////
+//////////        public void Withdraw(double amount)                                     //////////
+//////////        {                                                                       //////////
+//////////            if(_balance >= amount)                                              //////////
+//////////            {                                                                   //////////
+//////////                _balance -= amount;                                             //////////
+//////////            }                                                                   //////////
+//////////            else                                                                //////////
+//////////            {                                                                   //////////
+//////////                Console.WriteLine("Insufficient funds.");                       //////////
+//////////            }                                                                   //////////
+//////////        }                                                                       //////////
+//////////                                                                                //////////
+//////////        public double GetBalance()                                              //////////
+//////////        {                                                                       //////////
+//////////            return _balance;                                                    //////////
+//////////        }                                                                       //////////
+//////////    }                                                                           //////////
+//////////                                                                                //////////
+//////////    class Program                                                               //////////
+//////////    {                                                                           //////////
+//////////        static void Main(string[] args)                                         //////////        
+//////////        {                                                                       //////////  
+//////////            BankAccount account = new BankAccount();                            //////////
+//////////            account.Deposit(100);                                               //////////
+//////////            account.Withdraw(50);                                               //////////
+//////////            Console.WriteLine($"Balance: {account.GetBalance()}");              //////////
+//////////        }                                                                       //////////
+//////////    }                                                                           //////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+In this example, the class "BankACcount" has a private field "_balance" that represents the account balance.
+The class defines three public methods "Deposit", "Withdraw" and "GetBalance" which are used to access and modify the balance.
+By using methods, we can control the way the balance field is accessed and modified, and also add validation or other logic as needed.
+
+More detailed explanation of the above code:
+ 1. The first class "BankAccount" has a private field "_balance" that represents the account balance. This field is not directly accessible from outside of the class.
+ 2. The class defines three public methods: "Deposit", "Withdraw", and "GetBalance" which are used to access and modify the balance.
+ 3. The "Deposit" method takes one argument, an double "amount", and it increases the value of the private field "_balance" by the amount passed in.
+ 4. The "Withdraw" method takes one argument, and double "amount", and it decreases the value of the private field "_balance" by the amount passed in 
+    only if the _balance is greater than or equal to the amount passed in, otherwise it will write a message "Insufficient funds" to the console.
+ 5. The "GetBalance" method returns the value of the private field "_balance"
+ 6. The class "Program" has the "MAin" method, the entry point of the program.
+    Inside the main method, a new instance of the "BankAccount" class is created and assigned to the variable "account".
+ 7. The "Deposit" method of the "account" object is called with an argument of 100, which increases the balance of the account by 100.
+ 8. The "Withdraw" method of the "account" object is called with an argument of 50, which decreases the balance of the account by 50 if the balance is greater than
+    or equal to 50, otherwise it will a message "Insufficient funds" to the console.
+ 9. The "Console.WriteLine" method is used to write the string "Balance : 50 " to the console this string is formatted using the result of calling the "GetBalance"
+    method of the "account" object.
+    
+    
+In both examples, the implementation details are hidden from the outside world, and the class only exposes the necessary information and functionality through
+its properties or methods. This allows for a more flexible and maintainable design, 
+as changes to the implementation can be made without affecting code that uses the class.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* Inheritance:
+Inheritance in C# is a feature of object-oriented programming (OOP) that allows a class to inherit properties and methods from a parent class.
+This allows for code reuse and helps to organize the codabase by creating a hierarchy of classes.
+	
+A class that inherits from a parent class is called a derived class or a child class. The parent class is also known as the base class or the parent class.
+	
+A derived class can inherit all the members (fields, properties, and methods) of the base class, but it can also add or override members to change or
+extend the behavior of the base class. This is done by using the ":" symbol to inherit from the base class.
+	
+Inheritance allows for a clean and organized object-oriented design, and it is a powerful tool for code reuse, which helps to reduce the amount of code needed to
+implement a program.
+	
+In C#, a class can inherit from only one base class but can implement multiple interfaces, which allows for a more flexible design.
+
+
+Here is an example of inheritance in C#:
+//////////////////////////////////////////////////////////////////////////////////////////////
+////////// class Parent                                                             //////////
+//////////  {                                                                       //////////
+//////////      public int x;                                                       //////////
+//////////      public int y;                                                       //////////
+//////////                                                                          //////////
+//////////      public void Print()                                                 //////////
+//////////      {                                                                   //////////
+//////////          Console.WriteLine("x: " + x + ", y " + y);                      //////////
+//////////      }                                                                   //////////
+//////////  }                                                                       //////////
+//////////                                                                          //////////
+//////////  class Child : Parent                                                    //////////
+//////////  {                                                                       //////////
+//////////      public int z;                                                       //////////
+//////////      public void Print()                                                 //////////
+//////////      {                                                                   //////////
+//////////          Console.WriteLine("x: " + x + ", y: " + y + ", z: " + z);       //////////
+//////////      }                                                                   //////////
+//////////  }                                                                       //////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+In this example, the class "Child" inherits from the class "Parent". It inherits the properties "x" and "y" and the method "Print" from the parent class
+ and also adds a new property "z" and overrides the "Print" method.
+
+The Child class can access the properties and methods of the parent class as if they were its own, and it can also add new functionality or
+override existing functionality.
+
+Here are a couple of examples of inheriance in C#:
+
+Example 1: Simple Inheritance:
+
+
+
+
+
+
+
+
