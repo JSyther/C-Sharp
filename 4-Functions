@@ -57,10 +57,10 @@ In C#, it's also possible to overload a function, which means having multiple ve
 A function is called, or executed, by writing the function's name followed by a set of parantheses that contain the values for any required parameters.
 
 /////////////////////////////////////////////////////////
-PrintHelloWorld();
-PrintNumber(5);
-int result = Add(2, 3);
-Console.WriteLine(result);
+////////	PrintHelloWorld();		////////
+////////	PrintNumber(5);			////////
+////////	int result = Add(2, 3);		////////
+////////	Console.WriteLine(result);	////////
 /////////////////////////////////////////////////////////
 
 Functions are a fundamental concept in C# programming, and are used to organize and structure code, making it more readable, maintainable, and reusable.
@@ -72,17 +72,27 @@ This makes it easier to understand and test the code, and als makes it easier to
 Functions can also have a scope, which defines the portion of the code where the function can be accessed.
 Functions that are declared within a class or struct are called member functions, and they have access to the private members of the class or struct.
 Functions that are declared outside a class or struct are called global functions, and they have access to the global scope.
-/////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////
-int Factorial(int n)
-  {
-    if (n == 1)
-    {
-        return 1;
-    }
-    return n * Factorial(n - 1);
-  }
-/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////	class MyClass										////////
+////////	{											////////
+////////	    private int myPrivateVar = 0;							////////
+////////												////////
+////////	    public void MyMemberFunction()							////////
+////////	    {											////////
+////////	        myPrivateVar = 10; // This is allowed						////////
+////////	        MyGlobalFunction(); // This is also allowed					////////
+////////	    }											////////
+////////	}											////////
+////////												////////
+////////	void MyGlobalFunction()									////////
+////////	{											////////
+////////	    MyClass myObject = new MyClass();							////////
+////////	    myObject.myPrivateVar = 20; // This is not allowed, myPrivateVar is private		////////
+////////	    myObject.MyMemberFunction(); // This is allowed					////////
+////////	}											////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 7. Recursive Function:
@@ -91,16 +101,16 @@ This is known as the "divide-and conquer" strategy. Recursive functions can be v
 that can be solved using the same function.
 
 Here is an example of a recursive function in C# that calculates the factorial of a given number:  
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-int Factorial(int number)
-  {
-    if (number == 1)
-    {
-        return 1;
-    }
-    return number * Factorial(number - 1);
-  }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////	int Factorial(int number)				////////
+////////	{							////////
+////////	    if (number == 1)					////////
+////////	   {							////////
+////////	        return 1;					////////
+////////	   }							////////
+////////	   return number * Factorial(number - 1);		////////
+////////	 }							////////
+////////////////////////////////////////////////////////////////////////////////
 In this example, the function "Factorial" takes an integer as an argument and calculates its factorial.
 If the number is 1, the function returns 1, othewise it returns the number multiplied by the factorial of the number - 1.
 This is a classsic example of a problem that can be broken down into smaller sub-problems.
