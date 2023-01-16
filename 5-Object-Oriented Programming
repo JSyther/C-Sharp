@@ -540,6 +540,101 @@ Area of rectangle: 50
 Area of Circle: 78.53981633974483
 ////////////////////////////////////////
 
+The first output line shows the calculated area of the rectangle object created with width of 5 and height of 10, which is 50.
+The second output line shows the calculated area of the Circle object created with radius of 5, which is 78.53981633974483 using Math.PI.
+
+Please note that the value of Math.PI is the approximation of pi, it's the constant value of pi in C#.
+
+Example 2: Interface
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+abstract class Shape
+{
+    public abstract double GetArea();
+}
+
+class Rectangle : Shape
+{
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height)
+    {
+        this.width = width;
+        this.height = height;
+    }
+
+    public override double GetArea()
+    {
+        return width * height;
+    }
+}
+
+class Circle : Shape
+{
+    private double radius;
+
+    public Circle(double radius)
+    {
+        this.radius = radius;
+    }
+
+    public override double GetArea()
+    {
+        return Math.PI * radius * radius;
+    }
+}
+Rectangle rect = new Rectangle(5, 10);
+double area = rect.GetArea();
+Console.WriteLine("Area of rectangle: " + area);
+
+Circle circle = new Circle(5);
+area = circle.GetArea();
+Console.WriteLine("Area of Circle: " + area);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+In this example is an implementation of abstraction using an interface. The interface "Idrawable" defines a single method "Draw" which has no implementation. The classes "Shape", "Rectangle" and "Circle" all implement the "IDrawable" interface by providing their own implementation of the "Draw" method.
+	
+Here is a step by step explanation of the example:
+
+1. The interface "IDrawable" is defined with a single method "Draw" with no implementation. The keyword "interface" is used to indicate that the class is an interface.
+
+2. The class "Shape" is defined and it implements the "IDrawable" interface. It provides its own implementation of the "Draw" method which outputs
+   the string "Drawing a shape."
+
+3. The class "Rectangle" is defined and it also implements the "IDrawable" interface. It provides its own implementation of the "Draw" method which outputs
+   the string "Drawing a rectangle."
+
+4. The class "Circle" is defined and it also implements the "IDrawable" interface. It provides its own implementation of the "Draw" method which outputs the string
+   "Drawing a circle."
+   
+5. In main method, you can create objects for these classes and use Draw() method on each one of them, for example:
+
+This will output:
+//////////////////////////////////////
+Area of rectangle: 50
+Area of Circle: 78.53981633974483
+//////////////////////////////////////
+
+
+This example is similar to the previous one, but instead of using an abstract class, an interface is used to define the contract that the derived classes must implement. The interface defines a single method "Draw" that must be implemented by any class that implements the interface.
+
+In the main method of the program, an array of "IDrawable" objects is created and it includes an instance of "Shape", "Rectangle" and "Circle" class. 
+The "Draw" method is then called on each object in the array using a foreach loop.
+
+This example shows how interfaces can be used to define a contract that multiple classes can implement, and it allows the program to treat the objects
+of the different classes in a similar way by calling the same method on each of them.
+
+In summary, Abstraction is a key concept in OOP, it allows you to focus on the essential features of a system and separate the implementation details
+from the interface. It can be achieved by using abstract classes and interfaces, which define a contract that the derived classes must implement.
+This allows for a clean and organized object-oriented design, and it makes the code more maintainable, scalable, and easy to understand.
+
+
+In conclusion, the principle of object-oriented programming (OOP) are a set of concept that are used to organize and structure code in a way that is easy to understand
+and maintain. The main principle of OOP are encapsulation, inheritance, and polymorphism. Encapsulation allows you to hide the implementation details of an object
+and expose only its public interface. Inheritance allows classes to inherit properties and methods from a parent class.
+Polymorphism allows objects of different classes to be treated as objects of a common base class.
+Understanding and using these principles correctly can make your code more organized, maintainable, and reusable.
 
 
 
