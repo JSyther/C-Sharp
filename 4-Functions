@@ -205,3 +205,68 @@ Solution;
 
 
 9. Lambda Function:
+	A lambda expression is a shorthadn notation for an anonymous function in C#.
+  They are often used you need to pass simple function as an argument to a method, suc as when using a functional interface like 'Func' or '
+  Action' or when working with LINQ(language Integrated Query) and delegates.
+	
+	A lambda expression is made up of the following parts:
+	
+	• The lambda operator '=>'
+	• The input parameters, if any
+	• The function body
+
+	Here is an example of a lambda expression that takes two integers as input and returns their sum:
+  ///////////////////////////////////////////////////////////////////////////////
+	//////////////      Func<int, int, int> add = (x, y) => x + y;   //////////////  
+  ///////////////////////////////////////////////////////////////////////////////
+	
+	
+	In this example, the lambda expression is assigned to a variable of type 'Func<int, int,
+  int>' which is a delegate type that takes two integers as input and returns an integer. The lambda operator '=>'
+  separates the input paramaters from the function body. In this case, the function body is simply the expression 'x + y',
+  which calculates the sum of the input parameters.
+
+	Here is an example of how you can use this lambda expression and output the result:
+	////////////////////////////////////////////////////////////////////////////////
+  //////////////      int result = add(5, 10);                      //////////////
+  //////////////      Console.WriteLine("5 + 10 = " + result);      //////////////
+  ////////////////////////////////////////////////////////////////////////////////
+  
+	The out put of this code will be :
+  ////////////////////////////////////////////////
+  //////////////    5 + 10 = 15     //////////////
+  ////////////////////////////////////////////////
+	
+	You can also use lambda expressions with no input parameters, like this example:
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////    Action printHello = () => Console.WriteLine("Hello, World!");     /////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	In this example, the lambda expression is assigned to a variable of type 'Action',
+  which is a delegate type that takes no input parameters and returns void. The fucntion body is the statement 'Console.WriteLine("Hello, World!")'.
+	
+	Here is an example of how you can use this lambda expression and oputput the result:
+	////////////////////////////////////////////////////
+  //////////////     printHello();     ///////////////
+  ////////////////////////////////////////////////////
+	The out put of this code will be: 
+	////////////////////////////////////////////////////
+  //////////////     Hello, World!     ///////////////
+  ////////////////////////////////////////////////////
+	
+	It's worth noting that you can use lambda expressions with different types of functional interfaces such as 'Func<T, TResult>',
+  'Action<T> and Predicate<T>' depending on the expected input and output of the function.
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////    List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };  ////////////////
+  //////////////    IEnumerable<int> evenNumbers = numbers.Where(n => n % 2 == 0);        ////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	You can also use lambda expressions with LINQ, which is a set of language and framework features that allow you to work with data in a declarative way.
+  For example, you can use a lambda expression to filter a list of integers:
+	
+	In this example, the lambda expression 'n => n%2 == 0' is used to filter out all even numbers from the list.
+	
+	In conclusion, lambda expressions are a shorthand notation for anonymous functions in C# they are often used when you need to pass a simple function
+  as an argument to a method such as when using functional interface or LINQ. They can make your code more concise and easier to read.
+
+
