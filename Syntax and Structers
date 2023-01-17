@@ -1,0 +1,219 @@
+Syntax and Structures;
+
+C# is a modern, object-oriented programming language developed by Microsoft. The syntax and structure of C# are similar to other popular programming languages
+such as Java and C++.
+
+C# syntax is the set of rules and conventions that define how the C# language should be written. It includes keywords, operators, expressions, statements, and namespace.
+
+Keywords are predefined words in the C# language that have a specific meaning and cannot be used as variable or method names. Some common keywords
+in C# include "class", "using", "void" , "in", "string", "if", "else", "for", "foreach", "while", "try", "catch", "finally", and "switch".
+
+Operators are special symbols in C# that perform specific operations on one, two, or three operands and return a result. Some common operators in C# include
+'+, '-', '*', '/', '%', '++', '--', '==', '!=', '>', '<', '>=', '<=', '&&', '||', '!', '&', '|', '^', '~', '<<', '>>', '+=', '-=', '*=', '/=', '%=', '&=',
+'|=', '^=', '<<=', '>>=', '?:', '=', 'new', 'typeof', 'is', 'as', 'delegate', '=>', '.', '[]', '()', and '{}'.
+
+Expressions are combinations of operands and operators that evaluate to a value. For example, and expressions like "5 + 10" is an arithmetic expression
+that evaluates to the value "15". Expressions can also include methods calls, object instantiation, and more complex combinations.
+
+Statements are the basic building blokcs of C# programs. They are used to execute a specific action or sequence of actions. Some common statements
+in C# include "if", "for", "foreach", "while", "try", "catch", "finally", and "switch.
+
+Namespaces are used to organize classes and other types in C#. They allow you to group related types together and prevent naming conflicts.
+Namespaces are declared using the "namespace" keywords and can be used to organize the types in your code in a hierarchical way.
+
+Here is an example of C# syntax:
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////  using System;                                                 ////////////
+////////////  namespace MyNamespace                                         ////////////
+////////////  {                                                             ////////////
+////////////      class MyClass                                             ////////////
+////////////      {                                                         ////////////
+////////////          static void Main(string[] args)                       ////////////  
+////////////          {                                                     ////////////
+////////////              int x = 5;                                        ////////////
+////////////              int y = 10;                                       ////////////
+////////////              int result = x + y;                               ////////////
+////////////              Console.WriteLine("The result is: " + result);    ////////////
+////////////              Console.ReadLine();                               ////////////
+////////////          }                                                     ////////////
+////////////      }                                                         ////////////
+////////////  }                                                             ////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+In this example, "using" is a keyword that is used to include the "System" namespace. "namespace" is a keyword that is used to declare the "MyNamespace" namespace, which contains the "MyClass" class "class" is a keyword that is used to declare the "MyClass" class. "static" and "moid" are keywords that are used to define the "Main" method. "int" is a keyword that is used to define the variables "x", "y" and "result". "+=" is an operator that is used to add the values of "x" and " y" and store the result in the "result" variable. 
+"Console.WriteLine" and "Console.ReadLine" are methods calls that are used to output the result to the console and wait for the user to press.
+
+
+Let's recap again. (This recap will include syntaxin theme and structers)
+
+1. Variables: Variables are used to store and manipulate data in C#. In order to use a variable, you need to declare it with a specific data type,
+ such as int, string, or bool. Here is an example of declaring and initializing a variable:
+ /////////////////////////////////////////
+ //////   int age = 30;             //////
+ //////   string name = "John";     //////
+ //////   bool isValid = true;      //////
+ /////////////////////////////////////////
+
+2. Data Types: C# supports a variety of data types, including value types (e.g. int, float, double) and reference types (e.g. string, object).
+ Value types are stored on the stack and contain their value directly. Reference types are stored on the heap and contain a reference to their value.
+ /////////////////////////////////////////////////////////////
+ ////////////  int x = 5;                         ////////////
+ ////////////  int y = x;                         ////////////
+ ////////////  y = 6;                             ////////////
+ ////////////  Console.WriteLine(x); //output: 5  ////////////
+ ////////////  Console.WriteLine(y); //output: 6  ////////////
+ /////////////////////////////////////////////////////////////
+
+3. Operators: C# uses operators to perform operations on variables and values. Some examples of operators include +, -, *, /, %, and ==.
+Here's an example of using the addition operator:
+//////////////////////////////////////////////////////////////
+////////////  int a = 5;                          ////////////
+////////////  int b = 3;                          ////////////
+////////////  int c = a + b;                      ////////////
+////////////  Console.WriteLine(c); //output: 8   ////////////
+//////////////////////////////////////////////////////////////
+
+4. Expressions: C# uses expressions to perform calculations and return a value. Expressions can be made up of variables, literals, and operators.
+Here's an example of a simple expression that multiplies two variables together:
+////////////////////////////////////////////////////////////////////////
+////////////  int x = 5;                                    ////////////
+////////////  int y = 3;                                    ////////////
+////////////  int result = x * y;                           ////////////
+////////////  Console.WriteLine(result); //output: 15       ////////////
+////////////////////////////////////////////////////////////////////////
+
+5. Statements: C# uses statements to control the flow of execution. Some examples of statements include "if", "for", "while", and "switch".
+Here's an example of an "if" statement:
+////////////////////////////////////////////////////////////////////////////////////////
+////////////  int age = 18;                                                 ////////////
+////////////  if (age >= 21)                                                ////////////
+////////////  {                                                             ////////////
+////////////      Console.WriteLine("You are old enough to drink.");        ////////////
+////////////  }                                                             ////////////
+////////////  else                                                          ////////////
+////////////  {                                                             ////////////
+////////////      Console.WriteLine("You are not old enough to drink.");    ////////////
+////////////  }                                                             ////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+6. Namespaces: C# uses namespaces to organize and group related classes and types. Namespaces provide a way to organize the code and prevent naming conflicts.
+Here's an example of a namespace:
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+////////////   namespace MyApp                                   ////////////         
+////////////   {                                                 ////////////
+////////////      class Program                                  ////////////
+////////////      {                                              ////////////
+////////////        static void Main(string[] args)              ////////////
+////////////        {                                            ////////////
+////////////            Console.WriteLine("Hello, World!");      ////////////
+////////////        }                                            ////////////
+////////////      }                                              ////////////
+////////////   }                                                 ////////////
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+7. Classes: classes is a blueprint that defines the properties and methods of an object.
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+////////////  public class Person                                     ////////////
+////////////  {                                                       ////////////
+////////////      public string FirstName { get; set; }               ////////////
+////////////      public string LastName { get; set; }                ////////////
+////////////                                                          ////////////  
+////////////      public Person(string firstName, string lastName)    ////////////
+////////////      {                                                   ////////////
+////////////          FirstName = firstName;                          ////////////
+////////////          LastName = lastName;                            ////////////
+////////////      }                                                   ////////////
+////////////                                                          ////////////
+////////////      public void PrintFullName()                         ////////////
+////////////      {                                                   ////////////
+////////////          Console.WriteLine($"{FirstName} {LastName}");   ////////////
+////////////      }                                                   ////////////
+////////////  }                                                       ////////////
+////////////                                                          ////////////
+////////////  Person person = new Person("John", "Doe");              ////////////
+////////////  person.PrintFullName(); // Output: John Doe             ////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+
+
+8. Methods: Methods are used to perform specific actions or operations. Methods are declared within a class and can be called on an object of that class.
+Here's an example of a method:
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////  class Calculator                  ////////////
+////////////  {                                 ////////////
+////////////      public int Add(int x, int y)  ////////////
+////////////      {                             ////////////
+////////////          return x + y;             ////////////
+////////////      }                             ////////////
+////////////  }                                 ////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+Calculator calculator = new Calculator();
+int result = calculator.Add(5, 3);
+Console.WriteLine(result); //output: 8
+
+9. Properties: Properties are used to define the characteristics of an object.
+Properties are similar to fields, but have a getter and setter to define how the property can be accessed and modified.
+Here's an example of a property:
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+////////////  class Person                                  ////////////
+////////////  {                                             ////////////
+////////////      private string _name;                     ////////////
+////////////      public string Name                        ////////////
+////////////      {                                         ////////////
+////////////          get                                   ////////////
+////////////          {                                     ////////////
+////////////              return _name;                     ////////////
+////////////          }                                     ////////////
+////////////          set                                   ////////////
+////////////          {                                     ////////////
+////////////              _name = value;                    ////////////
+////////////          }                                     ////////////
+////////////      }                                         ////////////
+////////////  }                                             ////////////
+////////////                                                ////////////
+////////////  Person person = new Person();                 ////////////
+////////////  person.Name = "John";                         ////////////
+////////////  Console.WriteLine(person.Name); //output: John////////////
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+
+10. Events : Events are used to signal that something has happened. Events are declared using the event keyword and can be raised using the event's accessor.
+Here's an example of an event:
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+////////////  class Button                                  ////////////
+////////////  {                                             ////////////
+////////////      public event EventHandler Click;          ////////////
+////////////                                                ////////////
+////////////      public void OnClick()                     ////////////
+////////////      {                                         ////////////
+////////////          if (Click != null)                    ////////////
+////////////          {                                     ////////////
+////////////              Click(this, EventArgs.Empty);     ////////////
+////////////          }                                     ////////////
+////////////      }                                         ////////////
+////////////  }                                             ////////////
+////////////                                                ////////////
+////////////  Button button = new Button();                 ////////////
+////////////  button.Click += (sender, args) =>             ////////////
+////////////  {                                             ////////////
+////////////      Console.WriteLine("Button was clicked!"); ////////////
+////////////  };                                            ////////////
+////////////                                                ////////////
+////////////  button.OnClick();                             ////////////
+////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+This is just a brief overview of some of the key features of C# syntax and structure.
+There is much more to learn about this powerful and versatile programming language.
