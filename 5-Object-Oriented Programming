@@ -5,9 +5,9 @@ Object-Oriented Programming.
 The principles of object- oriented programming (OOP) are a set of concepts that are used to organize and structure code in a way that is easy to understand and maintain.
 The main principles of OOP are;
 
-- Encapsulation : hidding the implementation details of an object and exposing only its public interface.
-- Inheritance   : allowing classes to inherit properties and methods from a parent class.
-- Polymorphism  : allowing objects of different classes to be treated as objects of a common base class.
+- Encapsulation : Hidding the implementation details of an object and exposing only its public interface.
+- Inheritance   : Allowing classes to inherit properties and methods from a parent class.
+- Polymorphism  : Allowing objects of different classes to be treated as objects of a common base class.
 - Abstraction:  : Abstraction is the process of hiding the complexity of a system and only showing the essential features.
   It can be achieved by using abstract classes and interfaces, which define a contract that the derived classes must implement.
 
