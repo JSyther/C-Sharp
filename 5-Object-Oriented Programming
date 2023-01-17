@@ -455,59 +455,59 @@ Abstraction is one of the fundamental principles of object-oriented programming(
 features. It can be achieved by using abstract classes and interfaces, which define a contract that the derived classes must implement.
 	
 Abstraction allows for a clean and organized object-orinted design, and it is a powerful tool for code maintainability and scalability,
-as it allows you to focus on the esential features of a system and separate the implementation details from the interface.
+as it allows you to focus on the essential features of a system and separate the implementation details from the interface.
 	
 Here are a couple of examples of Abstraction in C#:
 
 Example 1: Abstract Class
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-abstract class Shape
-{
-    public abstract double GetArea();
-}
-
-class Rectangle : Shape
-{
-    private double width;
-    private double height;
-
-    public Rectangle(double width, double height)
-    {
-        this.width = width;
-        this.height = height;
-    }
-
-    public override double GetArea()
-    {
-        return width * height;
-    }
-}
-
-class Circle : Shape
-{
-    private double radius;
-
-    public Circle(double radius)
-    {
-        this.radius = radius;
-    }
-
-    public override double GetArea()
-    {
-        return Math.PI * radius * radius;
-    }
-}
-
-Rectangle rect = new Rectangle(5, 10);
-double area = rect.GetArea();
-Console.WriteLine("Area of rectangle: " + area);
-
-Circle circle = new Circle(5);
-area = circle.GetArea();
-Console.WriteLine("Area of Circle: " + area);
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////	abstract class Shape						//////////
+//////////	{								//////////
+//////////	    public abstract double GetArea();				//////////
+//////////	}								//////////
+//////////									//////////
+//////////	class Rectangle : Shape						//////////
+//////////	{								//////////
+//////////	    private double width;					//////////
+//////////	    private double height;					//////////
+//////////									//////////
+//////////	    public Rectangle(double width, double height)		//////////
+//////////	    {								//////////
+//////////	        this.width = width;					//////////
+//////////	        this.height = height;					//////////
+//////////	    }								//////////
+//////////									//////////
+//////////	    public override double GetArea()				//////////
+//////////	    {								//////////
+//////////	        return width * height;					//////////
+//////////	    }								//////////
+//////////	}								//////////
+//////////									//////////
+//////////	class Circle : Shape						//////////
+//////////	{								//////////
+//////////	    private double radius;					//////////
+//////////									//////////
+//////////	    public Circle(double radius)				//////////
+//////////	    {								//////////
+//////////	        this.radius = radius;					//////////
+//////////	    }								//////////
+//////////									//////////
+//////////	 public override double GetArea()				//////////
+//////////	    {								//////////
+//////////	        return Math.PI * radius * radius;			//////////
+//////////	    }								//////////
+//////////	}								//////////
+//////////									//////////
+//////////	Rectangle rect = new Rectangle(5, 10);				//////////
+//////////	double area = rect.GetArea();					//////////
+//////////	Console.WriteLine("Area of rectangle: " + area);		//////////
+//////////									//////////
+//////////	Circle circle = new Circle(5);					//////////
+//////////	area = circle.GetArea();					//////////
+//////////	Console.WriteLine("Area of Circle: " + area);			//////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 
 In this example, the class "Shape" is defined as an abstract class with a single abstract method "GetArea",
 which has no implementation. The abstract class and method are defined with the keyword "abstract", which means that the class cannot be instantiated.
@@ -535,10 +535,10 @@ Detailed Explanition:
 8. In main method, you can create objects for both classes and use GetArea() method on each one of them, for example:
 
 The output of this example will be:
-////////////////////////////////////////
-Area of rectangle: 50
-Area of Circle: 78.53981633974483
-////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////	Area of rectangle: 50			//////////
+//////////	Area of Circle: 78.53981633974483	//////////
+//////////////////////////////////////////////////////////////////
 
 The first output line shows the calculated area of the rectangle object created with width of 5 and height of 10, which is 50.
 The second output line shows the calculated area of the Circle object created with radius of 5, which is 78.53981633974483 using Math.PI.
@@ -546,53 +546,47 @@ The second output line shows the calculated area of the Circle object created wi
 Please note that the value of Math.PI is the approximation of pi, it's the constant value of pi in C#.
 
 Example 2: Interface
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-abstract class Shape
-{
-    public abstract double GetArea();
-}
-
-class Rectangle : Shape
-{
-    private double width;
-    private double height;
-
-    public Rectangle(double width, double height)
-    {
-        this.width = width;
-        this.height = height;
-    }
-
-    public override double GetArea()
-    {
-        return width * height;
-    }
-}
-
-class Circle : Shape
-{
-    private double radius;
-
-    public Circle(double radius)
-    {
-        this.radius = radius;
-    }
-
-    public override double GetArea()
-    {
-        return Math.PI * radius * radius;
-    }
-}
-Rectangle rect = new Rectangle(5, 10);
-double area = rect.GetArea();
-Console.WriteLine("Area of rectangle: " + area);
-
-Circle circle = new Circle(5);
-area = circle.GetArea();
-Console.WriteLine("Area of Circle: " + area);
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////	interface IDrawable						//////////
+//////////	{								//////////
+//////////	    void Draw();						//////////
+//////////	}								//////////
+//////////									//////////
+//////////	class Shape : IDrawable						//////////
+//////////	{								//////////
+//////////	    public void Draw()						//////////
+//////////	    {								//////////
+//////////	        Console.WriteLine("Drawing a shape.");			//////////
+//////////	    }								//////////
+//////////	}								//////////
+//////////									//////////
+//////////	class Rectangle : IDrawable					//////////
+//////////	{								//////////
+//////////	    public void Draw()						//////////
+//////////	    {								//////////
+//////////	        Console.WriteLine("Drawing a rectangle.");		//////////
+//////////	    }								//////////
+//////////	}								//////////
+//////////									//////////
+//////////	class Circle : IDrawable					//////////
+//////////	{								//////////
+//////////	    public void Draw()						//////////
+//////////	    {								//////////
+//////////	        Console.WriteLine("Drawing a circle.");			//////////
+//////////	    }								//////////
+//////////	}								//////////
+//////////									//////////
+//////////	Shape shape = new Shape();					//////////
+//////////	shape.Draw();							//////////
+//////////									//////////
+//////////	Rectangle rect = new Rectangle();				//////////
+//////////	rect.Draw();							//////////
+//////////									//////////
+//////////	Circle circle = new Circle();					//////////
+//////////	circle.Draw();							//////////
+//////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 In this example is an implementation of abstraction using an interface. The interface "Idrawable" defines a single method "Draw" which has no implementation. The classes "Shape", "Rectangle" and "Circle" all implement the "IDrawable" interface by providing their own implementation of the "Draw" method.
 	
 Here is a step by step explanation of the example:
@@ -611,13 +605,14 @@ Here is a step by step explanation of the example:
 5. In main method, you can create objects for these classes and use Draw() method on each one of them, for example:
 
 This will output:
-//////////////////////////////////////
-Area of rectangle: 50
-Area of Circle: 78.53981633974483
-//////////////////////////////////////
+////////////////////////////////////////////////////
+///////////	Drawing a shape.	////////////
+///////////	Drawing a rectangle.	////////////
+///////////	Drawing a circle.	////////////	
+////////////////////////////////////////////////////
 
-
-This example is similar to the previous one, but instead of using an abstract class, an interface is used to define the contract that the derived classes must implement. The interface defines a single method "Draw" that must be implemented by any class that implements the interface.
+This example is similar to the previous one, but instead of using an abstract class, an interface is used to define the contract that the derived classes must implement. 
+The interface defines a single method "Draw" that must be implemented by any class that implements the interface.
 
 In the main method of the program, an array of "IDrawable" objects is created and it includes an instance of "Shape", "Rectangle" and "Circle" class. 
 The "Draw" method is then called on each object in the array using a foreach loop.
@@ -628,7 +623,6 @@ of the different classes in a similar way by calling the same method on each of 
 In summary, Abstraction is a key concept in OOP, it allows you to focus on the essential features of a system and separate the implementation details
 from the interface. It can be achieved by using abstract classes and interfaces, which define a contract that the derived classes must implement.
 This allows for a clean and organized object-oriented design, and it makes the code more maintainable, scalable, and easy to understand.
-
 
 In conclusion, the principle of object-oriented programming (OOP) are a set of concept that are used to organize and structure code in a way that is easy to understand
 and maintain. The main principle of OOP are encapsulation, inheritance, and polymorphism. Encapsulation allows you to hide the implementation details of an object
