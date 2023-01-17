@@ -275,7 +275,13 @@ It's also possible to use the this keyword to call other constructors within a c
 Properties are used to define the state of an object, and they are used to get and set the values of the object's properties.
 
 A property is a member of a class or struct that provides a flexible mechanism to read, write, or compute the value of a private field. Properties can be used as
-if they are public data members, but they are actually special methods called accessors.
+if they are public data members, but they are actually special methods called accessors. This enables data to be accessed easily and still helps promote the safety and
+flexibility of methods.
+
+In C#, properties are defined using the "get" and "set accessors. The "get" accessor is used to return the value of the property, and the "set" accessor is used to
+assign a new value to the property.
+
+Here's an example of a class called "Car" that has a property called "Make" that can be used to get and set the make of the car.
 
 
 
