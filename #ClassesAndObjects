@@ -1,0 +1,287 @@
+Here is a list of things can do to learn how to create and use classes and objects in C#
+
+1. Understand the concept of a class and object: A class is a blueprint or template for creating objects, and an object is an instance of a class.
+2. Learn how to create a class in C#: Use the "class" keyword to define a class and its properties and methods 
+3. Learn how to create an object of a class: Use the "new" keyword to instantiate an object of a class.
+4. Learn about constructors: A constructor is a special method that is called when an object is created. It is used to initialize the properties of the object.
+5. Learn about properties: Properties are used to define the state of an object. They are used to get and set the values of the object's properties.
+6. Learn about methods: Methods are used to define the behavior of an object. They are used to perform actions on the object.
+7. Learn how to use classes and objects in a program: Create objects of a class, call methods on the objects, and use the properties to access the state of the objects.
+8. Learn about access modifiers: Access modifiers are used to control the visibility of properties and methods in a class. Learn about the different access 
+   modifiers(public, private, protected, internal) and how they are used.
+9. Learn about encapsulation: Encapsulation is the process of hiding the implementation details of an object and exposing only its public interface.
+10.Learn about inheritance and polymorphism: Inheritance allows a class to inherit properties and methods from a parent class, and polymorphism allows objects of
+   different classes to be treated as objects of a common base class.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#1 {}
+
+In C#, a class is a blueprint or template for creating objects. It defines the properties, methods, and events that an object of that class will have. A class is a
+collection of data and behavior, and it's used to define the structure and behavior of a program.
+
+An object is an instance of a class, and it's created by using the "new" keyword, followed by the class name and parantheses. Each object created from a class has
+its own set of properties and methods, and it can be used to represent a real-world object.
+
+For example, a class "Car" can have properties such as "Brand", "Model", "Year" and methods such as "Start", "Drive", "Stop". An object of the class "Car" can be created
+using the "new" keyword, and it can be used to represent a specific car such as "Toyota Camry 2020" and can call the methods such as"Start", "Drive", "Stop" on that
+specific car.
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+class Car
+{
+    public string Brand;
+    public string Model;
+    public int Year;
+
+    public void Start()
+    {
+        Console.WriteLine("Car started");
+    }
+
+    public void Drive()
+    {
+        Console.WriteLine("Car is driving");
+    }
+
+    public void Stop()
+    {
+        Console.WriteLine("Car Stopped");
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Car myCar = new Car();
+        myCar.Brand = "Toyota";
+        myCar.Model = "Camry";
+        myCar.Year = 2020;
+        myCar.Start();
+        myCar.Drive();
+        myCar.Stop();
+    }
+}
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+This program defines a class "Car" that has properties such as "Brand", "Model" and "Year", and methods such as "Start", "Drive", and "Stop". In the Main method,
+an object of the class "Car" is created using the "new" keyword, and the properties are assigned values such as "Toyota", "Camry" and 2020. Then the methods "Start",
+"Drive" and "Stop" are called on the myCar object in the order they are written. 
+
+It's worth noting that since the properties are public in the class, they can be accessed and assigned values directly from outside of the class as well.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#2 {}
+To create a class in C#, you use the "class" keyword followed by the name of the class. The properties and methods of the class are defined inside the curly braces
+that follow the class name.
+
+Here is an example of a simple class called "Car" that has properties for the car's make, model, and year, and a method for starting the car:
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+class Car
+{
+    public string Make { get; set; }
+    public string Model { get; set; }   
+    public int Year { get; set; }  
+
+
+    public void Start()
+    {
+        Console.Write("The car has started");
+    }
+}
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////  
+
+In this example, the class "Car" has three properties: "Make", "Model", and "Year". These properties are defined using the "public" access modifier, which means they
+can be accessed and modified from outside the class. The properies are also defined using the shorthand notation for get and set using the {get; set;}
+
+The class also has a single method called "Start", which simply writes a message to the console when called. This method is defined using the "public" access modifier,
+which means it can be called from outside the class.
+
+Once the class is defined, you can create an object of the class and set its properties and call its methods like this:
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+public class Car
+{
+    public string Make { get; set; }
+    public string Model { get; set; }   
+    public int Year { get; set; }  
+
+
+    public void Start()
+    {
+        Console.Write("The car has started");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Car myCar = new Car();
+        myCar.Make = "Toyota";
+        myCar.Model = "Camry";
+        myCar.Year = 2020;
+        myCar.Start();
+    }
+}
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+It's also possible to add constructors, destructors, and other class members like private fields, constants, and static members, and also interfaces and inheritance
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#3 {}
+To create an object of a class in C#, you use the "new" keywords followed by the class name and parantheses. This creates an instance of the class and assigns
+it to a variable.
+
+For example, if you have a class called "Car" defined like this:
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+public class Car
+{
+    public string Make { get; set; }
+    public string Model { get; set; }   
+    public int Year { get; set; }  
+
+
+    public void Start()
+    {
+        Console.Write("The car has started");
+    }
+}
+////////////////////////////////////////////////////////
+You can create an object of the class and assign it to a variable like this:
+////////////////////////////////////////////////////////
+    Car myCar = new Car();
+////////////////////////////////////////////////////////
+Once you have an object of the class, you can access its properties and call its methods using the dot notation.
+////////////////////////////////////////////////////////
+        myCar.Make = "Toyota";
+        myCar.Model = "Camry";
+        myCar.Year = 2020;
+        myCar.Start();
+////////////////////////////////////////////////////////
+It's also possible to use constructors to initialize the object when it's created. A constructor is a speicial method that runs when an object is created, it's used
+to set the initial state of the object. The constructor method has the same name as the class and it doesn't have a return type.
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+public class Car
+{
+    public string Make { get; set; }
+    public string Model { get; set; }
+    public int Year { get; set; }
+    public Car(string make, string model, int year)
+    {
+        Make = make;
+        Model = model;
+        year = year;
+    }
+    public void Start()
+    {
+        Console.WriteLine("The car has started.");
+    }
+}
+////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////// 
+ You can create an object of the class and set its properties via the contrustor
+ like this:
+//////////////////////////////////////////////////////// 
+ public class Car
+{
+    public string Make { get; set; }
+    public string Model { get; set; }
+    public int Year { get; set; }
+    public Car(string make, string model, int year)
+    {
+        Make = make;
+        Model = model;
+        year = year;
+    }
+    public void Start()
+    {
+        Console.WriteLine("The car has started.");
+    }
+
+    Car mycar = new Car("Toyota", "Camry", 2020);
+}
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#4 {}
+
+Constructors are special methods that are called when an object is created and are used to initialize the properties of the object. A constructor has the same name
+as the class and it doesn2t have a return type.
+
+In C#, a class can have multiple constructors. Each constructor can have different parameters and perform different acitons. The default constructor is the one with
+no parameters. If you don2t define any constructors the default one will be created by the compiler.
+
+Here is an example of a class "Car" with a constructor that takes three parameters: make, model, and year and initializes the properties of the object with the provided
+values:
+
+
+////////////////////////////////////////////////////////
+class Car
+{
+    public string Make { get; set; }
+    public string Model { get; set; }
+    public int Year { get; set; }
+    public Car(string make, string model, int year)
+    {
+        Make = make;
+        Model = model;
+        Year = year;
+    }
+}
+/////////////////////////////////////////////////////////
+
+You can create an object of the class using the constructor and passing in the values for the properties like this:
+////////////////////////////////////////////////////////////
+    Car myCar = new Car("Toyota", "Camry", 2020);
+////////////////////////////////////////////////////////////
+
+It's alos possible to creat a constructor with no parameters, called the default constructor, this constructor will be called when you creat an object without passing
+any parameters.
+
+/////////////////////////////////////////
+class Car
+{
+    public string Make { get; set; }
+    public string Model { get; set; }
+    public int Year { get; set; }
+    public Car()
+    {
+    }
+}
+/////////////////////////////////////////
+
+You can create and object of the class using the default constructor like this:
+/////////////////////////////
+Car myCar = new Car();
+////////////////////////////
+It's also possible to use the this keyword to call other constructors within a constructor. This is called constructor chaining.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#5 {}
+
+Properties are used to define the state of an object, and they are used to get and set the values of the object's properties.
+
+A property is a member of a class or struct that provides a flexible mechanism to read, write, or compute the value of a private field. Properties can be used as
+if they are public data members, but they are actually special methods called accessors.
+
+
+
+
+
+  
+  
+  
+  
