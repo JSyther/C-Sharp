@@ -1,0 +1,235 @@
+A simple guess game in C# where the user has 5 chances to guess a specific string value, and if they fail, they are given 5 more chances with different messages
+for each failure:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+using System;
+
+class GuessGame
+{
+    static void Main(string[] args)
+    {
+        string[] messages = new string[] { "Tryagain", "Wrong answer", "Incorrect.", "Not quite.", "Keep trying." };
+        string correctAnswer = "Hello";
+        int chances = 0;
+        Random rand = new Random();
+
+        while(chances < 10)
+        {
+            if(chances < 5)
+            {
+                Console.WriteLine("Make a guess:");
+                string guess = Console.ReadLine();
+                if(guess == correctAnswer)
+                {
+                    Console.WriteLine("Congratulations! You got it right");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine(messages[chances % 5]);
+                    chances++;
+                }
+            }
+            else
+            {
+                if (chances == 5)
+                {
+                    Console.WriteLine("You have failed 5 times. Here is your next 5 chances");
+                }
+                Console.WriteLine("Make a guess");
+                string guess = Console.ReadLine(); 
+
+                if(guess == correctAnswer)
+                {
+                    Console.WriteLine("Congratulations! You got it right.");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine(messages[chances % 5]);
+                    chances++;
+                }
+            }
+        }
+
+        if(chances == 10)
+        {
+            Console.WriteLine("Sorry, you have exceeded the number of allowed guesses. Better luck next time!");
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This code uses a while loop to give the user 10 chances to guess the correct string. Within the loop, it uses an if-else statement to check if the
+current number of chances is less than 5. If it is, it prompts the user to make a guess and compares it to the correct answer.
+If the guess is correct, the loop breaks and a message is displayed. If the guess is incorrect, the code prints out a message from the messages array
+and increments the chances variable. If the number of chances is greater than or equal to 5, it will give the user 5 more chance with different message.
+
+How to build it step by step. => Below
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+using System;
+
+class GuessGame
+{
+    static void Main(string[] args)
+    {
+         // One of the 5 string values that will be given random after wrong entries
+         string[] messages = new string[] { "Tryagain", "Wrong answer", "Incorrect.", "Not quite.", "Keep trying." };  
+         string correctAnswer = "Hello";  // this example is our correct answer
+         int chances = 0;         // It starts with 0 and then increments with falses.
+         Random rand = new Random();  // This value will then provide a random output of the string values we have prepared for the wrong answers.
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+using System;
+
+class GuessGame
+{
+    static void Main(string[] args)
+    {
+         string[] messages = new string[] { "Tryagain", "Wrong answer", "Incorrect.", "Not quite.", "Keep trying." };
+         string correctAnswer = "Hello";
+         int chances = 0;
+         Random rand = new Random();         
+         while(chances <10)     //While true game will run
+         {
+            TODO: Gameplay
+         }
+         
+         if(chances == 10)    //if it is true (chances are equal to 10) game is lose 
+         {
+            Console.WriteLine("Sorry, you have exceeded the number of allowed guesses. Better luck next time");  //If so, the game is completely over.
+         }         
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class GuessGame
+{
+    static void Main(string[] args)
+    {
+         string[] messages = new string[] { "Tryagain", "Wrong answer", "Incorrect.", "Not quite.", "Keep trying." };
+         string correctAnswer = "Hello";
+         int chances = 0;
+         Random rand = new Random();        
+         while(chances <10)     //While true game will run
+         {
+            if(chances <5) //As we mentioned before, we will once again grant chances after 5 rights.
+            {
+                Console.WriteLine("Make a guess:")   // First of all, everything has to start with the first question.
+                string guess = Console.ReadLine();   // The input entered by the user from the keyboard will be processed here.
+                if(guess == correctAnswer)           // if user's guess is match with correctAnswer("Hello")
+                {
+                    Console.WriteLine("Congratulations! You got it right"); // Then we can say to the user, the answer is correct.
+                    break;                          // break stops the whole while loop if the operation here is true.
+                }             
+            }
+         }
+         
+         if(chances == 10)    //if it is true (chances are equal to 10) game is lose 
+         {
+            Console.WriteLine("Sorry, you have exceeded the number of allowed guesses. Better luck next time");  //If so, the game is completely over.
+         }         
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+using System;
+
+class GuessGame
+{
+    static void Main(string[] args)
+    {
+         string[] messages = new string[] { "Tryagain", "Wrong answer", "Incorrect.", "Not quite.", "Keep trying." };
+         string correctAnswer = "Hello";
+         int chances = 0;
+         Random rand = new Random();
+         while(chances <10)     
+         {
+            if(chances <5) 
+            {
+                Console.WriteLine("Make a guess:")  
+                string guess = Console.ReadLine();   
+                if(guess == correctAnswer)         
+                {
+                    Console.WriteLine("Congratulations! You got it right"); 
+                    break;                          
+                }
+                else    // if input's are not correct and chances are still less than 5 
+                {
+                    int index = rand.Next(0,5); // it returns random integer between 0 to 5
+                    Console.WriteLine(messages[index]); // we determine index(0to5) in here as a array value
+                    chances++;
+                } 
+            }
+         }
+         
+         if(chances == 10)    
+         {
+            Console.WriteLine("Sorry, you have exceeded the number of allowed guesses. Better luck next time"); 
+         }         
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+using System;
+
+class GuessGame
+{
+    static void Main(string[] args)
+    {
+         string[] messages = new string[] { "Tryagain", "Wrong answer", "Incorrect.", "Not quite.", "Keep trying." };
+         string correctAnswer = "Hello";
+         int chances = 0;
+         Random rand = new Random();
+         while(chances <10)     
+         {
+            if(chances <5) 
+            {
+                Console.WriteLine("Make a guess:")  
+                string guess = Console.ReadLine();   
+                if(guess == correctAnswer)         
+                {
+                    Console.WriteLine("Congratulations! You got it right"); 
+                    break;                          
+                }
+                else    
+                {
+                    int index = rand.Next(0,5); 
+                    Console.WriteLine(messages[index]);
+                    chances++;
+                } 
+            }
+         }
+         else       // Now second part of game, after to 5 incorrect answers
+         {
+            if(chances ==5)
+            {
+               Console.WriteLine("You have failed 5 times. Here is your next 5 chances"); // This is then added to avoid being spammed over and over again.
+            } 
+               Console.WriteLine("Make a guess");
+               string guess = Console.ReadLine(); 
+            if(guess == correctAnswer)    // Again same structure as above
+            {
+               Console.WriteLine("Congratulations! You got it right.");
+               break;       // if correct break;
+            }
+            else
+            {
+                int index = rand.Next(0, 5);
+                Console.WriteLine(messages[index]);
+                chances++;
+            }            
+         }                  
+         if(chances == 10)    
+         {
+            Console.WriteLine("Sorry, you have exceeded the number of allowed guesses. Better luck next time"); 
+         }         
+    }
+}
+
+
+// That's all we have. 
