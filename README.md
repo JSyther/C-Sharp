@@ -9,15 +9,12 @@ C# - Journey
 
 - This article is being shared for free and for the purpose of education and knowledge sharing. The authors of this article have invested a significant amount of time     and effort in creating this content and we kindly ask that you respect their work and abide by the terms of use outlined here.
 
-- Free distribution and copying are permitted. It can also be translated into other languages.
+- For Free charge available to distribution and copying are permitted. It can also be translated into other languages.
 
 - Any violations of these terms will be met with legal action. We thank you for your understanding and cooperation.
 
   Sincerely,
   Reverse-A Project
-
-
-
 
 
 
