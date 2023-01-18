@@ -2,121 +2,181 @@
 ///////////////////////////////////////////////////////////////////////Subject 1 = Fundamental/////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-* Integers, Double, Float, String, Char, Bool(Booleans) [main variables]
-* More variables will be included in the following lessons.
-§ !You can skipsections with a square and exclamation point symbol at the beginning. The processes here are lessons that will seem a little more advanced. Of course it's worth reading.
+Integers, Double, Float, String, Char, Bool(Booleans) [main variables]
+More variables will be included in the following lessons.
+!You can skipsections with a square and exclamation point symbol at the beginning. The processes here are lessons that will seem a little more advanced.
+Of course it's worth reading.
 
-- In C#, a variable is a named storage location that can hold a value of a specific data type. A variable must be declared before it can be used in a program, and it must be initialized with a value before it can be used.
-- The Syntax for declaring a variable in C# is:
- * { dataType variableName; }
+In C#, a variable is a named storage location that can hold a value of a specific data type. A variable must be declared before it can be used in a program,
+and it must be initialized with a value before it can be used.
 
-Ø Integers;
-- For example, to declare an integer variable named "age", you would write:
-* { int age; }
+The Syntax for declaring a variable in C# is:
+//////////////////////////////////
+ { dataType variableName; }
+//////////////////////////////////
 
-- You can also initialize variable when declaring it
-* { int age = 25; }
-- int = Integers
-- In C#, "int" is a data type that represents a 32-bit signed integer. It can store whole numbers (integers) from -2.147.483.648 to 2.147.483.648.
-- The "int" keyword is used to declare a variable of type int. Like the example above  "int age = 25;"
+Integers;
+For example, to declare an integer variable named "age", you would write:
+//////////////////////////////////
+ { int age; }
+//////////////////////////////////
 
+You can also initialize variable when declaring it
+//////////////////////////////////
+ { int age = 25; }
+//////////////////////////////////
+ int = Integers//////////////////
+//////////////////////////////////
+In C#, "int" is a data type that represents a 32-bit signed integer. It can store whole numbers (integers) from -2.147.483.648 to 2.147.483.648.
+The "int" keyword is used to declare a variable of type int. Like the example above  "int age = 25;"
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Ø Double;
-- In C#, "double" is a data type that represents a double-precision floating-point number. It can store numbers with decimal points, such as 3.14159 or -2.5. The double type is a value type, which means that when you assign a double variable to another variable or pass it as an argument to a method, a copy of the value is created. 
--  The "double" keyword is used to declare a variable of type double. For example:
-* { double pi = 3.14150; }
+Double;
+In C#, "double" is a data type that represents a double-precision floating-point number. It can store numbers with decimal points, such as 3.14159 or -2.5.
+The double type is a value type, which means that when you assign a double variable to another variable or pass it as an argument to a method,
+a copy of the value is created. 
 
-- This declares a variable named "pi" that can hold a double-precision floating-point value.
-- The double type uses 8 bytes of memory and has a precision of 15-17 digits. It's also used when you need to work with decimal numbers and you need a higher precision than the float type.
-- It is also important to note that you can use the double data type to represent large or small numbers and it's used for scientific calculations.
-* { double d = 1234.5678;
+The "double" keyword is used to declare a variable of type double. For example:
+//////////////////////////////////
+{ double pi = 3.14150; }
+//////////////////////////////////
+
+This declares a variable named "pi" that can hold a double-precision floating-point value.
+The double type uses 8 bytes of memory and has a precision of 15-17 digits. It's also used when you need to work with decimal numbers and you need a higher
+precision than the float type.
+
+It is also important to note that you can use the double data type to represent large or small numbers and it's used for scientific calculations.
+//////////////////////////////////
+{ double d = 1234.5678;
 double e = 1E-9; }
+//////////////////////////////////
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Ø Float;
-- In C#, "float" is a data type that represents a single-precision floating-point number. It can store numbers with decimal points, such as 3.14 or -2.5, but with a lower precision than double. The float type is a value type, which means that when you assign a float variable to another variable or pass it as an argument to a method, a copy of the value is created.
-- The "float" keyword is used to declare a variable of type float. For example:
-* { float pi = 3.14f; }
+In C#, "float" is a data type that represents a single-precision floating-point number. It can store numbers with decimal points, such as 3.14 or -2.5, but with a lower precision than double. The float type is a value type, which means that when you assign a float variable to another variable or pass it as an argument to a method, a copy of the value is created.
+The "float" keyword is used to declare a variable of type float. For example:
+//////////////////////////////////
+{ float pi = 3.14f; }
+//////////////////////////////////
 
-- This declares a variable named "pi" that can hold a single- precision floating-point value. The "f" at the end of the value is used to indicate that it is a float.
-- The float type uses 4-bytes of memory and has a precision of 7 digits. It's used when you need to work with decimal numbers and you don't need a high precision.
-- It is also important to note that you can use the float data type to represent large or small numbers and it's used for scientific calculations.
-* { float d = 1234.5678f;
+This declares a variable named "pi" that can hold a single- precision floating-point value. The "f" at the end of the value is used to indicate that it is a float.
+The float type uses 4-bytes of memory and has a precision of 7 digits. It's used when you need to work with decimal numbers and you don't need a high precision.
+It is also important to note that you can use the float data type to represent large or small numbers and it's used for scientific calculations.
+//////////////////////////////////
+{ float d = 1234.5678f;
 float e = 1E-9f; }
+//////////////////////////////////
 
-- Please note that, due to the limitations of the floating-point numbers, you should be careful when comparing them, sometimes even equal looking numbers can be different when they are represented with floating-point numbers.(I will give you examples in the following topics. I'm skipping over here for now so you don't get confused.)
+Please note that, due to the limitations of the floating-point numbers, you should be careful when comparing them,
+sometimes even equal looking numbers can be different when they are represented with floating-point numbers.
+(Examples in the following topics. I'm skipping over here for now so you don't get confused.)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Ø String;
 - In C#, "string" is a data type that represents a sequence of characters. It is used to store text, such as words, senteces, or paragraphs. A string can be declared using the "string" keyword, and can be initialized with a string literal, which is a sequence of characters enclosed in double quotes.
 - Here is an example of declaring and initializing  a string variable:
-* { string message = "Hello, world!; }
+//////////////////////////////////
+{ string message = "Hello, world!; }
+//////////////////////////////////
+In this example, the variable "message" is of type string and is initialized with the string literal "Hello, world!";
+A string is an object in C#, so it has properties and methods that can be used to manipulate the string. Some examples of string methods include:
 
-- In this example, the variable "message" is of type string and is initialized with the string literal "Hello, world!";
-- A string is an object in C#, so it has properties and methods that can be used to manipulate the string. Some examples of string methods include:
-
-§ !Length: Returns the number of character in the string
-§ !Substring: Returns  a new string that is a portion of the original string
-§ !Replace: Replaces all occurrences of a specified string with another string
-§ !ToUpper: Returns a new string that is the original string in uppercase
-§ !ToLower: Returns a new string that is the original string in lowercase
-§ ![PS: For now, the 5 above is not important and I will give information in a different place for information abour "return". You can access it by clicking (LINK).]
-§ !Here is an example of using string methods.
-* !{ string message = "Hello, World!";
+ !Length: Returns the number of character in the string
+ !Substring: Returns  a new string that is a portion of the original string
+ !Replace: Replaces all occurrences of a specified string with another string
+ !ToUpper: Returns a new string that is the original string in uppercase
+ !ToLower: Returns a new string that is the original string in lowercase
+ ![PS: For now, the 5 above is not important and I will give information in a different place for information abour "return". You can access it by clicking (LINK).]
+ 
+ Here is an example of using string methods.
+/////////////////////////////////////////////////////////////////////
+{ string message = "Hello, World!";
 int length = message.Length;
 string sub = message.Substring(0,5);
 string replaced = message.Replace("World", "Friend");
 string upper = message.ToUpper();
 string lower = message.ToLower(); }
+/////////////////////////////////////////////////////////////////////
 
-- You can also concatenate string using + operator.
-* { string firtName = "Jake";
+ You can also concatenate string using + operator.
+////////////////////////////////////////////////////////////////////
+{ string firtName = "Jake";
 string lastName = "Syther";
 string fullName = firstName + " " + lastName; }
+////////////////////////////////////////////////////////////////////
 
-Ø Char;
-- In C#, "char" is a data type that represents a single character. It is used to store single letters, digits, or symbols. A char can be declared using the "char" keyword and can be initialized with a single character enclosed in single quotes.
-- Here is an example of declaring and initializing a char variable:
-* {  char letter = 'A'; }
+Char;
+In C#, "char" is a data type that represents a single character. It is used to store single letters, digits, or symbols. A char can be declared using the "char" keyword and can be initialized with a single character enclosed in single quotes.
+Here is an example of declaring and initializing a char variable:
+//////////////////////////////////
+{
+  char letter = 'A'; 
+}
+//////////////////////////////////
 
-- In this example, the variable "letter" is of type char and is initialized with the character "A" 
-- A char is a value type, which means that when you assign a char variable to another variable or pass it as an argument to a method, a copy of the value is created.
-§ You can also use the char data type to store unicode characters, for example:
-* { char unicode = '\u0041'; }
+In this example, the variable "letter" is of type char and is initialized with the character "A" 
+A char is a value type, which means that when you assign a char variable to another variable or pass it as an argument to a method, a copy of the value is created.
+You can also use the char data type to store unicode characters, for example:
+{ char unicode = '\u0041'; }
 
-§ You can also convert from a string to a char using indexer, for example:
-* { string word = "Hello";
-char firstLetter = word[0]; }
+You can also convert from a string to a char using indexer, for example:
+//////////////////////////////////
+{ 
+string word = "Hello";
+char firstLetter = word[0]; 
+}
+//////////////////////////////////
 
-§ You can also use the char data type to check if a char is a letter, digit or symbol using the char. IsLetter, char.IsDigit and char.IsSymbol properties respectivetly.
-* { char c = '1';
-if(char.IsDigit(c))
-Console.WriteLine("c is a digit");
-else if (char.IsLetter(c))
-Console.WriteLine(c is a letter");
-else if (char.IsSymbol(c))
-Console.WriteLine("c is a symbol"); }
+You can also use the char data type to check if a char is a letter, digit or symbol using the char. IsLetter, char.IsDigit and char.IsSymbol properties respectivetly.
+///////////////////////////////////////////
+{
+ char c = '1';
+  if(char.IsDigit(c))
+  Console.WriteLine("c is a digit");
+  else if (char.IsLetter(c))
+  Console.WriteLine(c is a letter");
+  else if (char.IsSymbol(c))
+  Console.WriteLine("c is a symbol"); 
+ }
+///////////////////////////////////////////
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Ø Bool(Booleans);
-- In C#, "bool" is a data type that represents a Boolean value, which can be either true or false.
-- It is used to store values that represent true/false conditions, such as whether a user is logged in or not, whether a certain button has been clicked, etc.
-- A bool can be declared using the "bool" keyword and can be initialized with the values "true" or "false". Here is an example of declaring and initializing a bool variable:
-* { bool isLoggedIn = true;}
+In C#, "bool" is a data type that represents a Boolean value, which can be either true or false.
+It is used to store values that represent true/false conditions, such as whether a user is logged in or not, whether a certain button has been clicked, etc.
+A bool can be declared using the "bool" keyword and can be initialized with the values "true" or "false". Here is an example of declaring
+and initializing a bool variable:
 
-- In this example, the variable "isLoggedIn" is of type bool and is initialized with the value "true", indicating that the user is logged in.
-- Bool variables are often used in control flow statements such as if, while and for. Here is an example of using a bool variable in an if statement:
-* { bool isStudent = true;
+{ bool isLoggedIn = true;}
+
+In this example, the variable "isLoggedIn" is of type bool and is initialized with the value "true", indicating that the user is logged in.
+Bool variables are often used in control flow statements such as if, while and for. Here is an example of using a bool variable in an if statement:
+///////////////////////////////////////////
+{ bool isStudent = true;
 if(isStudent){
- Console.WriteLine("You are a student");
+Console.WriteLine("You are a student");
 } else {
- Console.WriteLine("You are not a student");
+Console.WriteLine("You are not a student");
 }
+///////////////////////////////////////////
 
-- In this example, the if statement checks the value of the "isStudent" variable and executes the appropriate code block based on its value.
-- You can also use logical operators such as &&(and), ||(or), and !(not) to compare and manipulate boolean values.
-* { bool isStudent = true;
+In this example, the if statement checks the value of the "isStudent" variable and executes the appropriate code block based on its value.
+You can also use logical operators such as &&(and), ||(or), and !(not) to compare and manipulate boolean values.
+
+//////////////////////////////////////////////////////////
+{ bool isStudent = true;
 bool isSenior = false;
 if(isStudent && !isSenior){
- Console.WriteLine("You are a student but not a senior");
+Console.WriteLine("You are a student but not a senior");
 }
+//////////////////////////////////////////////////////////
 
-v The most important main variables are for now, we will see more different variables in the next lessons that go this far, and we will even creat our own variable classes.
+
+
+
+The most important main variables are for now, we will see more different variables in the next lessons that go this far,
+and we will even creat our own variable classes.
