@@ -401,11 +401,316 @@ Car myCar = new Car();
 
 Once you have an object of the class, you can use the properties to access the state of the object and call the methods to perform actions on the object.
 
+///////////////////////////////////////////////////
+Car myCar = new Car();
+myCar.Make = "Toyota";
+myCar.Model = "Camry";
+myCar.Year = 2023;
+
+myCar.Start();
+Console.WriteLine("Driving the car...")
+
+myCar.Stop();
+///////////////////////////////////////////////////
+
+It's also possible to create multiple objects of the same class, each with its own state and behavior.
+
+///////////////////////////////////////////////////
+Car myCar = new Car();
+myCar.Make = "Toyota";
+myCar.Model = "Camry";
+myCar.Year = 2023;
+
+car myOtherCar = new Car();
+myOtherCar.Make = "Honda";
+myOtherCar.Model = "Civic";
+myOtherCar.Year = 2022;
+///////////////////////////////////////////////////
+
+It's also possible to use constructors to initialize the object whhen it's created and use properties and methods to access the object's state and behavior.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#8 {}
+
+Access modifiers are used to control the visibility of properties and methods in a class. They are used to restrict the accessibility of class members
+(properties, methods, and constructors) to other classes and objects. C# provides several access modifiers, which are as follows.
+
+-"public": A public member can be accessed from anywhere, both inside and outside the class or struct. A class or struct can have any number of public members."
+-"protected": A protected member can be accessed only within the class or struct in which it is declared, or within a derived class.
+-"internal": An internal member can be accessed only within the same assembly (a collection of classes, objects and other source code files)
+
+Here is an example of a class called "Car" that has a private field "year" and a public property "Year" that used the private field to get and set value:
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+class Car///////////////////////////////////////////////////
+{
+    private int _year;
+    public int Year
+    {
+        get { return _year; }
+        set { _year = value; }
+    }
+
+    public void Start()
+    {
+        Console.WriteLine("The car has started");
+    }
+
+    public void Stop()
+    {
+        Console.WriteLine("The car has stopped.");
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+In this example, the private field "_year" can be accessed only within the "Car" class, and the public property "Year" uses the private field to get and set the value.
+
+It's important to use the correct access modifiers to keep your code organized and maintainable. It's a good practice to use the last restrictive access modifier that
+still allows the code to work correctly.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#9 {}
+
+Encapsulation is a fundamental concept in object-oriented programming and is used to hide the implementation details of an object and expose only is public interface.
+It is one of the four fundamental principles of OOP, the other three being inheritance, polymorphism, and abtraction.
+
+Encapsulation is achieved by using access modifiers to limit the accessibility of class members, such as properties and methods. By making certain members private
+and other public, you can control which members of a class can be accessed and modified from outside the class. This allows you to change the implementation of a class
+without affecting the code that uses it.
+
+Here is example of a class called "Car" that has a private field "year" and a public property "Year" that uses the private field to get and set the value:
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+class Car
+{
+    private int _year;
+    public int Year
+    {
+        get { return _year; }
+        set { _year = value; }
+    }
+
+    public void Start()
+    {
+        Console.WriteLine("The car has started");
+    }
+
+    public void Stop()
+    {
+        Console.WriteLine("The car has stopped.");
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+In this example, the private field "_year" is hidden from the outside world and can be accessed only through the public propert "Year". This means that the users of the
+class don't have direct access to the field, which allows you to change the implementation of the field without affecting the code that uses the class.
+
+En capsulation also allows you to add additional logic to the properties, such as validation, logging, or other behavior, without affecting the code that uses the class.
+
+Several examples for encapsulation.
+
+1. Using private fields and public properties:
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+class Person
+{
+    private string name;
+    private int age;
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+    public int Age
+    {
+        get { return age; }
+        set { age = value;}
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Person person = new Person();
+        person.Name = "John";
+        person.Age = 30;
+        Console.WriteLine("Name: " + person.Name);
+        Console.WriteLine("Age: " + person.Age);
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+In this example, the "Person" class has private fields "name" and "age", and public properties "Name" and "Age". The private fields are used to store the state of the 
+object. This allows you to control access to the fields and ensure that they are only accessed and modified through the properties.
+
+2. Using private setter:
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class BankAccount
+{
+    private decimal balance;
+
+    public decimal Balance
+    {
+        get { return balance; }
+        set { balance = value; }
+    }
+
+    public void Deposit(decimal amount)
+    {
+        Balance += amount;
+    }
+
+    public void Withdraw(decimal amount)
+    {
+        if(balance < amount)
+        {
+            throw new Exception("Insufficient funds.");
+        }
+        Balance -= amount;
+    }
+}
 
 
+class Program
+{
+    static void Main(string[] args)
+    {
+        BankAccount account = new BankAccount();
+        account.Deposit(1000);
+        Console.WriteLine("Balance: " + account.Balance);
+        account.Withdraw(500);
+        Console.WriteLine("Balance: " + account.Balance);
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+In this example, the BankAccount class has a private setter for the Balance property. This means that the value of the Balance property can only be modified by the 
+class itself, and not by other classes or objects. This ensures that the balance can only be modified through the Deposit and Withdraw methods, which can perform
+additional checks and validations before modifying the balance. This is an example of encapsulation, it allows you to control access to the state of the object and
+ensure that it's only modified in a valid and consistent way.
+
+Another example of encapsulation, is using interfaces and abstract classes, which allow you to define a public interface for a class, but hide the implementation
+details. This allows you to change the implementation of a class without affecting the code that uses the class, as long as the public interface remains the same.
+
+In short, encapsulation is a way to protect the state and behaviour of an object from the outside world, and to control how it's accessed and modified. This allows
+you to create more robust and maintainable code by isolating the implementation details of a class and exposing only the public interface.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#10 {}
+
+Inheritance and polymorphism are fundamental concepts in object-oriented programming and are used to create more complex and powerful classes.
+
+Iheritance:
+
+Inheritance allows a class to inherit properties and methods from a parent class, also known as a base class or superclass. This allows you to create a new class that 
+inherits the characteristics of an existing class, and then add or override the characteristic as needed. Inheritance is a mechanism that allows you to reuse existing
+code ad create a hierarchy of classes. 
+
+Here is an example of a class called "Vehicle" that has properties for the make and model of the vehicle, and a method called "Drive": 
+
+/////////////////////////////////////////////////////////////
+class Vehicle
+{
+    public string Make { get; set; }
+    public string Model { get; set; }
+
+    public void Drive()
+    {
+        Console.WriteLine("The vehicle is driving.");
+    }
+}
+//////////////////////////////////////////////////////////////
+
+You can create a new class called "Car" that inherits from the "Vehicle" class like this:
+///////////////////////////////////////////
+class Car : Vehicle
+{
+    public int Year { get; set; }
+}
+///////////////////////////////////////////
+ 
+ In this example, the "Car" class inherits the properties and methods from the "Vehicle" class, and has an additional property for the year of the car.
+ 
+ 
+ 
+ 
+ Polymorphism:
+ Polymorphism allows objects of different classes to be treated as objects of a common base class. This allows you to write code that can work with objects of
+ different types, without having to know the exact type at compile-time.
+ 
+ Here is an example of a class called "Shape", and two classes that inherit from it called "Rectangle" and "Circle":
+ 
+ //////////////////////////////////////////////////////////////////////////////////////
+class Shape
+{
+    public virtual void Draw() { }
+}
+
+class Rectangle : Shape
+{
+    public override void Draw()
+    {
+        Console.WriteLine("Drawing a rectangle...");
+    }
+}
+
+class Circle : Shape
+{
+    public override void Draw()
+    {
+        Console.WriteLine("Drawing a circle...");
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+
+In this example, the "Shape" class has a virtual method called "Draw", and the "Rectangle" and "Circle" classes override the method to provide their own implementation.
+
+You can create an array of "Shape" objets and add a "Rectangle" and a "Circle" to it, like this:
+///////////////////////////////////
+Shape[] shapes = new Shape[2];
+shapes[0] = new Rectangle();
+shapes[1] = new Circle();
+///////////////////////////////////
+
+And then you call the "Draw" method on each object, like this:
+///////////////////////////////////
+foreach (Shape shape in shapes)
+{
+   shape.Draw();
+}
+///////////////////////////////////
+This will call the "Draw" method on each object, and will call the overridden method in the "Rectangle" and "Circle" classes, and will output "Drawing a rectangle..."
+and "Drawing a circle..." accordingly.
+
+Keep in mind that understanding classes and objects is a fundamental concept in object-oriented programming and it's a good idea to practice creating simple classes
+with properties and methods and experimenting with different ways to use them in your code.
+  
 
 
-  
-  
-  
-  
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Deep Note:
+One of the key aspects of learning programming is understanding that many concepts may seem repetitive or similar at first glance,
+but they have different nuances and applications in different situations. This is especially true when it comes to object-oriented programming concepts
+such as encapsulation, inheritance, and polymorphism. While these concepts may seem similar, they have different uses and implications
+when applied tosoftware development.
+	
+One of the best ways to truly understand these concepts is to experiment with them. This means writing code, running it, and observing the results.
+This allows you to see how the concepts work in practice and how they can be used to solve real-world problems. Additionally,
+examining existing projects and creating your own projects can provide a deeper understanding of how these concepts are used in industry and the trade-offs
+that come with using them.
+
+It's also important to note that learning to program is an ongoing process and that you will continue to encounter new concepts and technologies throughout your career.
+The ability to learn quickly and adapt to new technologies is an essential skill for any programmer.
+
+In summary, while studying concepts and understanding the theory is important,
+it's crucial to complement that with hands-on experimentation to truly grasp the concepts.
+This will help you to understand how to apply the concepts in different situations and make better decisions when designing and building software.
+	
+Remember that getting from point "X" to point "Y" takes a certain speed and time,
+and there is definitely energy and effort here. Therefore, never give up on reaching the "Y" point where you set your target,
+it will be a great advantage for you to pre-determine every obstacle that comes your way. Remember that rewards awaits you at "Y" point.
+
