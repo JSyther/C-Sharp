@@ -281,7 +281,125 @@ flexibility of methods.
 In C#, properties are defined using the "get" and "set accessors. The "get" accessor is used to return the value of the property, and the "set" accessor is used to
 assign a new value to the property.
 
-Here's an example of a class called "Car" that has a property called "Make" that can be used to get and set the make of the car.
+Here's an example of a class called "Car" that has a property called "Make" that can be used to get and set the make of the car:
+/////////////////////////////////////////////
+class Car
+{
+    private string _make;
+
+    public string Make
+    {
+        get { return _make; }
+        set { _make = value; }
+    }
+}
+/////////////////////////////////////////////
+In this examplşe, the "Make" property is defined with a private field called "_make". The "get" accessor returns the value of the "_make" field, and the "set" accessor
+assigns a new value to the "_make" field.
+
+You can use this property like this:
+///////////////////////////////////////////////////////////
+    Car myCar = new Car();
+    myCar.Make = "Toyota";
+    Console.WriteLine(myCar.Make); //Output : "Toyota"
+///////////////////////////////////////////////////////////
+It's also possible to use the shorthand notation for the get and set accessors using the {get; set;} like this:
+////////////////////////////////////////////////////////////
+class Car
+{
+      public string Make { get; set; }
+}
+////////////////////////////////////////////////////////////
+This is more concise way to define a property, but it has the same behavior as the previous example.
+
+It's also possible to add validation and/or logic inside the setter and getter accessor.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#6 {}
+
+Methods are used to define the behavior of an object and are used to perform actions on the object. Methods are defined within a class or struct and can be called
+on an instance of that class or struct.
+
+In C#, methods are defined using the "void" keyword, followed by the name of the method and a set of parentheses that can contain parameters. The body of the method is
+defined within curly braces. 
+
+Here's an example of a class called "Car" that has a method called "Start" that writes a message to the console when it's called.
+////////////////////////////////////////////////////////////
+class Car
+{
+    public void Start()
+    {
+      Console.WriteLine("The car has started.");
+    }
+}
+////////////////////////////////////////////////////////////
+In this example, the "Start" method is defined with the "public" access modifier, which means it can be called from outside the class. The method doesn't have
+parameters and doesn't return any value that's why it's defined using the "void" keyword.
+
+You can call this method on an instance of the "Car" class like this:
+////////////////////////////////////////////////////////////
+Car myCar = new Car();
+myCar.Start(); // Output : "The car has started."
+////////////////////////////////////////////////////////////
+
+
+It's also possible to define methods that return a value. In this case, instead of using the "void" keyword, you use the type of the value that the method will return.
+
+///////////////////////////
+class Car
+{
+   public int GetYear()
+   {
+      return 2020;
+   }
+}
+//////////////////////////
+
+In this example, the "GetYear" method returns an integer value, and it can be used like this:
+
+////////////////////////////////////////////////////
+Car myCar = new Car();
+int carYear = myCar.GetYear(); // carYear = 2020
+////////////////////////////////////////////////////
+
+It's also possible to define methods that take parameters, and it's a common practice to use meaningful names for the parameters so that the method's behavior is clear
+when it's called.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#7 {}
+
+Classes and objects are fundamental concepts in object-oriented programming and are used to organize and structure code in C#. To use classes and objects in a program,
+you first need to define a class that represents the object you want to creat. Once you have defined a class, you can create and instace of that class, also known as an
+object, using the "new" keyword. 
+
+Here is an example of a class called "Car" that has properties for the make, model, and year of the car, as well as methods for starting and stopping the car:
+///////////////////////////////////////////////////////////
+class Car
+{
+    public string Make { get; set; }
+    public string Model { get; set; }
+    public int Year { get; set; }
+
+    public void Start()
+    {
+        Console.WriteLine("The car has started.");
+    }
+
+    public void Stop()
+    {
+        Console.WriteLine("The car has stooped.");
+    }
+}
+///////////////////////////////////////////////////////////
+
+You can create an object of the "Car" class using the "new" keyword and assign it to a variable like this:
+////////////////////////////////////
+Car myCar = new Car();
+////////////////////////////////////
+
+Once you have an object of the class, you can use the properties to access the state of the object and call the methods to perform actions on the object.
 
 
 
