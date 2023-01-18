@@ -1,0 +1,12 @@
+Generics: 
+
+Generics in C# allow you to define a class or method that can work with any data type, without having to specify the data type at design time. This allows for a more
+reusable and efficient code, as well as improved type safety.
+
+Here is a step by step explanation of how to use generics in C#, including examples of generic classes, methods, and constraints:
+
+Generic Classes: A generic class is a class that is defined with one or more type parameters, which are placeholders for the actual data types that the class will
+work with. The type parameters are defined in angle brackets < > and are used throughtout the class defination. For example, here is simple generic class called
+"MyList" that can work with a list of any data type:
+
+class MyList<T>
