@@ -2,10 +2,6 @@ A simple guess game in C# where the user has 5 chances to guess a specific strin
 for each failure:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
-
 using System;
 
 class GuessGame
