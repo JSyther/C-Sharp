@@ -1,4 +1,4 @@
-Basic loop examples.
+#Basic loop examples.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 namespace ReverseA
@@ -7,20 +7,50 @@ namespace ReverseA
     {
         static void Main(string[] args)
         {
-            int[] numberCounts = { 4, 8, 15, 16, 23, 42 };
-            for (int i = 0; i < numberCounts.Length; i++)
+            int[] numberCounts = { 4, 8, 15, 16, 23, 42 };  // determined an array with six different numbers
+            
+            for (int i = 0; i < numberCounts.Length; i++)  // The "i" value will be incremented by the number in the specified numberCounts array's value.
             {
-                Console.WriteLine(numberCounts[i]);
+                Console.WriteLine(numberCounts[i]);        // Output = ((i = 6)= 6 line)) =  shows =(4, 8, 15, 16, 23, 42)
             }
             Console.ReadLine();
         }
     }
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#CalculatePower
+
+namespace ReverseA
+{
+    class calculatePower
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(GetPower(5,12));      // Given a value for calculating numbers within the method.
+            Console.ReadLine();
+        }
+
+
+        static int GetPower(int baseNumber, int powerNumber)  // The method's inside got two parameters, which we've determined.
+        {
+            int result = 1;                                   // It can work for only positive numbers. and result base on positive one.
+
+    for (int i = 0; i < powerNumber; i++)             // After we assign what is the value of powerNumber, it will increment "i" while reaching to the determined value
+            {
+                result = result * baseNumber;        // total result = augmented result multiple with determined basenumber;
+            }
+
+            return result;                          // then, the whole progress will return as result;
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 A simple guess game in C# where the user has 5 chances to guess a specific string value, and if they fail, they are given 5 more chances with different messages
 for each failure:
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 using System;
 
