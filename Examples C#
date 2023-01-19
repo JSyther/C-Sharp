@@ -1,3 +1,23 @@
+Basic loop examples.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+namespace ReverseA
+{
+    class Examples
+    {
+        static void Main(string[] args)
+        {
+            int[] numberCounts = { 4, 8, 15, 16, 23, 42 };
+            for (int i = 0; i < numberCounts.Length; i++)
+            {
+                Console.WriteLine(numberCounts[i]);
+            }
+            Console.ReadLine();
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 A simple guess game in C# where the user has 5 chances to guess a specific string value, and if they fail, they are given 5 more chances with different messages
 for each failure:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
