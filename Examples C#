@@ -1,6 +1,62 @@
+Matrix movie's screen
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+namespace ReverseA
+{
+    class MatrixScreen
+    {
+        static void Main(string[] args)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            
+            //Also possible to reverse color of the visual console with the below commands
+            //Console.ForegroundColor = ConsoleColor.Black;
+            //Console.BackgroundColor= ConsoleColor.Green;
+
+            Random random = new Random();
+
+            String str = "";
+
+            Console.Write("Press Any Key to (Un)Reality...");
+            Console.ReadKey();
+
+
+            // loop for display string patterns
+            for (int i = 0; i < 60000; i++)
+            {
+                //create new string pattern
+                if (i % 2 == 0)
+                {
+                    str = "";
+                    for(int k = 0; k < 79; k++)
+                    {
+                        int matrix = random.Next(5);
+                        if(matrix < 2)
+                        {
+                            str += matrix.ToString();
+                        }
+                        else
+                        {
+                            str += " ";
+                        }
+                    }
+                }
+
+                //print "str" pattern
+                Console.WriteLine(str);
+            }
+            // End the loop 
+            Console.WriteLine("Welcome to reality");
+            Console.Write("Press any key to 'EXIT'");
+            Console.ReadKey();
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 #Basic loop examples.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 namespace ReverseA
 {
     class Examples
@@ -17,7 +73,7 @@ namespace ReverseA
         }
     }
 }
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #CalculatePower
 
 namespace ReverseA
@@ -284,7 +340,6 @@ class GuessGame
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
 #Basic Calculator
 
 
@@ -329,3 +384,52 @@ class Calculator
 }
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#2D Array Examples:
+
+namespace ReverseA
+{
+    class TwoDArray
+    {
+        static void Main(string[] args)
+        {
+            int[,] numberGrid =                     // "," means that there will be arrays of arrays in different clusters.
+            {
+                {1,2 },                             // 3 different array clusters were determined.
+                {3,4 },
+                {5,6 }
+            };
+
+            Console.WriteLine(numberGrid[0,0]);     // It will output the result showing the first array's first parameter.
+            Console.ReadLine();                     // if you try to change and array's "numberGrid[2,1]", output = "5"
+        }                   
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Here another example of 2DArray with forloop.
+
+namespace ReverseA
+{
+    class TwoDArray
+    {
+        static void Main(string[] args)
+        {
+            int[,] numberGrids = new int[3, 3] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(numberGrids[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
+////////////////////////////////////
+Output = ////////   1 2 3   ////////
+/////////////////   4 5 6   ////////
+/////////////////   7 8 9   ////////
+////////////////////////////////////
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
