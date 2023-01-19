@@ -228,4 +228,54 @@ class GuessGame
 }
 
 
-// That's all we have. 
+// Guessgame #end
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#Basic Calculator
+
+
+class Calculator
+{
+    static void Main(string[] args)
+    {
+        string exit = "exit";
+
+        Console.WriteLine("Enter the first number:");
+        double num1 = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter the second number:");
+        double num2 = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter the operator (+, -, *, /):");
+        string op = Console.ReadLine();
+
+        while (exit == op)
+        {
+            switch (op)
+            {
+                case "+":
+                    Console.WriteLine(num1 + num2);
+                    break;
+                case "-":
+                    Console.WriteLine(num1 - num2);
+                    break;
+                case "*":
+                    Console.WriteLine(num1 * num2);
+                    break;
+                case "/":
+                    Console.WriteLine(num1 / num2);
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid operator");
+                    break;
+            }
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
