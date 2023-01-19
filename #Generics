@@ -1,12 +1,98 @@
 Generics: 
 
-Generics in C# allow you to define a class or method that can work with any data type, without having to specify the data type at design time. This allows for a more
-reusable and efficient code, as well as improved type safety.
+Generics in C# allow you to write code that can work with multiple types, rather than being tied to a specific type.
+This can make your code more flexible and reusable.
 
-Here is a step by step explanation of how to use generics in C#, including examples of generic classes, methods, and constraints:
+Here's an example of a simple generic class:
 
-Generic Classes: A generic class is a class that is defined with one or more type parameters, which are placeholders for the actual data types that the class will
-work with. The type parameters are defined in angle brackets < > and are used throughtout the class defination. For example, here is simple generic class called
-"MyList" that can work with a list of any data type:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+public class MyGenericClass<T>
+{
+  private T_value;
+  
+  public MyGenericClass(T value)
+  {
+    _value = value;
+  }
+  
+  public T GetValue()
+  {
+    return _value;
+  }
+  
+  public void SetValue(T value)
+  {
+    _value = value;
+  }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-class MyList<T>
+In this example, the class "MyGenericClass" has a generic type parameter "T", which is used to define the type of the private field "_value".
+The class has a constructor that takes an argument of type "T", and two methods "GetValue" and "SetValue" that also use "T".
+
+You can create an instance of this class for any type you want.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MyGenericClass<int> my IntObject = new MyGenericClass<int>(5);          // We set the "IntObject" generic type variable to an integer and assigned it to a value of 5.
+int myInt = myIntObject.GetValue(); // myInt will be 5                  // GetValue() method is called and the value of the variable "myInt" is equal to 5.
+
+MyGenericClass<string> myStringOBject = new MyGenericClass<string>("Welcome to the reality!");
+// We set the "myStringOBject" generic type variable to an string and assigned it to a value of "Welcome to the Reality!".
+string myString = myStringObject.GetValue(); // "myString" pure string variable is now equal to with called method myStringObject's value.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+You can also use generic methods, which are methods that have a generic type parameter.
+For example: 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+public static void Swap<T>(ref T a, ref T b)
+{
+  T temp = a;
+  a = b;
+  b = temp;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This method takes two arguments of the same type, and swaps their values. You can call it with any type:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+int x = 5;
+int y = 10;
+Swap(ref x, refy); // x is now 10, y is now 5
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+You can also use consstraints on the generic type parameter.
+For example, you can specify that the type must implement a certain interface or inherit from a certain class:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+public class MyConstrainedGenericClass<T> where T : IMyInterface
+{
+  // class implementation
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This limits the types that can be used as the generic type parameter for this class to those that implement the IMyInterface interface.
+
+There are more advanced usage of Generic like IEnumerable, ICollection and IList which are commonly used interfaces that allow you to work with collections of items
+in a type-safe way. You can also use the generic List<T> class, which is a built-in collection class that implements these interfaces.
+
+Another example is Generic Constraints:
+In some cases, you may want to impose certain constraints on the type parameter of a generic class or method.
+For example, you may want to ensure that the type parameter implements a certain interface or is derived from a certain class.
+You can do this using generic constraints. For example, here is a simple generic class called "MyCompare" that has a type parameter T,
+and it's constrained to be only of type which is class and must implement IComparable interface, this way it can be used for comparison purpose:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class MyCompare<T> where T: class, IComparable
+{
+    public bool IsGreater(T a, T b)
+    {
+        return a.CompareTo(b) > 0;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+You can create an object of the class and use IsGreater method on it, for example:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+MyCompare<int> compareInt = new MyCompare<int>();
+bool isGreater = compareInt.IsGreater(1,2);
+Console.WriteLine(isGreater);
+//This will output: False
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+These are the basic concepts and examples of how to use generics in C#. With Generics, you can make your code more flexible, reusable, and type-safe.
+You can also use them to constrain the types of variables that can be used with your classes and methods, which can help you to prevent errors and improve performance.
+
+
+
