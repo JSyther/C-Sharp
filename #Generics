@@ -101,6 +101,53 @@ You can also use them to constrain the types of variables that can be used with 
 
 
 Generic Examples;
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+namespace ReverseA
+{
+    class SimpleList<T>
+    {
+      private List<T> items = new List<T>();
 
+      public void Add(T item)
+      {
+        items.Add(item);
+      }
 
+      public T this[int index]
+      {
+        get {return items[index];
+      }
 
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. The class is declared as a generic class, with the type parameter T in angle brackets <T>. This means that the class can work with any type, as long as the type
+   is specified when creating an instance of the class.
+2. Inside the class, a private field items of type List<T> is declared. This field will be used to store the items of the list. The List<T> class is part of the C#
+   standard library and provides a dynamic list of items of a specified type.
+3. The Add mnethod is declared, which takes a single parameter of type T. This method simply adds the passed item to the items list by calling the Add method on the
+   items list.
+4. The this indexer property is declared, which allows items to be accessed by index. The property has a get accessor that returns the item at the specified index
+   from the items list.
+5. The class does not have a constructor, so the items field is initalized with a new instance of List<T> when the class is instantiated.
+6. When you create an instance of the class and specify the type, the class is ready to use. You can add items to the list using the Add method and access them 
+   using the indexer property, like this:
+   ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   SimpelList<int> intList = new SimpleList<int>();
+   intList.Add(1);
+   Console.WriteLine(intList[0]); //Output: 1
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7. You can also use other types like custom class.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Person
+{
+  public string Name {get;set;}
+  public int Age {get;set;}
+}
+
+SimpleList<Person> personList = new SimpleList<Person>();
+personList.Add(new Person{Name = "Jake", Age = 30});
+Console.WriteLine(personList[0].Name);  //Output: "John"
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In summary, The SimpleList class ia generic class that can be used to store items of any type, as long as the type is specified when creating an instance of the
+class. The Add method is used to add items to the list, and the indexer property is used to access the items by index.
