@@ -1,0 +1,54 @@
+Exception handling is the process of responding to and recovering from unexpected conditions or errors in a program.
+C# provides built-in support for exception handling through the use of try-catch-finally blocks, as well as the ability to create custom exceptions.
+
+To begin with, let's take a look at how to use try-catch-finally blocks. A try block encloses the code that might throw an exception.
+Any exceptions that are thrown within the try block are caught by the catch block that follows. The catch block contains the code that handles the exception.
+The finally block, if present, contains code that is always executed, whether an exception is thrown or not.
+
+An example of a simple try-catch block in C#:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+try
+{
+    int x = 10;
+    int y = 0;
+    int result = x / y;
+}
+catch (DivideByZeroException ex)
+{
+    Console.WriteLine("Error: " + ex.Message);
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In this example, the try block contains the code that might throw an exception (dividing by zero),
+and the catch block contains the code that handles the exception (printing an error message).
+
+
+You can also use multiple catch blocks to handle different types of exceptions. Each catch block is associated with a specific exception type,
+and the code in that catch block is executed only if the exception thrown is of that type.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+try
+{
+    int x = int.Parse("abc");
+}
+catch (FormatException ex)
+{
+    Console.WriteLine("Error: " + ex.Message);
+}
+catch (OverflowException ex)
+{
+    Console.WriteLine("Error: " + ex.Message);
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In this example, there are two catch blocks, one for FormatException and one for OverflowException. If the exception thrown is a FormatException,
+the code in the first catch block will be executed, otherwise, the second catch block will be executed.
+
+
+
+
+
+
+
+
+
+
+
+
