@@ -267,7 +267,8 @@ string[] reversedStringArray = Reverse(stringArray);
 foreach (string s in reversedStringArray)
     Console.Write(s + " "); // Output: "c b a "
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-comprehensively explaination: 
+
+Comprehensively explaination: 
 1. "static T[] Reverse<T>(T[] array)" - This is the definition of a generic method named Reverse. It takes in a single parameter, an array of type "T",
    where "T" is a generic type parameter. The method returns an array of the same type.
    
@@ -318,3 +319,51 @@ string[] stringArray = { "a", "b", "c" };
 index = FindIndex(stringArray, "b");
 Console.WriteLine(index); // Output: 1
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Comprehensively explaination: 
+
+1. "static int FindIndex<T>( T[] array, T value) where T : IEquatable <T>" - This is the definition of a generic method named "FindIndex". It takes in two parameters,
+   an aray of type "T" and a value of type "T". The method returns an integer. The "where T : Iequatable<T>" constraint specifies that any type used as "T" must
+   implement the "IEquatable<T>" interface, which defines an "Equals" method use to compare objects.
+2. "for (int i = 0; i < array.Length; i++) - A for loop is used to iterate through the array.
+3. "if (array[i].Equals(value))" - Inside the for loop, the Equals method is called on the current element of the array, passing in the value as an argument.
+4. "return i;" - If the "Equals" method returns true, indicating that the current element of the array is equal to the value, the method returns the current index.
+5. "return -1;" - If the for loop completes without returning, it means that the value was not found in the array and the method returns -1.
+6. "int[] intArray = { 1, 2, 3 };" - An integer array is declared and initialized with the values 1, 2, and 3.
+7. "int index = FindIndex(intArray, 2);" - The "FindIndex" method is called, passing in the intArray and the value 2 as arguments.
+   The result of this call is the index of the value 2 in the array, which is 1.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#####
+An example of a generic method that can check if an array contains a specific element:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+static bool Contains<T> T[] array, T value) where T : IEquatable<T>
+{
+  for(int i = 0; i < array.Length; i++)
+  {
+    if(array[i].Equals(value))
+    {
+        return true;
+    }
+  }
+  return false;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+You can use this method to check if an array contains a specific element, regardless of the type of elements the array contains, as long as the type implements the
+"IEquatable<T>" interface, which is required by the method to work. For example:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+int[] intArray = {1,2,3};
+bool isContain = Contains(intArray, 2);
+Console.WriteLine(isContain); // Output: true
+
+string[] stringArray = { "a", "b", "c" };
+isContain = Contains(stringArray, "b");
+Console.WriteLine(isContain); // Output: true
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+As you can see this method has a constraint on the tpye T "where T : IEquatable<T>" this constraint is required to use the "Equals" method of the element, so the 
+method can compare the element and check if it exist in the array or not.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+int[] intArray = {1,2,3};
+bool isContain = Contains(intArray, 5); // intArray does not contain the value "5" so it will be false
+Console.WriteLine(isContain); // Output: false
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
