@@ -295,3 +295,26 @@ comprehensively explaination:
 11. The same process is repeated for string array.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+An example of a generic method that can find the index of a specific element in an array:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+static int FindIndex<T>(T[] array, T value) where T : IEquatable<T>
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Equals(value))
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+int[] intArray = { 1, 2, 3 };
+int index = FindIndex(intArray, 2);
+Console.WriteLine(index); // Output: 1
+
+string[] stringArray = { "a", "b", "c" };
+index = FindIndex(stringArray, "b");
+Console.WriteLine(index); // Output: 1
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
