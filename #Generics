@@ -367,3 +367,47 @@ bool isContain = Contains(intArray, 5); // intArray does not contain the value "
 Console.WriteLine(isContain); // Output: false
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Here's an example of a more complex generic method in C# that demonstrates some of the features of generics:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class GenericExample
+{
+    static T[] CreateArray<T>(int length, T initialValue)
+    {
+        T[] array = new T[length];
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = initialValue;
+        }
+        return array;
+    }
+
+    static void Main()
+    {
+        int[] intArray = CreateArray<int>(5, 0);
+        string[] stringArray = CreateArray<string>(3, "Initialization");
+        Elaboration[] personArray = CreateArray<Elaboration>(2, new Elaboration { Code = "Viper", Duty = 5 });
+        Console.WriteLine(string.Join(", ", intArray)); // Output: "0, 0, 0, 0, 0"
+        Console.WriteLine(string.Join(", ", stringArray)); // Output: "Initialization, Initialization, Initialization"
+        Console.WriteLine(string.Join(", ", personArray.Select(p => p.Code))); // Viper: "Viper, Viper"
+    }
+}
+
+class Elaboration
+{
+    public string Code { get; set; }
+    public int Duty { get; set; }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
+Explanation;
+1. "class GenericExample" - A class named "GenericExample" is defined, which contains a single static method. 
+2. "static T[] CreateArray<T>(int length, T initialValue)" - A generic method named "CreateArray" is defined, which takes in two parameters: an integer "length" and 
+   value of type "T". The method returns an array of type "T".
+3. "T[] array = new T[length]; " - A new array of type "T" named "array" is created with the length provided as a parameter.
+4. "for (int i = 0; i < array.Length; i++)" - A for loop is used to iterate through the array.
+5. "array[i] = initialValue;" - Inside the for loop, the current element of the array is assigned the value of "initialValue" which is provided as a parameter.
+   This initializes all elements of the array to the same value.
+6. "return array;" - After the for loop completes, the method returns the newly created and initialized array.
+7. "int[] intArray = CreateArray<int>(5,0);" - The "CreateArray" method is called with the type argument of "int", a length of 5, and an initial value of 0.
+8. "string[] stringArray = CreateArray<string>(3, "Initialization").
+9. "Elaboration[] personArray = CreateArray<Elaboration>(2, new Elaboration { Code = "Viper", Duty = 5});" - The "CreateArray" method is called with the type argument 
+   of "Elaboration", a length of 2, and an initial value of a new instance of Elaboration class with Code = "Viper" and Duty = 5.
