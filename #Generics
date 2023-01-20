@@ -100,7 +100,7 @@ You can also use them to constrain the types of variables that can be used with 
 
 
 
-Generic Examples;
+Generic Class Example;
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 namespace ReverseA
 {
@@ -151,3 +151,147 @@ Console.WriteLine(personList[0].Name);  //Output: "John"
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 In summary, The SimpleList class ia generic class that can be used to store items of any type, as long as the type is specified when creating an instance of the
 class. The Add method is used to add items to the list, and the indexer property is used to access the items by index.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Generic Method Examples;
+
+Example 1 : A generic method that swaps the values of two variables:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class GenericMethods
+{
+    static void Swap<T>(ref T a, ref T b)
+    {
+        T temp = a;
+        a = b;
+        b = temp;
+    }
+    static void Main()
+    {
+        int x = 1, y = 2;
+        Console.WriteLine("Before swap: x = {0}, y = {1}", x, y);
+        Swap<int>(ref x, ref y);
+        Console.WriteLine("After swap: x = {0}, y = {1}", x, y);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. The code defines a class named "GenericMethods"
+2. Inside "GenericMethods" class, a generic method named "Swap" is defined. This method takes two parameters of the sampe type "T" and swaps their values using a
+   temporary variable. The ref keyword is used to pass the variables by reference, so that the changes made in the method will be reflected in the calling mode.
+3. Inside the "GenericMethods" class, the Main method is defined. The Main method is the entry point of the program and is where the execution of the program begins.
+4. In the Main method, two variables x and y are declared and initialized with the values 1 and 2 respectively.
+5. The first Console. WriteLine statement is used to print the values of x and y before the swap. The output will be "Before swap: x=1, y=2"
+6. The Swap method is called, passing x and y as arguments by refence. The type of the variables, in, is passed as a type argument to the swap method.
+7. Inside the swap method, the values of "x" and "y" are swapped. The value of x is assigned to a tempoprary variable temp, then the value of "y" is assigned to "x",
+   finaly the value of temp is assigned to "y".
+8. The second "Console.WriteLine" statement is used to print the values of "x" and "y" after the swap. The output will be "After swap: x = 2, y =1"
+
+
+   This is an example of how you can use a generic method to swap two variables fo any type. The Swap method is defined with a type parameter T and can be used to
+   swap variables of any type that can be assigned to the type parameter.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+Example 2: A generic method that finds the minimum value is an array of any type that implements the "IComparable" interface:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+using System;
+
+static T Min<T>(T[] array) where T : IComparable
+{
+    T min = array[0];
+
+    for (int i = 1; i < array.Length; i++)
+    {
+        if (min.CompareTo(array[i]) > 0)
+        {
+            min = array[i];
+        }
+    }
+    return min;
+}
+
+
+static void Main()
+{
+    int[] intArray = { 3, 2, 1 };
+    Console.WriteLine("Minmum value in intArray: {0}", Min<int>(intArray)); // Output: 1
+
+    double[] doubleArray = { 1.2, 3.4, 2.1 };
+    Console.WriteLine("Minimum value is doubleArray: {0}", Min<double>(doubleArray));
+    // Output: 1.2
+
+    string[] stringArray = { "abc", "def", "ghi" };
+    Console.WriteLine("Minimum value is stringArray: {0}", Min<string>(stringArray));// Output :abc"
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Explanation :
+
+1. "static T Min<T>(T[] array) where T : IComparable" - This is the defination of a generic method named "Min". It takes in a single parameter, an array of type "T",
+   where "T" is a generic type parameter. The "where T : IComparable" constraint specifies that any type used as "T" must implement the "IComparable" interface,
+   which defines a "CompareTo" method used to compare objects.
+2. "T min = array[0];" - Inside the method, a variable "min" of type "T" is declared and initialized to the first element of the input array.
+3. "for (int i = 1; i < array.LEngth; i++)" - A for loop is used to iterate through the array starting from the second element (index 1).
+4. "if (min.ComperatTo(array[i]) > 0) " - Inside the for loop, the "CompareTo" method is called on the "min" variable, passing in the current element of the array 
+   ("array[i]"). If the result of this comparison is greater than 0, it means that the current element of the array is smaller than the current value of "min",
+   so the current element is assigned to "min".
+5. "return min;" - After the for loop completes, the method returns the final value of "min", which is the smallest element of the input array.
+6. "int[] intArray = {3,2,1};" - An integer array is declared and intialized with the value 3,2, and 1.
+7. "Console.WriteLine("Minimum value in intArray: {0}", Min<int>(intArray));" - The "Min" method is called, passing in the "intArray" as the input. The result of this
+   call is the minimum value in the array, which is 1. This passed to the "Console.WriteLine" method to display the result on the console.
+8. The same process is repeated for double and string arrays.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+###
+An example of a generic method that can reverse the elements of an array:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+static T[] Reverse<T>(T[] array)
+{
+    int length = array.Length;
+    T[] reversedArray = new T[length};
+    
+    for(int i = 0; i < length; i++)
+    {
+        reversedArray[i] = array[length - 1 - i];
+    }
+    return reversedArray;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This method reverse the elements of any array regardless of the type of elements the array contains. For example:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+int[] intArray = { 1, 2, 3 };
+int[] reversedIntArray = Reverse(intArray);
+foreach (int i in reversedIntArray)
+    Console.Write(i + " "); // Output: "3 2 1 "
+
+string[] stringArray = { "a", "b", "c" };
+string[] reversedStringArray = Reverse(stringArray);
+foreach (string s in reversedStringArray)
+    Console.Write(s + " "); // Output: "c b a "
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+comprehensively explaination: 
+1. "static T[] Reverse<T>(T[] array)" - This is the definition of a generic method named Reverse. It takes in a single parameter, an array of type "T",
+   where "T" is a generic type parameter. The method returns an array of the same type.
+   
+2. int length = array.Length; - Inside the method, a variable length is declared and initialized to the length of the input array.
+
+3. T[] reversedArray = new T[length]; - A new array of type T named reversedArray is created with the same length as the input array.
+
+4. for (int i = 0; i < length; i++) - A for loop is used to iterate through the array.
+
+5. reversedArray[i] = array[length - 1 - i]; - Inside the for loop, the element of the input array at index length - 1 - i is assigned to the corresponding element
+   in the reversedArray at index i. This effectively reverses the order of the elements in the array.
+
+6. return reversedArray; - After the for loop completes, the method returns the reversed array.
+
+7. int[] intArray = { 1, 2, 3 }; - An integer array is declared and initialized with the values 1, 2, and 3.
+
+8. int[] reversedIntArray = Reverse(intArray); - The Reverse method is called, passing in the intArray as the input.
+   The result of this call is a new array with the elements in reverse order.
+
+9. foreach (int i in reversedIntArray) - A foreach loop is used to iterate through the reversedIntArray.
+
+10. Console.Write(i + " "); - Inside the foreach loop, the current element of the array is written to the console, followed by a space.
+   This will display "3 2 1 " on the console.
+
+11. The same process is repeated for string array.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
