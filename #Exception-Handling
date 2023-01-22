@@ -9,21 +9,23 @@ An example of a simple try-catch block in C#:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 try
 {
-    int x = 10;
+    int x = 5;
     int y = 0;
     int result = x / y;
+    Console.WriteLine("Result: " + result);
 }
 catch (DivideByZeroException ex)
 {
-    Console.WriteLine("Error: " + ex.Message);
+    Console.WriteLine("Error: Cannot divide by zero.");
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-In this example, the try block contains the code that might throw an exception (dividing by zero),
-and the catch block contains the code that handles the exception (printing an error message).
+In this example, the code inside the try block attempts to divide x by y. Since y is zero, this will cause a DivideByZeroException to be thrown.
+The catch block is used to handle this exception. If an exception is thrown,
+the program will jump to the catch block, and the code inside the catch block will be executed. In this case, it writes an error message to the console.
 
-
-You can also use multiple catch blocks to handle different types of exceptions. Each catch block is associated with a specific exception type,
-and the code in that catch block is executed only if the exception thrown is of that type.
+It's important to note that the catch block must be specific to the exception you want to catch.
+In this example, we are catching the DivideByZeroException that is thrown when dividing by zero.
+If you want to catch other types of exceptions you can use multiple catch blocks like this :
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 try
 {
@@ -40,15 +42,153 @@ catch (OverflowException ex)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 In this example, there are two catch blocks, one for FormatException and one for OverflowException. If the exception thrown is a FormatException,
 the code in the first catch block will be executed, otherwise, the second catch block will be executed.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+try
+{
+    int x = 5;
+    int y = 0;
+    int result = x / y;
+    Console.WriteLine("Result: " + result);
+}
+catch (DivideByZeroException ex)
+{
+    Console.WriteLine("Error: Cannot divide by zero.");
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Error: " + ex.Message);
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In this example, the first catch block is used to catch the DivideByZeroException, and the second catch block is used to catch any other types of exceptions.
+
+Another important part is the finally block, it allows you to specify a block of code to be executed after the try/catch blocks,
+regardless of whether an exception is thrown or not. Here's an example :
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+try
+{
+    int x = 5;
+    int y = 0;
+    int result = x / y;
+    Console.WriteLine("Result: " + result);
+}
+catch (DivideByZeroException ex)
+{
+    Console.WriteLine("Error: Cannot divide by zero.");
+}
+finally
+{
+    Console.WriteLine("End of program.");
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In this example, the finally block will be executed after the try/catch blocks, and it will write "End of program." to the console.
+
+Finally, you can also create your own custom exceptions by defining a class that inherits from the Exception base class or one of its derived classes.
+Here's an example:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class MyException : Exception
+{
+    public MyException()
+    {
+    }
+
+    public MyException(string message) : base(message)
+    {
+    }
+
+    public MyException(string message, Exception inner) : base(message, inner)
+    {
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+You can use this custom exception class in your code by throwing an instance of it, like this:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+try
+{
+    int x = 5;
+    int y = 0;
+    if (y != 0)
+    {
+        int result = x / y;
+        Console.WriteLine("Result: " + result);
+    }
+    else
+    {
+        throw new MyException("Cannot divide by zero");
+    }
+}
+catch (MyException ex)
+{
+    Console.WriteLine("MyException caught: " + ex.Message);
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In this example, the MyException class is defined as before, and inside the try block, the code check if the denominator (y) is not equal zero,
+if it's the case it throws a new instance of MyException with a message "Cannot divide by zero" and the catch block will handle it.
 
 
+Here are a few more examples of how to use try/catch/finally blocks in C#:
 
+Example 1:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+try
+{
+    int[] numbers = { 1, 2, 3 };
+    Console.WriteLine(numbers[3]);
+}
+catch (IndexOutOfRangeException ex)
+{
+    Console.WriteLine("Error: Index out of range.");
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+In this example, the try block attempts to access an element in an array that is out of range.
+Since the array only has 3 elements, attempting to access the element at index 3 will cause an IndexOutOfRangeException to be thrown.
+The catch block is used to handle this exception and it will print "Error: Index out of range." to the console.
 
+Example 2:
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+try
+{
+    int x = int.Parse("abc");
+}
+catch (FormatException ex)
+{
+    Console.WriteLine("Error: Invalid number format.");
+}
+catch (OverflowException ex)
+{
+    Console.WriteLine("Error: Number too large or too small.");
+}
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+In this example, the try block attempts to parse a string to an integer using the int.Parse() method. Since the string "abc" is not a valid integer,
+a FormatException will be thrown. The first catch block is used to handle this exception and it will print "Error: Invalid number format."
+to the console. If the parsed number is too large or too small to fit in an int32, an OverflowException will be thrown,
+and the second catch block is used to handle this exception and it will print "Error: Number too large or too small." to the console.
 
+Example 3:
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+try
+{
+    File.Delete("C:\\file.txt");
+}
+catch (IOException ex)
+{
+    Console.WriteLine("Error: Unable to delete file.");
+}
+finally
+{
+    Console.WriteLine("Cleanup complete.");
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In this example, the try block attempts to delete a file using the File.Delete() method.
+If the file is in use or the user doesn't have permission to delete the file, an IOException will be thrown.
+The catch block is used to handle this exception and it will print "Error: Unable to delete file." to the console.
+The finally block is used to perform cleanup actions, it will always execute and in this case it will print "Cleanup complete." to the console.
 
+Using try/catch/finally blocks allows you to handle exceptions in a structured way and to separate the error handling code from the normal program flow.
+It also allows you to handle different types of exceptions in different ways, which is important for creating robust and maintainable code.
+In addition, you can use the finally block for doing some cleaning up operations, it will be executed no matter if the exception is thrown or not.
