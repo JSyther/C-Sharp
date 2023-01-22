@@ -1,0 +1,67 @@
+A delegate is a type-safe function pointer that can hold a reference to a method. It allows you to pass method as an argument to another method, or to sore a method
+in a variable.
+
+Here's an example:
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Program
+{
+    public delegate int MyDelegate(int x, int y);
+    public static int Add(int x, int y)
+    {
+        return x + y;
+    }
+    public static int Multiply(int x, int y)
+    {
+        return x * y;
+    }
+    public static void Main()
+    {
+        MyDelegate d = Add;
+        Console.WriteLine(d(5, 10));
+        d = Multiply;
+        Console.WriteLine(d(5, 10));
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the "MyDelegate" class is defined, it's a delegate that takes two integers as arguments and returns an integer. Then two methods "Add" and "Multiply"
+are defined, they both take two integers as arguments and return an integer, and they both match the signature of the delegate.
+In the main function, a variable "d" is declared and assigned to the Add method, so when the delegate is invoked, it will call the Add method. Then the delegate is invoked
+with two integers as arguments and the output will be 15. then the delegate is assigned to the Multiply method, and when it's invoked with two integers as arguments, 
+the output will be 50.
+
+An event is a mechanism that allows a class to notify other classes when something of interest occurs. Events are typically used in situations where one class needs to
+notify other classes when something happens, without those classes knowing the details of the class that generated the event. Here's an example:
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Program
+{
+    public delegate void MyEventHandler();
+    public event MyEventHandler MyEvent;
+    public void RaiseEvent()
+    {
+        if (MyEvent != null)
+            MyEvent();
+    }
+    public static void Main()
+    {
+        Program p = new Program();
+        p.MyEvent += new MyEventHandler(p.OnMyEvent);
+        p.RaiseEvent();
+    }
+    public void OnMyEvent()
+    {
+        Console.WriteLine("Event raised.");
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the "Program" class defines an event "MyEvent" of type "MyEventHandler", which is a delegate, and it also defines a method "RaiseEvent()"
+that raises the event. The Main function creates an instance of the program class and subscribe to the event "MyEvent", and it does that by adding a new instance
+of the "MyEventHandler" delegate to the event. When the "RaiseEvent()" method is called, the "OnMyEvent()" method is executed, which writes "Event raised."
+
