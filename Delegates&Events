@@ -268,3 +268,52 @@ It also shows how to subscribe to an event using a lambda expression and how to 
 This allows the developer to pass custom data to the event handlers in a more structured way.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Example 5: Using the Action and Func delegates:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Program
+{
+    public Action<int> MyEvent;
+    public int RaiseEvent(Func<int, int> func)
+    {
+        int result = func(5);
+        MyEvent?.Invoke(result);
+        return result;
+    }
+
+    public static void Main()
+    {
+        Program p = new Program();
+        p.MyEvent += x => Console.WriteLine("Event raised with value: " + x);
+        Console.WriteLine("Result: " + p.RaiseEvent(x => x * x));
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Explanation of the code:
+
+1. The "Program" class defines a public Action delegate named "MyEvent" that takes an integer as argument.
+
+2. The "RaiseEvent" method is defined. It takes a "Func" delegate as argument and calls it with the value 5. It assigns the returned value to "result" variable.
+
+3. "MyEvent" is invoked by passing the result variable to it, but before that it's checking if "MyEvent" is null or not by using null-conditional operator (?.)
+
+4. In the "Main" method, an instance of the "Program" class is created.
+
+5. A lambda expression is assigned to the "MyEvent" Action delegate using the "+=" operator. This lambda expression takes an integer argument "x" and will be executed
+   when the event is raised. It writes the value of "x" to the console.
+
+6. "RaiseEvent" method is called and it passed a lambda function to it. this function takes an integer and return it's square.
+   So the "RaiseEvent" method will invoke the passed function with 5 as the argument and return 25.
+
+7. The returned value is printed to the console as "Result: 25"
+
+8. The "MyEvent" action is also invoked with the result value, so the lambda expression assigned to the "MyEvent" will be executed and it will print
+   "Event raised with value: 25" to the console.
+   
+   
+In summary, this code demonstrates how to use the Func delegate to pass a function as an argument and how to use the Action delegate to raise an event and
+pass data to the event handlers. It also shows how to subscribe to an event using a lambda expression and how to access the passed data in the event handler.
+This allows the developer to pass a function as an argument and invoke it dynamically and passing the result to the event handlers. The null-conditional operator (?.)
+is used to check if MyEvent is null or not before invoking it, this will prevent any exception if the event is not subscribed to.
