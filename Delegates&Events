@@ -4,8 +4,7 @@ in a variable.
 Here's an example:
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-class Program
+class Delegates
 {
     public delegate int MyDelegate(int x, int y);
     public static int Add(int x, int y)
@@ -16,22 +15,42 @@ class Program
     {
         return x * y;
     }
+
     public static void Main()
     {
         MyDelegate d = Add;
-        Console.WriteLine(d(5, 10));
+        Console.WriteLine(d(5, 10));    // output: 15
         d = Multiply;
-        Console.WriteLine(d(5, 10));
+        Console.WriteLine(d(5, 10));    // output: 50
     }
 }
-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 In this example, the "MyDelegate" class is defined, it's a delegate that takes two integers as arguments and returns an integer. Then two methods "Add" and "Multiply"
 are defined, they both take two integers as arguments and return an integer, and they both match the signature of the delegate.
-In the main function, a variable "d" is declared and assigned to the Add method, so when the delegate is invoked, it will call the Add method. Then the delegate is invoked
-with two integers as arguments and the output will be 15. then the delegate is assigned to the Multiply method, and when it's invoked with two integers as arguments, 
-the output will be 50.
+In the main function, a variable "d" is declared and assigned to the Add method, so when the delegate is invoked, it will call the Add method.
+Then the delegate is invoked with two integers as arguments and the output will be 15. then the delegate is assigned to the Multiply method,
+and when it's invoked with two integers as arguments, the output will be 50.
+
+Here's a step-by-step explanation of the code:
+
+-The Delegates class defines a public delegate named MyDelegate that takes two integers as arguments and returns an integer.
+
+-The Add method is defined. It takes two integers as arguments and returns their sum. This method matches the signature of the MyDelegate delegate.
+
+-The Multiply method is defined. It takes two integers as arguments and returns their product. This method also matches the signature of the MyDelegate delegate.
+
+-In the Main method, a variable d of type MyDelegate is declared and is assigned the Add method, so when the delegate is invoked, it will call the Add method.
+
+-The delegate is invoked with two integers as arguments, 5 and 10, and their sum is passed as an argument to Console.WriteLine which will print the output 15.
+
+-The d variable is assigned the Multiply method, so when the delegate is invoked, it will call the Multiply method.
+
+-The delegate is invoked with two integers as arguments, 5 and 10, and their product is passed as an argument to Console.WriteLine which will print the output 50.
+
+In summary, this code demonstrates how to use a delegate to hold a reference to a method and how to invoke the delegate to call the method it references.
+It also shows how to change which method is referenced by the delegate at runtime, allowing for dynamic method invocation.
+
 
 An event is a mechanism that allows a class to notify other classes when something of interest occurs. Events are typically used in situations where one class needs to
 notify other classes when something happens, without those classes knowing the details of the class that generated the event. Here's an example:
@@ -65,3 +84,187 @@ In this example, the "Program" class defines an event "MyEvent" of type "MyEvent
 that raises the event. The Main function creates an instance of the program class and subscribe to the event "MyEvent", and it does that by adding a new instance
 of the "MyEventHandler" delegate to the event. When the "RaiseEvent()" method is called, the "OnMyEvent()" method is executed, which writes "Event raised."
 
+Various examples
+Example 1: Using an anonymous method as an event handler:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class DelegateAndEvents
+{
+    public delegate void MyEventHandler();
+    public event MyEventHandler MyEvent;
+    public void RaiseEvent()
+    {
+        if(MyEvent != null)
+            MyEvent();
+    }
+
+    public static void Main()
+    {
+        DelegateAndEvents delegateAndEvent = new DelegateAndEvents();
+        delegateAndEvent.MyEvent += delegate ()
+        {
+            Console.WriteLine("Event raised");
+        };
+        delegateAndEvent.RaiseEvent();  
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exaplanation of the code: 
+
+1. The "DelegateAndEvents" class defines a public delegate named "MyEventHandler" that takes no argumenets and returns void.
+2. The "MyEvent" event is defined. It's of type "MyEventHandler" so it can only be raised by methods that match the delegate's signature.
+3. The "RaiseEvent" method is defined. IT checks if the "MyEvent" event is null, if it is not, it invokes the event.
+4. In the "Main" method, and instance of the "DelegateAndEvents" class is created.
+5. An anonymouse method is assigned to the "MyEvent" event using the "+=" operator. This anonymous method will be executed when the event is raised.
+6. The "RaiseEvent" method is called, it invokes the "MyEvent" event, and the anonymouse method assigned to the event is executed, which writes "Events raised"
+   to the console.
+   
+In summary, this code demonstrates how to define and raise and event, and how to subscribe to an event using an anonymous method. The event is raised in the
+"RaiseEvent" method and the anonymous method is exectued as a result. This allows the developer to separate the event raising code from the event handling code,
+making the code more flexible and easier to maintain.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Example 2: Using a lambda expression as an event handler:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Program
+{
+    public delegate void MyEventHandler(int x);
+    public event MyEventHandler MyEvent;
+    
+    public void RaiseEvent(int x)
+    {
+        if (MyEvent != null)
+            MyEvent(x);
+    }
+
+    public static void Main()
+    {
+        Program p = new Program();
+        p.MyEvent += (int x) =>
+        {
+            Console.Write("Event raised with value: " + x);
+        };
+        p.RaiseEvent(5);
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Explanation of the code:
+
+1. The "Program" class defines a public delegate named "MyEventHandler" that takes an integer argument "x" and returns void.
+2. The "MyEvent" event is defined. It's of type "MyEventHandler" so it can only be raised by methods that match the delegate's signature.
+3. The "RaiseEvent" method is defined. It takes an integer argument "x" and checks if the "MyEvent" event is null, if it is not, it invokes the event
+   and passes the value of x as an argument to the event handlers.
+4. In the "Main" method, an instance of the "Program" class is created.
+5. A lambda expression is assigned to the "MyEvent" event using the "+=" operator. This lambda expression takes an integer argument x and will be
+   executed when the event is raised.
+6. The "RaiseEvent" method is called with the argument "5", it invokes the "MyEvent" event, and the lambda expression assigned to the event is executed with 
+   the passed argument, which writes "Event raised with value: 5" to the console.
+
+In summary, this code demonstrates how to define an event, and how to subscribe to an event using a lambda expression and passing the arguments to the event handlers.
+The event is raised in the RaiseEvent method and the lambda expression is executed as a result. This allows the developer to separate the event raising code from the
+event handling code and passing the arguments dynamically and making the code more flexible and easier to maintain.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Example 3: Using a method group conversion to subscribe to an event:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Program
+{
+    public delegate void MyEventHandler();
+    public event MyEventHandler MyEvent;
+    
+    public void RaiseEvent()
+    {
+        if (MyEvent != null)
+            MyEvent();
+    }
+
+    public static void OnMyEvent()
+    {
+        Console.WriteLine("Event raised.");
+    }
+
+    public static void Main()
+    {
+        Program p = new Program();
+        p.MyEvent += OnMyEvent;
+        p.RaiseEvent();
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Explanation of the code:
+
+1. The Program class defines a public delegate named MyEventHandler that takes no arguments and returns void.
+
+2. The MyEvent event is defined. It's of type MyEventHandler so it can only be raised by methods that match the delegate's signature.
+
+3. The RaiseEvent method is defined. It checks if the MyEvent event is null, if it is not, it invokes the event.
+
+4. The OnMyEvent method is defined. It writes "Event raised." to the console.
+
+5. In the Main method, an instance of the Program class is created.
+
+6. The OnMyEvent method is assigned to the MyEvent event using the += operator. This method will be executed when the event is raised.
+
+7. The RaiseEvent method is called, it invokes the MyEvent event, and the OnMyEvent method assigned to the event is executed, which writes "Event raised."
+   to the console.
+   
+In summary, this code demonstrates how to define an event, and how to subscribe to an event using a method. The event is raised in the RaiseEvent method and
+the OnMyEvent method is executed as a result. 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Example 4: Using the EventHandler and EventArgs classes:
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class MyEventArgs : EventArgs
+{
+    public int Value { get; set; }
+}
+
+class Program
+{
+    public event EventHandler <MyEventArgs> MyEvent;
+    
+    public void RaiseEvent(int x)
+    {
+        MyEvent?.Invoke(this, new MyEventArgs { Value = x });
+    }
+
+    public static void Main()
+    {
+        Program p = new Program();
+        p.MyEvent += (sender, e) => Console.WriteLine("Event raised with value: " + e.Value);
+        p.RaiseEvent(5);
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Explanation of the code:
+
+1. The "MyEventArgs" class is defined which is derived from the "EventArgs" class. It has a property named Value of type int.
+
+2. The Program class defines an event named "MyEvent" of type "EventHandler<MyEventArgs>". This means it can only be raised by methods that match
+   the signature of the "EventHandler<TEventArgs>" delegate, where "TEventArgs" is the type of the event's arguments.
+
+3. The "RaiseEvent" method is defined. It takes an integer argument "x" and raises the "MyEvent" event by invoking the Invoke method on the event
+   and passing "this" as the sender, and an instance of "MyEventArgs" with the "Value" property set to "x".
+
+4. In the "Main" method, an instance of the "Program" class is created.
+
+5. A lambda expression is assigned to the "MyEvent" event using the "+=" operator. This lambda expression takes two arguments "sender" and "e" and will be executed when
+   the event is raised. It writes the value of "e.Value" to the console.
+
+6. The "RaiseEvent" method is called with the argument "5", it raises the "MyEvent" event, and the lambda expression assigned to the event is executed
+   with the passed arguments, it will print "Event raised with value: 5" to the console.
+   
+   
+In summary, this code demonstrates how to define a custom event argument and how to raise an event and pass the custom event argument to the event handlers.
+It also shows how to subscribe to an event using a lambda expression and how to access the custom event arguments in the event handler.
+This allows the developer to pass custom data to the event handlers in a more structured way.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
