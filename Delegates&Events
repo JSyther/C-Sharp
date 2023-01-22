@@ -339,3 +339,50 @@ This will check if obj is null or not, if it's not null it will call the Method(
 In summary, the null value represents the absence of an object or variable in C#, it's used to indicate that a variable has not been assigned a value yet, 
 or that an object is not referring to any object in memory. The null-conditional operator (?.) is used to check the nullability of an object before performing
 an action on it and it's used to prevent NullReferenceException.
+
+An example of how to use the null-conditional operator:
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class MyClass
+{
+    public int MyProperty { get; set; }
+
+    public void MyMethod()
+    {
+        Console.WriteLine("MyMethod is called");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        MyClass myObj = null; 
+
+        // Without using the null-conditional operator
+        // This will throw a NullReferenceException
+        // because myObj is null and we're trying to access 
+        // its properties and methods
+        myObj.MyMethod(); 
+        Console.WriteLine(myObj.MyProperty); 
+
+        // Using the null-conditional operator
+        // This will not throw any exception
+        // because the operator is checking if myObj is null or not
+        // before trying to access its properties and methods
+        myObj?.MyMethod(); 
+        Console.WriteLine(myObj?.MyProperty);
+    }
+}
+
+
+In this example, we have a class MyClass with a property MyProperty and a method MyMethod().
+Then we have a Main method in which we create a variable myObj of type MyClass and set it to null.
+
+Then we're trying to call the MyMethod() on myObj and trying to access its property MyProperty without using the null-conditional operator.
+This will throw a NullReferenceException because myObj is null and we're trying to access its properties and methods which is not allowed.
+
+Then we're trying to call the MyMethod() on myObj and trying to access its property MyProperty using the null-conditional operator.
+This will not throw any exception because the operator is checking if myObj is null or not before trying to access its
+
