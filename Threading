@@ -168,4 +168,5 @@ control the state of a thread, such as Start(), Suspend(), Resume(), and Abort()
    An async method can use the await keyword to call other asynchronous methods and wait for them to complete.
    This allows for a more readable and maintainable code.
 
-These are some of the basics of threading in C#. In practice, it can be more complex and it's important to be aware of the potential concurrency issues that can arise when working with threads.
+These are some of the basics of threading in C#. In practice, it can be more complex and it's important to be aware of the potential concurrency issues
+that can arise when working with threads.
