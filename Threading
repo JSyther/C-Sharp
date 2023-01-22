@@ -1,0 +1,95 @@
+Multithreading in C#:
+
+1. The "Thread" class: The "Thread" class is a part of the "System.Threading" namespace and it provides a way to create and control threads in C#.
+You can create a new thread by creating an instance of the "Thread" class and passing a delegate to the constructor.
+This delegate represents the method that will be executed by the new thread.
+
+An example of how to use the "Thread" class:
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Thread t1 = new Thread(ThreadMethod);
+        t1.Start();
+        for (int i = 0; i < 4; i++)
+        {
+            Console.WriteLine("Main thread: " + i);
+            Thread.Sleep(0);
+        }
+    }
+
+    static void ThreadMethod()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine("ThreadProc: " + i);
+            Thread.Sleep(0);
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we have a "Main" method that creates a new thread "t1" and starts it by calling the Start() method.
+The new thread will execute the "ThreadMethod" method. The Main method also has a loop that will write some text to the console.
+
+When you run the program, you'll see that the text from the Main thread and the new thread are interleaved, which means that both threads are running concurrently.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. The Task Parallel Library (TPL): The TPL is a set of libraries that provide a higher-level set of abstractions for multithreading.
+Instead of creating and managing threads directly, you use the TPL to create tasks that will be executed concurrently.
+The TPL will take care of creating and managing threads for you.
+
+Example: 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Task task1 = Task.Run(() =>
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Task 1: " + i);
+                Thread.Sleep(100);
+            }
+        });
+        Task task2 = Task.Run(() =>
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Task 2: " + i);
+                Thread.Sleep(100);
+            }
+        });
+        task1.Wait();
+        task2.Wait();
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we're creating two tasks task1 and task2 using the Task.Run() method. Each task will write some text to the console and sleep for 100 milliseconds.
+The Wait() method is used to wait for the tasks to complete before exiting the Main method.
+
+Here Step by step explanation:
+
+1. The code defines a "Main" method, which is the entry point of the program.
+2. Inside the "Main" method two tasks are created using the "Task.Run" method.
+3. The first task ("task1") uses a for loop to iterate 10 times and for each iteration, it prints "Task 1:i" to the console, where i is the current iteration number.
+   It also uses the "Thread.Sleep" method to pause the execution for 100 miliseconds.
+4. The second task ("task2") is similar to the first task, but it prints "Task 2:i" to the console instead.
+5. After creating the tasks, the program uses the "Wait" method on both tasks to wait for them to complete their execution.
+6. Because of the usage of Tasks, both tasks will execute simultaneously and we will see output of both tasks in random order.
+
+This code demonstrates how to use the Task class in C# to run multiple tasks in parallel.
+The Task.Run method is used to start a new task, and the Wait method is used to wait for the task to complete its execution.
+Note that the "Thread.Sleep" method is used to introduce a delay in the execution of the task, it causes the thread to sleep for a specified amount of time.
+This can be useful for testing or simulating a long-running operation.
+
