@@ -317,3 +317,25 @@ In summary, this code demonstrates how to use the Func delegate to pass a functi
 pass data to the event handlers. It also shows how to subscribe to an event using a lambda expression and how to access the passed data in the event handler.
 This allows the developer to pass a function as an argument and invoke it dynamically and passing the result to the event handlers. The null-conditional operator (?.)
 is used to check if MyEvent is null or not before invoking it, this will prevent any exception if the event is not subscribed to.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+null-conditional operator (?.) 
+
+In programming, null is a special value that represents the absence of an object or variable. It is often used to indicate that a variable has not been assigned
+a value yet, or that an object is not referring to any object in memory.
+
+In C#, the null keyword is used to represent the null value. It can be assigned to any reference type variable, such as classes, interfaces, or delegate types.
+For example, you can assign null to a variable of type string to indicate that it is empty, or to a variable of type MyClass
+to indicate that it does not reference any instance of the class.
+
+The null-conditional operator (?.) is used to check the nullability of an object before performing an action on it.
+It's a shorthand way of writing if(obj != null) { obj.Method(); } and it's used to prevent NullReferenceException when trying to access members of a null object.
+
+For example, if you have an object obj and you want to call the Method() on it, but you're not sure if obj is null or not.
+You could use the null-conditional operator (?.) like this obj?.Method() instead of using an if statement if(obj != null) { obj.Method(); }.
+This will check if obj is null or not, if it's not null it will call the Method() on it and if it's null it will do nothing.
+
+In summary, the null value represents the absence of an object or variable in C#, it's used to indicate that a variable has not been assigned a value yet, 
+or that an object is not referring to any object in memory. The null-conditional operator (?.) is used to check the nullability of an object before performing
+an action on it and it's used to prevent NullReferenceException.
