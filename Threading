@@ -93,3 +93,79 @@ The Task.Run method is used to start a new task, and the Wait method is used to 
 Note that the "Thread.Sleep" method is used to introduce a delay in the execution of the task, it causes the thread to sleep for a specified amount of time.
 This can be useful for testing or simulating a long-running operation.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. The async/await keywords: The async and await keywords are used to simplify the process of creating and managing asynchronous tasks.
+   An async method can use the await keyword to call other asynchronous methods and wait for them to complete.
+   
+Example :
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        Console.WriteLine("Start");
+        await AsyncMethod();
+        Console.WriteLine("End");
+    }
+
+    static async Task AsyncMethod()
+    {
+        Console.WriteLine("Before delay");
+        await Task.Delay(1000);
+        Console.WriteLine("After delay");
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In the Main method, we start by writing "Start" to the console.
+Then we call the AsyncMethod method using the await keyword. This tells the compiler that the Main method should not continue execution
+until the AsyncMethod method has completed.
+Inside the AsyncMethod method, we write "Before delay" to the console.
+Then, we use the await keyword to wait for a Task that will delay the execution of the method for 1 second (1000 milliseconds) using Task.Delay(1000).
+Once the delay is over, the execution of the AsyncMethod method continues, and we write "After delay" to the console.
+The AsyncMethod method completes and the execution of the Main method continues, and we write "End" to the console.
+
+When you run this program, you will see that "Start" is written to the console immediately,
+then "Before delay", then one second later "After delay", and finally "End" is written to the console.
+This demonstrate that the Main method was not blocked while the delay was happening but it's continued to execute the next lines of code in the meantime.
+
+In this example, we are using the Task class to create an asynchronous method, but you could use other types of asynchronous methods,
+such as an asynchronous method that returns a Task<T> or ValueTask<T>, or an asynchronous method that uses the IAsyncEnumerable<T> interface.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+We have prepared a list below so that you can learn more about the subject and do research.
+
+1. Thread States: A thread can be in one of several states: unstarted, running, blocked, or stopped. The Thread class provides several methods to
+control the state of a thread, such as Start(), Suspend(), Resume(), and Abort().
+
+2. Thread Priority: A thread has a priority level that determines how much CPU time it will receive relative to other threads.
+    The Thread class provides a Priority property that can be used to set the priority level of a thread.
+    The possible values for this property are Lowest, BelowNormal, Normal, AboveNormal, and Highest.
+
+3. Thread Synchronization: Threads can access shared resources and this can cause problems if multiple threads try to access the same resource at the same time.
+   To prevent this, C# provides several synchronization mechanisms such as lock, Monitor, Interlocked, Semaphore, AutoResetEvent, and ManualResetEvent.
+
+4. Background Threads: A background thread is a thread that runs in the background and doesn't prevent the application from exiting.
+   The Thread class has a IsBackground property that can be used to set a thread as a background thread.
+
+5. Thread Local Storage: Thread Local Storage (TLS) provides a way for each thread to have its own private storage for data.
+   The Thread class provides a SetData method that can be used to store data in the thread's private storage.
+
+6. Thread Pool: The thread pool is a pool of worker threads that are used to execute tasks. Instead of creating a new thread for each task,
+   you can use a thread from the thread pool. The ThreadPool class provides several methods to interact with the thread pool, such as QueueUserWorkItem,
+   RegisterWaitForSingleObject, and UnsafeQueueNativeOverlapped.
+
+7. Task Parallel Library (TPL): TPL provides a higher-level, more efficient, and more convenient way of working with threads.
+   Instead of creating and managing threads directly, you use TPL to create tasks that will be executed concurrently.
+   TPL will take care of creating and managing threads for you.
+
+8. async/await keywords: The async and await keywords are used to simplify the process of creating and managing asynchronous tasks.
+   An async method can use the await keyword to call other asynchronous methods and wait for them to complete.
+   This allows for a more readable and maintainable code.
+
+These are some of the basics of threading in C#. In practice, it can be more complex and it's important to be aware of the potential concurrency issues that can arise when working with threads.
