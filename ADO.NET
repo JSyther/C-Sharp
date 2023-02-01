@@ -1,0 +1,100 @@
+ADO.NET is a data access technology that provides a set of classes for accessing and manipulating databases in C#. It is a part of the .NET framework and
+is commonly used for building Windows desktop and web applications that require access to databases such as SQL Server, Oracle, and MySQL.
+
+Before diving into ADO.NET, it is important to understand some basic concepts such as connections, commands, and data readers.
+
+1. Connections: A connection is the way you communicate with a database. It is responsible for opening and closing a connection to a database and provides a way to 
+send commands and retrieve data from the database. In ADO.NET, the SqlConnection class represents a connection to a SQL Server database.
+
+An basic example of how to create a connection to a SQL Server database in C#:
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+using System;
+using System.Data.SqlClient;
+
+namespace AdoNetExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string connectionString = "Data Source=myServerAddress;Initial Catalog=myDataBase;User ID=myUsername;Password=myPassword";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                Console.WriteLine("Connected to the database");
+                connection.Close();
+                Console.WriteLine("Connection closed");
+            }
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Commands: A command is a way to execute a query or stored procedure on a database. It is responsible for sending a request to the database to perform
+some operation such as insert, update, delete or retrieve data. In ADO.NET, the SqlCommand class represents a command that will be executed against a SQL
+Server database.
+
+An example of how to execute a SELECT statement against a SQL Server database in C#:
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+using System;
+using System.Data.SqlClient;
+
+namespace AdoNetExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string connectionString = "Data Source=myServerAddress;Initial Catalog=myDataBase;User ID=myUsername;Password=myPassword";
+            string query = "SELECT * FROM Customers";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(query, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Console.WriteLine("{0} {1}", reader[0], reader[1]);
+                }
+
+                reader.Close();
+                connection.Close();
+            }
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Data Readers: A data reader is a way to retrieve data from a database. It retrieves data as a forward-only, read-only stream.
+This means that you can only move forward through the data, and you cannot modify the data in the data reader. In ADO.NET, the SqlDataReader class represents
+a data reader that retrieves data from a SQL Server database.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
