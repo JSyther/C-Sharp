@@ -1,1 +1,69 @@
+The #undef directive is a preprocessor directive that removes the definition of a previously defined macro.
+It can be used to selectively undefine macros that were previously defined using #define.
+
+Here are a few examples of how to use the #undef directive:
+
+
+
+
+
+1. Undefining a previously defined macro:
+----------------------------------------------
+#define MAX_SIZE 100
+int arr[MAX_SIZE];
+
+// ...
+
+#undef MAX_SIZE
+#define MAX_SIZE 200
+int arr2[MAX_SIZE];
+----------------------------------------------
+In this code, the #define directive is used to define the MAX_SIZE macro with a value of 100, and then an array of that size is defined.
+Later, the MAX_SIZE macro is undefined using the #undef directive, and then redefined with a new value of 200 using the #define directive.
+Finally, a new array is defined with the updated value of MAX_SIZE. This can be useful when you need to change the value of a macro at a specific point in your code.
+
+
+
+
+
+
+2. Conditional compilation using #ifdef and #undef:
+--------------------------------------------------------------------------------------------
+#define DEBUG
+
+// ...
+
+#ifdef DEBUG
+    printf("Debugging information:\n");
+#else
+    #undef printf
+    #define printf(...)
+#endif
+--------------------------------------------------------------------------------------------
+In this code, the #define directive is used to define the DEBUG macro, which is later used in an #ifdef directive to conditionally print debugging information.
+If DEBUG is not defined, then the #undef and #define directives are used to redefine the printf function as an empty macro, effectively disabling any output. 
+This can be useful for providing debug information in development mode while disabling it in production mode.
+
+
+
+
+3. Avoiding conflicts between macros and function names:
+--------------------------------------------------------------------------------------------
+#define max(x, y) ((x) > (y) ? (x) : (y))
+
+// ...
+
+#undef max
+int max = 10;
+--------------------------------------------------------------------------------------------
+In this code, the #define directive is used to define a macro called max that takes two arguments and returns the larger of the two.
+Later, the #undef directive is used to remove the definition of the macro, which allows a variable named max to be defined without causing a conflict with the macro.
+This can be useful when dealing with legacy code or third-party libraries that define macros with common names.
+
+
+In summary, the #undef preprocessor directive is a useful tool for selectively removing the definition of previously defined macros.
+It can be used to change the value of a macro at a specific point in your code, to conditionally compile code based on the presence or absence of a macro,
+or to avoid conflicts between macros and function names.
+
+
 
