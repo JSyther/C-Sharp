@@ -1,1 +1,56 @@
 
+The #include directive is a preprocessor directive that is used to include external header files in a C or C++ program.
+Header files contain declarations of functions, macros, constants, and other programming constructs that can be used in a program. 
+Here are some examples of how to use the #include directive:
+
+1. Including a system header file:
+------------------------------------------
+#include <stdio.h>
+------------------------------------------
+This directive includes the standard I/O header file, which contains declarations of functions such as printf and scanf.
+
+
+
+
+2. Including a user-defined header file:
+------------------------------------------
+#include "myheader.h"
+------------------------------------------
+This directive includes a header file called "myheader.h" that is located in the same directory as the source file. This header file could contain declarations of
+functions or other constructs that are used in the program.
+
+
+
+
+3. Using conditional compilation with #include:
+---------------------------------------------
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
+---------------------------------------------
+This code includes different header files depending on the operating system being used.
+If the program is being compiled on Windows, it includes the windows.h header file, which contains declarations of Windows-specific functions.
+If the program is being compiled on a non-windows system, it includes the unistd.h header file, which contains declarations of Unix-specific functions.
+
+
+
+
+
+4. Using the #include directive in a header file:
+---------------------------------------------
+/* myheader.h */
+#ifndef MYHEADER_H
+#define MYHEADER_H
+
+void myFunction();
+
+#endif
+---------------------------------------------
+This header file contains a function declaration for myFunction. 
+The #ifndef and #define directives are used to prevent the file from being included multiple times in the same program.
+
+In summary, the #include preprocessor directive is a powerful tool for including external header files in a C or C++ program.
+It allows programmers to use pre-existing code and define their own reusable constructs for use in their programs.
+
