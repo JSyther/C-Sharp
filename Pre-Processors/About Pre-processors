@@ -1,0 +1,21 @@
+In C and C++, there are several types of preprocessor directives that use the # symbol, including #pragma and #include,
+which you mentioned. In C#, the # symbol is used for compiler directives, which are not the same as preprocessor directives in C and C++.
+Here's a list of the different types of preprocessor directives in C and C++, along with a brief explanation of each:
+
+#define: This directive is used to define a macro, which is a symbolic name or expression that is replaced by a specified value during compilation.
+
+#include: This directive is used to include a header file in the source code, which contains declarations and definitions that are needed by the program.
+
+#if, #ifdef, #ifndef: These directives are used for conditional compilation, which allows certain parts of the code to be compiled or not depending
+                      on whether a certain condition is true or false.
+
+#error: This directive is used to generate a compilation error with a specified error message.
+
+#pragma: This directive is used to provide implementation-defined or compiler-specific information to the compiler, such as optimization settings or warning suppression.
+
+#line: This directive is used to modify the line number and file name information that is reported during compilation, which can be useful for debugging purposes.
+
+#undef: This directive is used to remove a macro definition that was previously defined with #define.
+
+Note that some of these directives have variations and additional options that can be used, but these are the basic types of preprocessor directives.
+
