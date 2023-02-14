@@ -1,1 +1,53 @@
+The #line directive is a preprocessor directive that allows you to change the current line number and/or the name of the current source file.
+This can be useful in a variety of situations, such as when generating code programmatically, or when working with preprocessor macros that generate code.
 
+A few examples of how to use the #line directive:
+
+
+1. Changing the current line number:
+----------------------------------------------------------------------------------
+#line 42
+printf("This code is on line 42.\n");
+----------------------------------------------------------------------------------
+This code uses the #line directive to change the current line number to 42.
+When the code is compiled and executed, the message "This code is on line 42." will be printed to the console.
+
+
+
+
+
+2. Changing the current file name:
+----------------------------------------------------------------------------------
+#line 1 "myheader.h"
+#ifndef MY_HEADER_H
+#define MY_HEADER_H
+
+/* Header file contents go here */
+
+#endif
+----------------------------------------------------------------------------------
+
+This code uses the #line directive to change the name of the current source file to "myheader.h".
+When this header file is included in other source files, it will appear as if it were a file called "myheader.h" rather than the original name of the header file.
+This can be useful for providing more descriptive names for generated code or for controlling how source files are organized.
+
+
+
+3. Generating code programmatically:
+----------------------------------------------------------------------------------
+#define MY_MACRO() \
+    #line 1 "generated.h" \
+    int generated_func() { return 42; } \
+    #line __LINE__ \
+    MY_MACRO()
+
+MY_MACRO();
+----------------------------------------------------------------------------------
+This code defines a preprocessor macro called MY_MACRO() that generates code programmatically. 
+The #line directive is used to change the current file name to "generated.h" and the current line number to 1, and then a function definition is generated.
+The #line directive is then used again to set the line number to the current line number (which will be the line number of the MY_MACRO() definition),
+and then the macro is called recursively to generate more code.
+
+In summary, the #line preprocessor directive is a powerful tool for changing the current line number and/or file name, which can be useful
+in a variety of situations such as generating code programmatically or controlling how source files are organized.
+It provides a lot of flexibility and can help to make code more modular and easier to maintain.
