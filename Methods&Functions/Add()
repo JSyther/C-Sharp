@@ -1,0 +1,51 @@
+Add() is a method that is part of the "List" class in C#. This method allows you to add a new element to the end of a List object.
+
+A List is a collection that stores a sequence of elements, which can be of any data type. You can add new elements to a List object using the Add() method.
+
+Here's an example of how to use the Add() method:
+-------------------------------------------------------------------------------------
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Example : MonoBehaviour
+{
+    List<int> myList = new List<int>();
+
+    void Start()
+    {
+        myList.Add(1);
+        myList.Add(2);
+        myList.Add(3);
+
+        Debug.Log("List contains " + myList.Count + " elements");
+
+        for (int i = 0; i < myList.Count; i++)
+        {
+            Debug.Log("Element " + i + " = " + myList[i]);
+        }
+    }
+}
+-------------------------------------------------------------------------------------
+In this example, we create a List object called myList that stores int elements. 
+We then use the Add() method to add three elements to the list.
+
+We can access the elements of the list using the square bracket notation, just like an array. 
+In the example, we use a for loop to iterate over the elements of the list and output them to the console.
+
+
+
+
+In this example, the output of the program would be:
+-------------------------------------------------------------------------------------
+List contains 3 elements
+Element 0 = 1
+Element 1 = 2
+Element 2 = 3
+-------------------------------------------------------------------------------------
+This is because we added three elements to the list using the Add() method, and then output each element using a for loop.
+
+In addition to adding elements to the end of the list, the List class also provides methods for inserting elements at a specific position in the list (Insert()),
+removing elements from the list (Remove() and RemoveAt()), and more.
+
+
+
