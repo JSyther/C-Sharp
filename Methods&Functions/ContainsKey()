@@ -1,0 +1,59 @@
+ContainsKey() is a method that is part of the "Dictonary" class in C#. This method allows you to check whether a particular key exists in a "Dictoanary" object.
+
+A "Dictionary" is a collection that stores key-value pairs. Each key in the "Dictionary" must be unique, and you can use the key to retrieve the associated value.
+The "ContainsKey() method allows you to determine whether a "Dictonary" object contains a particular key. 
+
+An example of how to use the "ContainsKey()" method:
+------------------------------------------------------------------------------------------
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Example : MonoBehaviour
+{
+    Dictionary<string, int> myDict = new Dictionary<string, int>();
+
+    void Start()
+    {
+        myDict.Add("apple", 1);
+        myDict.Add("banana", 2);
+        myDict.Add("orange", 3);
+
+        if (myDict.ContainsKey("banana"))
+        {
+            Debug.Log("Dictionary contains the key 'banana'");
+        }
+        else
+        {
+            Debug.Log("Dictionary does not contain the key 'banana'");
+        }
+
+        if (myDict.ContainsKey("pear"))
+        {
+            Debug.Log("Dictionary contains the key 'pear'");
+        }
+        else
+        {
+            Debug.Log("Dictionary does not contain the key 'pear'");
+        }
+    }
+}
+------------------------------------------------------------------------------------------
+In this example, we create a Dictionary object called myDict that maps string keys to int values.
+We then add three key-value pairs to the dictionary.
+
+We can use the ContainsKey() method to check whether the dictionary contains a particular key. 
+In this case, we check whether the dictionary contains the keys "banana" and "pear".
+If the dictionary contains the key, we output a message indicating that the key is present. 
+If the dictionary does not contain the key, we output a message indicating that the key is not present.
+
+
+
+In this example, the output of the program would be:
+------------------------------------------------------------------------------------------
+Dictionary contains the key 'banana'
+Dictionary does not contain the key 'pear'
+------------------------------------------------------------------------------------------
+
+This is because the dictionary contains the key "banana", but does not contain the key "pear".
+By using ContainsKey(), we can check whether a dictionary contains a particular key before attempting to retrieve the associated value. 
+This can help to avoid runtime errors and make your code more robust.
