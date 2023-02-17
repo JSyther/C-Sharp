@@ -1,0 +1,29 @@
+In C#, the var keyword is used for implicitly typed local variables.
+Instead of explicitly declaring the type of a variable when it's declared,
+you can use var and let the compiler determine the type based on the value being assigned to it.
+
+
+For example:
+
+------------------------------------------------------------------------------------------------
+var myString = "Hello, world!"; // The compiler infers that myString is of type string
+var myInt    = 42;              // The compiler infers that myInt is of type int
+------------------------------------------------------------------------------------------------
+
+The var keyword can be used for any type of variable, including value types (e.g. int, float, etc.), reference types (e.g. string, object, etc.),
+and even anonymous types. 
+
+
+Here's an example of using var with an anonymous type:
+
+------------------------------------------------------------------------------------------------
+var myAnonymousType = new { Name = "John", Age = 30 }; // The compiler creates a new anonymous type with Name and Age properties
+------------------------------------------------------------------------------------------------
+
+It's important to note that the var keyword is not a replacement for declaring the correct types for your variables.
+You should still declare your variables with the correct type whenever possible for the sake of readability and maintainability. 
+However, var can be useful in certain situations where the type is either very long or difficult to remember, 
+or where the type is not immediately relevant to the code being written.
+
+
+
