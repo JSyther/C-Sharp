@@ -34,6 +34,52 @@ The yield return statement is used inside an iterator method to return a value f
 The yield break statement is used to end the iteration early and exit the iterator method.
 
 
+"yield break" is a statement that is used in an iterator block to indicate that the sequence being generated is complete, and that no more values will be returned. 
+When the yield break statement is executed, the method exits, and the sequence is considered to be fully enumerated.
+
+An example that demonstrates the use of yield break:
+
+------------------------------------------------------------------
+
+public static IEnumerable<int> GetEvenNumbers(int maxNumber)
+{
+    for (int i = 0; i <= maxNumber; i++)
+    {
+        if (i % 2 == 0)
+        {
+            yield return i;
+        }
+    }
+
+    yield break;
+}
+
+------------------------------------------------------------------
+
+This method generates a sequence of even numbers from 0 up to a maximum number specified by the caller.
+The for loop iterates over the range of numbers, and the if statement checks whether each number is even. If the number is even, 
+it is returned using the yield return statement.
+
+After the for loop completes, the yield break statement is used to signal that the sequence is complete and that no more values will be returned. 
+If the yield break statement is omitted, the method would simply exit when the loop completes, and the sequence would not be considered fully enumerated.
+
+An example of how to use the GetEvenNumbers method:
+------------------------------------------------------------------
+foreach (int number in GetEvenNumbers(10))
+{
+    Console.WriteLine(number);
+}
+------------------------------------------------------------------
+This code would generate the following output:
+------------------------------------------------------------------
+0
+2
+4
+6
+8
+10
+------------------------------------------------------------------
+
 It's important to note that iterator blocks are a powerful feature of C#, but they can also be somewhat complex to use correctly. 
 
 
