@@ -1,0 +1,32 @@
+The Dictionary<TKey, TValue> class is a part of the System.Collections.Generic namespace in .NET Framework and 
+represents a collection of key/value pairs that are organized based on the key. 
+The TKey and TValue types can be any valid C# type, and the keys in the dictionary must be unique.
+
+Here is a list of some of the important properties and methods of the Dictionary<TKey, TValue> class:
+
+* Count                 : Gets the number of key/value pairs in the dictionary.
+* Keys                  : Gets a collection of keys in the dictionary.
+* Values                : Gets a collection of values in the dictionary.
+* Clear()               : Removes all key/value pairs from the dictionary.
+* Item[TKey key]        : Gets or sets the value associated with the specified key. This is the indexer of the dictionary.
+* Remove(TKey key)      : Removes the key/value pair associated with the specified key from the dictionary.
+* ContainsKey(TKey key) : Determines whether the dictionary contains the specified key.
+
+* ContainsValue(TValue value): Determines whether the dictionary contains the specified value.
+* Add(TKey key, TValue value): Adds a new key/value pair to the dictionary.
+
+* TryGetValue(TKey key, out TValue value): Tries to get the value associated with the specified key from the dictionary. 
+                                           Returns true if the key was found and the value was retrieved successfully;
+                                           otherwise, returns false.
+
+The Dictionary<TKey, TValue> class provides a fast way to look up values based on a key.
+It is often used when you need to store and retrieve a large amount of data and you want to be able to access the data quickly based on a key.
+
+For example, you might use a dictionary to store information about products in an online store, where the keys are product codes and the values are product descriptions,
+prices, and other information. You could then use the dictionary to quickly look up information about a particular product based on its code.
+
+Overall, the Dictionary<TKey, TValue> class is a useful data structure for storing and accessing key/value pairs in .NET Framework applications.
+
+
+"Kindly consider visiting the official website for further information."
+https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-7.0
