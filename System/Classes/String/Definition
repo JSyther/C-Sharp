@@ -1,0 +1,39 @@
+"System.String" is a class in the .NET Framework that represents a sequence of characters.
+It is one of the most commonly used classes in the .NET Framework, as it is used to represent textual data in applications.
+
+Here are some of the important properties, methods, and structures of the System.String class:
+
+Properties
+
+* Chars : Gets the character at the specified index position in the string.
+* Length: Gets the number of characters in the string.
+
+These two properties are the most commonly used properties of the System.String class. 
+Chars allows you to access a specific character in the string by index, and Length gives you the total number of characters in the string.
+
+Methods:
+
+* Compare(strA, strB): Compares two strings and returns an integer indicating whether the first string is less than, equal to, or greater than the second string.
+* Concat(str0, str1): Concatenates two or more strings into a single string.
+* Contains(substring): Returns a boolean indicating whether the string contains the specified substring.
+* IndexOf(substring): Returns the index of the first occurrence of the specified substring in the string.
+* Insert(index, value): Inserts the specified string at the specified index position in the string.
+* Replace(oldValue, newValue): Replaces all occurrences of the specified old value with the specified new value.
+* Substring(startIndex, length): Returns a substring of the specified length starting at the specified index position in the string.
+* ToLower(): Returns a new string in which all characters in the original string are converted to lowercase.
+* ToUpper(): Returns a new string in which all characters in the original string are converted to uppercase.
+* Trim(): Returns a new string with all leading and trailing white space characters removed.
+
+Structures:
+
+* StringBuilder: A mutable string class that allows for efficient string concatenation and modification.
+
+Class:
+
+* StringComparer: A class that provides methods for comparing strings using different comparison methods.
+
+These are just a few examples of the properties, methods, and structures of the System.String class.
+There are many more that you can explore and use in your .NET applications.
+
+
+Learn more official information about it : https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0
