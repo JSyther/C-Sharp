@@ -1,0 +1,63 @@
+In C#, input parameters and output parameters are used to pass data between methods or functions.
+
+An input parameter is a variable or value that is passed into a method or function for processing. 
+The data that is passed as an input parameter can be used within the method to perform some operation or calculation.
+Input parameters are defined in the method signature with a specific data type and a parameter name.
+
+
+For example, consider the following method that takes two integer input parameters and returns their sum:
+
+-----------------------------------------------------------------------------------------------------------
+public int AddNumbers(int num1, int num2)
+{
+    int sum = num1 + num2;
+    return sum;
+}
+-----------------------------------------------------------------------------------------------------------
+
+In this example, num1 and num2 are the input parameters.
+
+On the other hand, an output parameter is a variable that is used to return data from a method or function.
+It allows the method to send data back to the calling code.
+Output parameters are defined using the out keyword in the method signature, and they must be assigned a value before the method returns.
+
+
+For example, consider the following method that takes an integer input parameter and returns both the square and cube of that number using output parameters:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+public void CalculatePower(int num, out int square, out int cube)
+{
+    square = num * num;
+    cube = num * num * num;
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+In this example, square and cube are output parameters, and their values are set within the method and returned to the calling code when the method completes.
+
+Let me explain output parameters in more detail.
+
+When a method has one or more output parameters, it means that it is expected to return multiple values.
+In C#, an output parameter is defined using the out keyword before the parameter type.
+
+Output parameters are used when a method needs to return more than one value.
+In the example method CalculatePower, the method takes an integer num as input and returns both the square and cube of that number. 
+Instead of returning these values through the method's return statement, the square and cube values are returned through the out parameters.
+
+One important thing to note about output parameters is that they must be initialized within the method before they are used. 
+This is because the caller expects the output parameters to have a valid value when the method returns. 
+In the CalculatePower method, the square and cube parameters are initialized to the square and cube of num before the method returns.
+
+Here is an same example the CalculatePower method:
+
+int num = 5;
+int square, cube;
+CalculatePower(num, out square, out cube);
+
+Console.WriteLine($"The square of {num} is {square}");
+Console.WriteLine($"The cube of {num} is {cube}");
+
+In this example, the num variable is assigned the value 5, and then the CalculatePower method is called with num as the first parameter and square 
+and cube as the output parameters. After the method returns, the values of square and cube are printed to the console using Console.WriteLine.
+
+
+
+
+
